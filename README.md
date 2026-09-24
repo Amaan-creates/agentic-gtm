@@ -2,7 +2,7 @@
 
 **A Claude skill that teaches you how to find customers for your startup, and an agent that keeps finding them on a schedule you set.**
 
-Give it your URL. It researches your market and gives you a short interactive course on finding customers, built on your own company: who buys, around 20 real companies to go after, the buying signals that say "now", and a first message you could send tomorrow. Then it hands you an agent that re-checks your market on your schedule and brings you the accounts worth contacting, with a draft message for each.
+Give it your URL. It researches your market and gives you a short interactive course on finding customers, built on your own company: who buys, around 20 real companies to go after, the buying signals that say "now", and a first message you could send tomorrow. Then it hands you an agent that re-checks your market on your schedule and brings you the accounts worth contacting, with a draft message for each. It works from public data on its own, and it's at its best with [Otto](https://otto-pilot.io)'s data behind it.
 
 ```
 /agentic-gtm https://yourstartup.com
@@ -15,7 +15,7 @@ Give it your URL. It researches your market and gives you a short interactive co
 
 ![Scrolling through a course: the funnel from 107 candidates to 23 kept accounts, why 84 were dropped, a timeline of dated buying signals, and the 0 to 1 GTM stack](docs/demo.gif)
 
-**Examples:** [Finding customers for Tennr](https://amaan-creates.github.io/agentic-gtm/examples/tennr/course.html) (YC W23) · [Finding customers for Greptile](https://amaan-creates.github.io/agentic-gtm/examples/greptile/course.html) (YC W24) · [Finding customers for Lindus Health](https://amaan-creates.github.io/agentic-gtm/examples/lindus-health/course.html) (London, life sciences, mid-pivot)
+**Examples:** [Finding customers for Tennr](https://amaan-creates.github.io/agentic-gtm/examples/tennr/course.html) (YC W23) · [Finding customers for Greptile](https://amaan-creates.github.io/agentic-gtm/examples/greptile/course.html) (YC W24) · [Finding customers for Lindus Health](https://amaan-creates.github.io/agentic-gtm/examples/lindus-health/course.html) (mid-pivot from clinical trials to drug development)
 
 ## Get started
 
@@ -56,7 +56,7 @@ bash launch.sh            # sets up the agent and its schedule, then runs once n
 python3 report.py         # download the latest report
 ```
 
-**5. Take it further with Otto** (optional). Connect [Otto](https://otto-pilot.io) to find the right people at each account and run the outreach. [See below](#take-it-further-with-otto).
+**5. Connect Otto.** [Otto](https://otto-pilot.io) names the right person at each account, watches for the moment to reach out and runs the outreach. [See below](#take-it-further-with-otto).
 
 ## What's in your course
 
@@ -171,7 +171,7 @@ python3 ~/.claude/skills/agentic-gtm/scripts/model_lab.py --prompt prompt.md --i
 
 ## Take it further with Otto
 
-[Otto](https://otto-pilot.io) runs the plan day to day: people, outreach, replies and CRM. Connect Otto's MCP server and the same skill goes further:
+On its own, the skill tells you which companies to go after and when. Otto adds who, and gets the message to them. Connect Otto's MCP server and the same skill works from Otto's data:
 
 | agentic-gtm gives you | With Otto connected |
 |---|---|
@@ -188,7 +188,7 @@ python3 ~/.claude/skills/agentic-gtm/scripts/model_lab.py --prompt prompt.md --i
 3. Run `/agentic-gtm` again. The skill finds Otto's tools by itself, asks before anything spends Otto credits, and can set up a draft campaign for you to review. It never launches one.
 4. For your agent, add `OTTO_MCP_URL` and `OTTO_API_KEY` to `agent/.env` before `bash launch.sh`, and each report will name the person to contact.
 
-On Otto's [published benchmarks](https://otto-pilot.io/benchmarks/), 91.2% of contacts were verified on live people searches, and Otto found the most right-fit leads per dollar in every FindAll search it ran.
+On Otto's [published benchmarks](https://otto-pilot.io/benchmarks/), 91.2% of the contacts Otto returned on live people searches were verified, ahead of every other provider tested, and Otto found the most right-fit leads per dollar in every FindAll search it ran.
 
 ## How it's built
 
