@@ -8,20 +8,20 @@
   },
   "meta": [
     {
-      "label": "Built from",
-      "value": "43 sources"
+      "value": "107",
+      "label": "companies checked"
     },
     {
-      "label": "Accounts",
-      "value": "23 checked, 84 dropped"
+      "value": "23",
+      "label": "kept after the checks"
     },
     {
-      "label": "Reading time",
-      "value": "20 min"
+      "value": "9",
+      "label": "dated buying signals"
     },
     {
-      "label": "Researched",
-      "value": "23 Sep 2026"
+      "value": "43",
+      "label": "sources cited"
     }
   ],
   "glossary": {
@@ -43,6 +43,37 @@
       "title": "Who buys this?",
       "idea": "The intake coordinator uses Tennr all day. The owner signs, because the saving shows up as people they no longer have to hire.",
       "blocks": [
+        {
+          "type": "principle",
+          "name": "Beachhead market",
+          "body": "Win one narrow segment before widening. For Tennr that's independent medical-equipment suppliers: about half of its 21 customer stories are there, and the owner can sign in one meeting.",
+          "source": "Geoffrey Moore, *Crossing the Chasm*"
+        },
+        {
+          "type": "bars",
+          "heading": "Where Tennr's proof clusters",
+          "items": [
+            {
+              "label": "Medical equipment, sleep and supply",
+              "value": 11
+            },
+            {
+              "label": "Physician groups and specialty practices",
+              "value": 5
+            },
+            {
+              "label": "Other (home health, behavioural health, appeals)",
+              "value": 4,
+              "tone": "otto"
+            },
+            {
+              "label": "Infusion",
+              "value": 1,
+              "tone": "otto"
+            }
+          ],
+          "caption": "Tennr's 21 customer stories, grouped by this course from each story's own description [s2]."
+        },
         {
           "type": "text",
           "heading": "The decision",
@@ -138,6 +169,66 @@
       "title": "Where are they?",
       "idea": "A list is only useful if every row is the company you think it is. In home medical equipment the usual mistake is ownership: the local name stays up long after a national buyer moves in.",
       "blocks": [
+        {
+          "type": "principle",
+          "name": "A list is only as good as its checks",
+          "body": "One wrong company in front of a prospect costs more trust than ten missing ones. Most of Tennr's candidates failed a check, and the biggest trap was ownership."
+        },
+        {
+          "type": "funnel",
+          "heading": "From candidates to the list",
+          "stages": [
+            {
+              "label": "Candidates found",
+              "value": 107
+            },
+            {
+              "label": "Right company, still operating",
+              "value": 82
+            },
+            {
+              "label": "Independent, right size, not a customer",
+              "value": 23,
+              "note": "The accounts in the table below"
+            }
+          ]
+        },
+        {
+          "type": "bars",
+          "heading": "Why 84 companies were dropped",
+          "items": [
+            {
+              "label": "Owned by a national chain, roll-up, hospital or private equity firm",
+              "value": 31,
+              "note": "Dynamic Healthcare Services [s31], DASCO [s34], Rochester Oxygen & CPAP [s36], Roberts Home Medical [s39]",
+              "tone": "amber"
+            },
+            {
+              "label": "Couldn't prove ownership or activity in the last 12 months",
+              "value": 24,
+              "note": "Suppliers whose only date was a copyright footer, and sites that block every visit",
+              "tone": "accent"
+            },
+            {
+              "label": "Wrong size or model",
+              "value": 24,
+              "note": "Single stores, cash retail and web shops, hospice-focused suppliers, and one chain of 85 locations",
+              "tone": "accent"
+            },
+            {
+              "label": "Existing Tennr customer",
+              "value": 4,
+              "note": "Performance Home Medical [s5], Medical Service Company [s40]",
+              "tone": "accent"
+            },
+            {
+              "label": "Search result about a different company",
+              "value": 1,
+              "note": "A \"Medi-Rents acquired\" search returned a story about another firm",
+              "tone": "accent"
+            }
+          ]
+        },
         {
           "type": "table",
           "heading": "23 accounts that passed every check",
@@ -374,45 +465,6 @@
           "body": "They fit on paper, but we couldn't prove who owns them or that they traded in the last 12 months. A \"© 2026\" footer proves nothing: many sites print the current year automatically. A shorter list you trust beats a longer one you don't."
         },
         {
-          "type": "table",
-          "heading": "What the checks caught",
-          "columns": [
-            "Trap",
-            "Count",
-            "Example"
-          ],
-          "numeric": [
-            1
-          ],
-          "rows": [
-            [
-              "Owned by a national chain, roll-up, hospital or private equity firm",
-              "31",
-              "Dynamic Healthcare Services [s31], DASCO [s34], Rochester Oxygen & CPAP [s36], Roberts Home Medical [s39]"
-            ],
-            [
-              "Couldn't prove ownership or activity in the last 12 months",
-              "24",
-              "Suppliers whose only date was a copyright footer, and sites that block every visit"
-            ],
-            [
-              "Wrong size or model",
-              "24",
-              "Single stores, cash retail and web shops, hospice-focused suppliers, and one chain of 85 locations"
-            ],
-            [
-              "Existing Tennr customer",
-              "4",
-              "Performance Home Medical [s5], Medical Service Company [s40]"
-            ],
-            [
-              "Search result about a different company",
-              "1",
-              "A \"Medi-Rents acquired\" search returned a story about another firm"
-            ]
-          ]
-        },
-        {
           "type": "steps",
           "heading": "Run these on your own list, in this order",
           "items": [
@@ -458,6 +510,62 @@
       "title": "When are they ready?",
       "idea": "The same supplier is a bad target in March and a good one in September. A {{buying signal}} is something you can see from outside that makes the fax pile urgent now.",
       "blocks": [
+        {
+          "type": "principle",
+          "name": "Trigger events",
+          "body": "A supplier is ready when its fax pile is about to grow: a hire for intake or authorizations, a new branch, a new product line. Reach out on the event, not on your calendar."
+        },
+        {
+          "type": "timeline",
+          "heading": "Dated signals on the list, newest first",
+          "items": [
+            {
+              "date": "22 Sep 2026",
+              "title": "Bellevue Healthcare",
+              "note": "Twin Falls, ID branch registered [s27]"
+            },
+            {
+              "date": "9 Sep 2026",
+              "title": "Monitor Medical",
+              "note": "New location registered in New York [s25]"
+            },
+            {
+              "date": "Sep 2026",
+              "title": "Corner Home Medical",
+              "note": "3 branch roles for order entry and insurance checks [s19]"
+            },
+            {
+              "date": "27 Aug 2026",
+              "title": "Total Respiratory",
+              "note": "New Escanaba, MI branch registered [s22]"
+            },
+            {
+              "date": "26 Aug 2026",
+              "title": "Reliable Respiratory",
+              "note": "Hiring an authorization specialist for 6 sites [s13]"
+            },
+            {
+              "date": "12 Aug 2026",
+              "title": "Medi-Rents & Sales",
+              "note": "Hiring an assistant reimbursement manager [s16]"
+            },
+            {
+              "date": "Apr 2026",
+              "title": "Howard's Medical Supply",
+              "note": "New Selah branch registered, going stale [s28]"
+            },
+            {
+              "date": "Mar 2026",
+              "title": "Care4All Home Medical Equipment",
+              "note": "Kansas City, MO location registered [s29]"
+            },
+            {
+              "date": "Mar 2026",
+              "title": "OxyCare Plus",
+              "note": "New branch registered, going stale"
+            }
+          ]
+        },
         {
           "type": "signals",
           "items": [
@@ -536,6 +644,12 @@
       "idea": "Reach the {{persona}} who owns the backlog first, then the one who signs. People change jobs all the time, so check someone still works there before you write.",
       "blocks": [
         {
+          "type": "principle",
+          "name": "Champion vs economic buyer",
+          "body": "The intake or operations lead feels the fax pile every day; the owner or COO signs. Win the first, then help them make the case to the second.",
+          "source": "MEDDIC qualification"
+        },
+        {
           "type": "table",
           "columns": [
             "Role",
@@ -601,6 +715,11 @@
       "idea": "The first message is about them. It proves you looked, makes one point, and asks one question they can answer from memory.",
       "blocks": [
         {
+          "type": "principle",
+          "name": "Problem before product",
+          "body": "Open on their hiring post or their new branch, in their words. What Tennr does can wait for the reply."
+        },
+        {
           "type": "compare",
           "left": {
             "label": "The message everyone sends",
@@ -655,6 +774,11 @@
       "title": "Which Claude model for which job?",
       "idea": "Sorting accounts has a right answer, so you can measure it instead of guessing. We ran the same task on three models and scored them against our own checks.",
       "blocks": [
+        {
+          "type": "principle",
+          "name": "Match the tool to the job",
+          "body": "Sorting accounts is high-volume work with a right answer. Here Sonnet matched Opus for about 60% of the price, so the big model is saved for the decisions."
+        },
         {
           "type": "modellab",
           "task": "Sort 15 home medical equipment suppliers into fit / no fit for Tennr's ICP, with a one-line reason. 10 passed our checks. 5 failed: a fresh acquisition, a private equity owner, an existing customer, too many locations, a cash retail store. Three fits carry facts that sound alarming but break no rule.",
@@ -751,6 +875,11 @@
       "idea": "Yes. An agent is a model with instructions, tools and a way to check its own work. Claude Managed Agents hosts it, runs it on a schedule, and a separate grader checks each run [s43].",
       "blocks": [
         {
+          "type": "principle",
+          "name": "Systems beat heroics",
+          "body": "A check that runs on your schedule catches the branch registered last week. A quarterly push misses it."
+        },
+        {
           "type": "pipeline",
           "steps": [
             {
@@ -820,11 +949,64 @@
       "nav": "What's next",
       "kicker": "Lesson 8",
       "title": "What happens next?",
-      "idea": "A plan isn't pipeline. This course decided who to sell to and what to say. Sending, following up and handling replies happen over the next few weeks, and that is where it stops.",
+      "idea": "This course decided who to sell to, when, and what to say. The next few weeks of sending, following up and handling replies run in Otto, and the calls are yours.",
       "blocks": [
         {
+          "type": "principle",
+          "name": "Founder-led sales first",
+          "body": "Early on, the founder should run the calls: nobody else can change the pitch, the product and the price in the same conversation. Let the agent and Otto handle the research and the follow-ups around them.",
+          "source": "Common early-stage advice"
+        },
+        {
+          "type": "stack",
+          "heading": "The 0 → 1 GTM stack",
+          "layers": [
+            {
+              "name": "Positioning and ICP",
+              "detail": "Independent suppliers in sleep and respiratory, 2 to 40 locations",
+              "owner": "course"
+            },
+            {
+              "name": "Target accounts",
+              "detail": "23 checked suppliers, ready to tier",
+              "owner": "course"
+            },
+            {
+              "name": "Buying signals",
+              "detail": "Watched by your agent on the schedule you set",
+              "owner": "course"
+            },
+            {
+              "name": "The right people",
+              "detail": "Found and confirmed at their current company",
+              "owner": "otto"
+            },
+            {
+              "name": "Outreach",
+              "detail": "Sequences on LinkedIn and email, sent once you approve",
+              "owner": "otto"
+            },
+            {
+              "name": "Replies",
+              "detail": "Sorted by intent, with drafts to approve",
+              "owner": "otto"
+            },
+            {
+              "name": "Calls and closing",
+              "detail": "Discovery with the intake lead, then the owner",
+              "owner": "you"
+            },
+            {
+              "name": "Pipeline and learning",
+              "detail": "Results synced to your CRM; wins and losses sharpen the ICP",
+              "owner": "otto"
+            }
+          ],
+          "caption": "Where this course fits: it builds layers 1 to 3 and keeps layer 3 running. Otto runs the day-to-day outreach. The calls are yours."
+        },
+        {
           "type": "table",
-          "heading": "Where this course stops",
+          "heading": "From plan to pipeline",
           "columns": [
             "Step",
             "This course",

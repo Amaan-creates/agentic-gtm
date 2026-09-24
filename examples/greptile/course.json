@@ -8,20 +8,20 @@
   },
   "meta": [
     {
-      "label": "Built from",
-      "value": "42 sources"
+      "value": "26",
+      "label": "companies checked"
     },
     {
-      "label": "Accounts",
-      "value": "26 checked, 14 kept"
+      "value": "14",
+      "label": "kept after the checks"
     },
     {
-      "label": "Model lab",
-      "value": "$0.058, measured"
+      "value": "9",
+      "label": "dated buying signals"
     },
     {
-      "label": "Reading time",
-      "value": "20 min"
+      "value": "42",
+      "label": "sources cited"
     }
   ],
   "glossary": {
@@ -258,6 +258,46 @@
       "idea": "The engineer who loves a code reviewer is rarely the one who pays for it. Your {{ICP}} names the company that buys; each {{persona}} names a person inside it.",
       "blocks": [
         {
+          "type": "principle",
+          "name": "Positioning against the real alternative",
+          "body": "For Greptile the alternative is rarely no tool. It's an in-house review agent or a rival bot already on the pull requests, so position against those.",
+          "source": "April Dunford, *Obviously Awesome*"
+        },
+        {
+          "type": "bars",
+          "heading": "Where Greptile's proof clusters",
+          "items": [
+            {
+              "label": "Fintech and crypto",
+              "value": 3,
+              "note": "Brex, Coinbase, Vouch"
+            },
+            {
+              "label": "AI companies",
+              "value": 2,
+              "note": "Scale, Gumloop"
+            },
+            {
+              "label": "Developer and data tools",
+              "value": 2,
+              "note": "Datadog, Mixpanel"
+            },
+            {
+              "label": "Hardware",
+              "value": 1,
+              "note": "NVIDIA",
+              "tone": "otto"
+            },
+            {
+              "label": "SMB software",
+              "value": 1,
+              "note": "Podium",
+              "tone": "otto"
+            }
+          ],
+          "caption": "Greptile's named customers, grouped by this course [s3]."
+        },
+        {
           "type": "fields",
           "heading": "Greptile's ICP card",
           "items": [
@@ -347,6 +387,69 @@
       "title": "Where are they?",
       "idea": "A target list is only useful if every row is the right company. For Greptile, 12 of the 26 companies I started with failed a check.",
       "blocks": [
+        {
+          "type": "principle",
+          "name": "Tier your accounts",
+          "body": "Almost half the candidates failed a check, most because a rival was already there. The ones left get tiered by timing: a live hiring post or funding round goes first."
+        },
+        {
+          "type": "funnel",
+          "heading": "From candidates to the list",
+          "stages": [
+            {
+              "label": "Candidates found",
+              "value": 26
+            },
+            {
+              "label": "Checks passed",
+              "value": 14,
+              "note": "The accounts in the table below"
+            }
+          ]
+        },
+        {
+          "type": "bars",
+          "heading": "Why 12 companies were dropped",
+          "items": [
+            {
+              "label": "Named customer of a competitor",
+              "value": 4,
+              "note": "Asana, Ramp, Robinhood, Figma",
+              "tone": "amber"
+            },
+            {
+              "label": "Acquired by a larger company",
+              "value": 2,
+              "note": "Confluent, Brex"
+            },
+            {
+              "label": "Couldn't settle",
+              "value": 2,
+              "note": "Grafana Labs, Faire"
+            },
+            {
+              "label": "Competitor's bot already on their PRs",
+              "value": 1,
+              "note": "Supabase: 2,067 PRs since 1 Aug [s20]",
+              "tone": "amber"
+            },
+            {
+              "label": "Sells its own AI code review",
+              "value": 1,
+              "note": "Sentry"
+            },
+            {
+              "label": "Built review in-house",
+              "value": 1,
+              "note": "Intercom"
+            },
+            {
+              "label": "No fit evidence",
+              "value": 1,
+              "note": "Duolingo"
+            }
+          ]
+        },
         {
           "type": "table",
           "heading": "14 checked accounts",
@@ -537,6 +640,62 @@
       "idea": "The same account is a bad target in March and a great one in September. A {{buying signal}} is something you can see from outside that makes review pain urgent now.",
       "blocks": [
         {
+          "type": "principle",
+          "name": "Signals decay",
+          "body": "A developer-productivity hiring post is live for about a month; a funding round opens roughly a 90-day window. Mercury's round is 127 days old, so it no longer counts."
+        },
+        {
+          "type": "timeline",
+          "heading": "Dated signals on the list, newest first",
+          "items": [
+            {
+              "date": "2026-09-15",
+              "title": "Chime",
+              "note": "Hiring a senior engineer for AI enablement [s27]"
+            },
+            {
+              "date": "2026-09-14",
+              "title": "Temporal",
+              "note": "$550M Series E; team doubled in a year [s31]"
+            },
+            {
+              "date": "2026-09-14",
+              "title": "Instacart",
+              "note": "Staff engineer, developer experience, \"from AI-powered code review to build infrastructure\" [s23]"
+            },
+            {
+              "date": "2026-09-09",
+              "title": "Harvey",
+              "note": "$550M round at $15.5B [s29]"
+            },
+            {
+              "date": "2026-09-01",
+              "title": "Zip",
+              "note": "Developer productivity role posted"
+            },
+            {
+              "date": "2026-08-25",
+              "title": "Benchling",
+              "note": "Developer productivity role posted"
+            },
+            {
+              "date": "2026-08-24",
+              "title": "Gusto",
+              "note": "Manager, Developer Productivity, AI Tools: owns \"automated AI code review\" [s22]"
+            },
+            {
+              "date": "2026-08-12",
+              "title": "Plaid",
+              "note": "Staff engineer, AI and intelligent tooling [s25]"
+            },
+            {
+              "date": "2026-08-05",
+              "title": "Samsara",
+              "note": "Developer experience role to build AI agents for code review [s24]"
+            }
+          ]
+        },
+        {
           "type": "signals",
           "items": [
             {
@@ -612,6 +771,11 @@
       "idea": "Reach the person who owns the review problem, then the person who signs. People change jobs all the time, so check they still work there before you write.",
       "blocks": [
         {
+          "type": "principle",
+          "name": "Multi-thread every account",
+          "body": "Reach the developer-experience lead who owns the tooling and the VP Engineering who signs. A single contact is one resignation away from a dead deal."
+        },
+        {
           "type": "table",
           "heading": "Roles to reach at each account",
           "columns": [
@@ -676,6 +840,11 @@
       "idea": "The first message is about them, not you. It proves you looked, makes one point, and asks one easy question.",
       "blocks": [
         {
+          "type": "principle",
+          "name": "One ask per message",
+          "body": "Ask one question an engineering leader can answer in a line. Two asks get zero answers."
+        },
+        {
           "type": "compare",
           "left": {
             "label": "The message everyone sends",
@@ -736,6 +905,11 @@
       "title": "Which model for which job?",
       "idea": "Bulk sorting doesn't need the biggest model; judgement calls do. So I ran one real task from this course on three Claude models and measured it.",
       "blocks": [
+        {
+          "type": "principle",
+          "name": "Match the tool to the job",
+          "body": "Use the smallest model that sorts accounts well at volume, and the biggest where a mistake is expensive. Decide by measurement, like this."
+        },
         {
           "type": "modellab",
           "task": "Sort 15 accounts into Fit / No fit for Greptile's ICP, with a one-line reason. 10 passed our checks, 5 failed (a roll-up, a competitor, an existing customer, a competitor's customer, an in-house build). Each line carries the fact the check found.",
@@ -830,6 +1004,11 @@
       "idea": "Everything in lessons 2 to 5 can run every week without you. A {{Managed Agent}} is a model with instructions, tools and a {{rubric}} it is graded against.",
       "blocks": [
         {
+          "type": "principle",
+          "name": "Systems beat heroics",
+          "body": "A check on your schedule catches the hiring post that went up this week, before a rival's bot lands on the pull requests."
+        },
+        {
           "type": "pipeline",
           "steps": [
             {
@@ -889,11 +1068,64 @@
       "nav": "What next",
       "kicker": "Lesson 8",
       "title": "What happens next?",
-      "idea": "A plan isn't pipeline. This course decided and prepared; sending, following up, handling replies and tracking results happen somewhere else, over weeks.",
+      "idea": "This course decided who to sell to, when, and what to say. The next few weeks of sending, following up and handling replies run in Otto, and the calls are yours.",
       "blocks": [
         {
+          "type": "principle",
+          "name": "Do things that don't scale",
+          "body": "Hand-pick and hand-write the first conversations. Automate only what you've already done by hand and know works.",
+          "source": "Paul Graham"
+        },
+        {
+          "type": "stack",
+          "heading": "The 0 → 1 GTM stack",
+          "layers": [
+            {
+              "name": "Positioning and ICP",
+              "detail": "Software teams of roughly 150 to 2,000 engineers moving to AI agents",
+              "owner": "course"
+            },
+            {
+              "name": "Target accounts",
+              "detail": "14 checked accounts, ready to tier",
+              "owner": "course"
+            },
+            {
+              "name": "Buying signals",
+              "detail": "Watched by your agent on the schedule you set",
+              "owner": "course"
+            },
+            {
+              "name": "The right people",
+              "detail": "Found and confirmed at their current company",
+              "owner": "otto"
+            },
+            {
+              "name": "Outreach",
+              "detail": "Sequences on LinkedIn and email, sent once you approve",
+              "owner": "otto"
+            },
+            {
+              "name": "Replies",
+              "detail": "Sorted by intent, with drafts to approve",
+              "owner": "otto"
+            },
+            {
+              "name": "Calls and closing",
+              "detail": "A trial on their repos, then the VP Engineering",
+              "owner": "you"
+            },
+            {
+              "name": "Pipeline and learning",
+              "detail": "Results synced to your CRM; wins and losses sharpen the ICP",
+              "owner": "otto"
+            }
+          ],
+          "caption": "Where this course fits: it builds layers 1 to 3 and keeps layer 3 running. Otto runs the day-to-day outreach. The calls are yours."
+        },
+        {
           "type": "table",
-          "heading": "Where the course stops",
+          "heading": "From plan to pipeline",
           "columns": [
             "Step",
             "This course",

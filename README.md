@@ -59,6 +59,48 @@ python3 report.py         # download the latest report
 
 Every fact is cited, so you can check it in one click.
 
+## Where it fits in the 0 → 1 GTM stack
+
+agentic-gtm builds the first three layers and keeps the third one running. Otto runs the day-to-day outreach. The calls are yours.
+
+```mermaid
+flowchart LR
+  subgraph C["agentic-gtm"]
+    A["1 · Positioning and ICP"] --> B["2 · Target accounts"] --> S["3 · Buying signals<br/>on your schedule"]
+  end
+  subgraph O["Otto"]
+    P["4 · The right people"] --> E["5 · Outreach"] --> R["6 · Replies"]
+  end
+  subgraph Y["You"]
+    K["7 · Calls and closing"]
+  end
+  S --> P
+  R --> K
+  K --> L["8 · Pipeline and learning"]
+  L -. "wins and losses sharpen the ICP" .-> A
+  classDef course fill:#e5eaff,stroke:#2448e8,color:#0f1729
+  classDef otto fill:#dff3f3,stroke:#0a7f86,color:#0f1729
+  classDef you fill:#ece7fb,stroke:#6b4bd6,color:#0f1729
+  class A,B,S course
+  class P,E,R,L otto
+  class K you
+```
+
+## GTM principles built in
+
+Every lesson is framed by a principle that works at the 0 → 1 stage, applied to your own company.
+
+| Lesson | Principle |
+|---|---|
+| Who buys | Beachhead market (Geoffrey Moore), anti-ICP, jobs to be done, positioning against the real alternative (April Dunford) |
+| Where they are | Tier your accounts by fit and timing; a list is only as good as its checks |
+| When they're ready | Trigger events; signals decay |
+| Who exactly | Champion vs economic buyer (MEDDIC); multi-thread every account |
+| What to say | Problem before product; one ask per message |
+| Model lab | Match the tool to the job |
+| The agent | Systems beat heroics |
+| What's next | Founder-led sales first; do things that don't scale (Paul Graham); learn from every loss |
+
 ## Run it on a schedule
 
 Your market doesn't stand still. A new operations lead reviews every tool in their first 90 days. A hiring post for the job your product does is a buying moment for about a month. An acquisition changes who makes the decision. If you check once, you miss most of these. The agent checks for you.
@@ -147,7 +189,7 @@ See Otto's [benchmarks](https://otto-pilot.io/benchmarks/).
 
 The skill writes the course as data (`course.json`) and the template renders it, so every course looks the same and nothing scraped from the web can inject code into the page.
 
-## Principles
+## Approach
 
 - **Your company, not a textbook.** Every lesson is built on your own market.
 - **Checked, not guessed.** Every company is verified and every fact is cited.

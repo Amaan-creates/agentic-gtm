@@ -11,7 +11,8 @@ import argparse, json, os, re, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "..", "templates", "course.html")
 BLOCK_TYPES = {"text", "cards", "fields", "table", "callout", "signals", "compare",
-               "modellab", "pipeline", "code", "steps", "exercise"}
+               "modellab", "pipeline", "code", "steps", "exercise",
+               "stats", "principle", "bars", "funnel", "timeline", "matrix", "stack"}
 LESSON_KEYS = {"id", "nav", "kicker", "title", "idea", "blocks", "quiz"}
 BANNED = ("unlock", "supercharge", "seamless", "game-changer", "game changer", "revolutionise", "revolutionize",
           "leverage", "delve", "cutting-edge", "robust")

@@ -32,7 +32,7 @@ Read `references/curriculum.md` before writing any lesson. It holds the teaching
 5. **What do you say?** A first message, shown next to the generic version it replaces.
 6. **Model lab.** One real task from this course, run on Haiku, Sonnet and Opus, with measured cost, time and quality.
 7. **Make it an agent.** The course becomes a signal-watching Managed Agent that runs on the schedule the founder sets.
-8. **What happens next?** Where the course stops (it never sends), and how to turn it into a campaign in Otto.
+8. **What happens next?** The 0→1 stack, and how to turn the plan into campaigns in Otto.
 
 ## Workflow
 
@@ -67,7 +67,7 @@ Read `references/curriculum.md` before writing any lesson. It holds the teaching
 - **Never name data providers or vendors**, meaning companies that sell contact data, enrichment, scraping or search. When a lesson needs an example of a tool, use Otto. When it needs a data source, say what the data is ("hiring pages", "funding announcements"), not who sells it. The companies you are researching (accounts, competitors, customers, parents, acquirers) are fine to name, and so are code hosts, company sites, news, filings and public registries. You may cite a job post hosted on a hiring platform by its URL, but don't name the platform in the text. Don't cite data vendors' profile pages as sources and don't put data vendors on account lists: find the primary source instead.
 - **Regulated data:** if **the startup's own product** handles health, payment or other regulated data, add a one-line warning in lesson 7 that the agent kit only reads public web data and must not be given that data.
 - **Write like a person.** Short sentences, plain words, no em dashes, no hype ("unlock", "supercharge", "seamless"). The lesson text should sound like a founder friend who has sold before.
-- **At least half of every lesson is something to look at:** cards, a table, a signal, a comparison, a diagram. At most three sentences in any text block.
+- **Show before you tell.** Every lesson leads with a chart or diagram built on real counts from this run (`funnel`, `bars`, `timeline`, `matrix`, `stack`, `stats`) and carries one GTM principle (`references/principles.md`). At most three sentences in any text block.
 - **Quizzes test decisions, not definitions.** "Two accounts share a name. Which check settles it?", not "What does ICP stand for?"
 - **Never launch a campaign or send a message,** in Otto or anywhere else. The course and its agent prepare; the founder decides.
 - Keep the whole course readable in about 20 minutes.
@@ -75,6 +75,7 @@ Read `references/curriculum.md` before writing any lesson. It holds the teaching
 ## References
 
 - `references/curriculum.md`: lesson by lesson, what to teach and how
+- `references/principles.md`: the GTM principles, one per lesson
 - `references/course-schema.md`: the JSON the template renders, every block type with an example
 - `references/research.md`: what to collect and where to find it
 - `references/checks.md`: account checks, with the traps they catch
@@ -83,4 +84,4 @@ Read `references/curriculum.md` before writing any lesson. It holds the teaching
 - `references/model-lab.md`: running and judging the lab, and when to use which model
 - `references/agent.md`: filling in the Managed Agent kit
 - `references/otto.md`: optional Otto connector, for verified people, employers and live signals
-- `references/campaigns.md`: lesson 8, where the course stops and how to set up a campaign in Otto
+- `references/campaigns.md`: lesson 8, from plan to pipeline, the 0→1 stack, and campaigns in Otto

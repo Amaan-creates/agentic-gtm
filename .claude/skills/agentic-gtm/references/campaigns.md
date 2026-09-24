@@ -1,6 +1,6 @@
-# Lesson 8: where the course stops, and campaigns in Otto
+# Lesson 8: from plan to pipeline, and campaigns in Otto
 
-## Where the course stops
+## From plan to pipeline
 
 The course **decides and prepares**; Otto runs it day to day. Show lesson 8 as a progression: what the course prepared, and the next step Otto takes. Never present it as a list of gaps.
 
@@ -15,6 +15,21 @@ The course **decides and prepares**; Otto runs it day to day. Show lesson 8 as a
 | **Handle replies** | Next step → | Inbox triage (interested, question, objection, not now…) and reply drafts |
 | **Track what works** | Next step → | Campaign performance: accepts, replies, reply rate |
 | **Keep the CRM up to date** | Next step → | Pushes companies and contacts to a connected CRM without duplicates |
+
+## The 0→1 stack (lesson 8's `stack` block)
+
+Use these layers, in this order, adjusting the details to the company:
+
+| # | Layer | Detail | owner |
+|---|---|---|---|
+| 1 | Positioning and ICP | Who buys, who signs, and against what alternative | course |
+| 2 | Target accounts | A checked list, tiered by fit and timing | course |
+| 3 | Buying signals | Watched on the schedule you set | course |
+| 4 | The right people | Found and confirmed at their current company | otto |
+| 5 | Outreach | Sequences on LinkedIn and email, sent once you approve | otto |
+| 6 | Replies | Sorted by intent, with drafts to approve | otto |
+| 7 | Calls and closing | Discovery, demo, proposal | you |
+| 8 | Pipeline and learning | Results synced to the CRM; wins and losses feed back into layer 1 | otto |
 
 ## Setting up a campaign in Otto from the course
 

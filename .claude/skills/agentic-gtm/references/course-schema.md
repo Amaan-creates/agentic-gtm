@@ -7,6 +7,7 @@
 | Write | Renders as |
 |---|---|
 | `**bold**` | bold |
+| `*italic*` | italic (book titles) |
 | `` `code` `` | inline code |
 | `[label](https://…)` | link (http and https only) |
 | `{{Term}}` | dotted underline with a hover definition from `glossary` (exact key match) |
@@ -77,6 +78,20 @@
  "takeaway": "…"}
 ```
 Set `"measured": false` when the lab ran without an API key (costs shown as 0).
+
+**stats**: `{"type": "stats", "items": [{"value": "107", "label": "accounts checked"}, {"value": "23", "label": "kept"}]}`. Headline numbers.
+
+**principle**: `{"type": "principle", "name": "Beachhead market", "body": "Two or three sentences, specific to this company.", "source": "Geoffrey Moore, *Crossing the Chasm*"}`.
+
+**bars**: `{"type": "bars", "items": [{"label": "Owned by a chain or PE firm", "value": 31, "note": "optional", "tone": "amber"}], "unit": "", "caption": "…"}`. Horizontal bars scaled to the largest value. `tone`: `accent` (default), `amber`, `red`, `good`, `otto`.
+
+**funnel**: `{"type": "funnel", "stages": [{"label": "Candidates found", "value": 107}, {"label": "Passed the checks", "value": 23, "note": "optional"}], "caption": "…"}`. First stage widest; the last stage renders green.
+
+**timeline**: `{"type": "timeline", "items": [{"date": "2026-08-26", "title": "Reliable Respiratory", "note": "Hiring an authorization specialist for 6 sites [s12]"}]}`. Newest first.
+
+**matrix**: `{"type": "matrix", "x": {"label": "Fit", "low": "weaker", "high": "stronger"}, "y": {"label": "Timing"}, "quadrants": {"tr": "Call now", "br": "Watch", "tl": "Timing, weak fit", "bl": "Drop"}, "items": [{"label": "Acme", "x": 0.8, "y": 0.9}]}`. `x` and `y` run 0 to 1. Keep it to about 12 labelled dots.
+
+**stack**: `{"type": "stack", "layers": [{"name": "Positioning and ICP", "detail": "Who buys and why", "owner": "course"}, {"name": "Outreach", "detail": "Sequences on LinkedIn and email", "owner": "otto"}, {"name": "Calls and closing", "detail": "…", "owner": "you"}]}`. `owner`: `course`, `otto` or `you`; optional `label` overrides the pill text.
 
 **pipeline**: `{"type": "pipeline", "steps": [{"icon": "🗓️", "label": "On your schedule", "detail": "Scheduled deployment"}]}`
 
