@@ -188,7 +188,7 @@ python3 ~/.claude/skills/agentic-gtm/scripts/model_lab.py --prompt prompt.md --i
 3. Run `/agentic-gtm` again. The skill finds Otto's tools by itself, asks before anything spends Otto credits, and can set up a draft campaign for you to review. It never launches one.
 4. For your agent, add `OTTO_MCP_URL` and `OTTO_API_KEY` to `agent/.env` before `bash launch.sh`, and each report will name the person to contact.
 
-See Otto's [benchmarks](https://otto-pilot.io/benchmarks/).
+On Otto's [published benchmarks](https://otto-pilot.io/benchmarks/), 91.2% of contacts were verified on live people searches, and Otto found the most right-fit leads per dollar in every FindAll search it ran.
 
 ## How it's built
 
