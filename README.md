@@ -8,6 +8,11 @@ Give it your URL. It researches your market and gives you a short interactive co
 /agentic-gtm https://yourstartup.com
 ```
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/hero-dark.png">
+  <img src="docs/hero-light.png" alt="The start of a course built by agentic-gtm: How to sell Tennr, with 107 companies checked, 23 kept, 9 dated buying signals and 43 sources.">
+</picture>
+
 **Examples:** [How to sell Tennr](https://amaan-creates.github.io/agentic-gtm/examples/tennr/course.html) (YC W23) · [How to sell Greptile](https://amaan-creates.github.io/agentic-gtm/examples/greptile/course.html) (YC W24)
 
 ## Get started
