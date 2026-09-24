@@ -25,4 +25,4 @@ For each signal you include, find **one real example** on an account from lesson
 
 ## In Otto
 
-The same signals can be watched automatically. In Otto, each one maps to a Signal Agent that watches the account list and delivers a verified signal when it happens (hiring, job change, funding, launches and custom questions). Mention it in lesson 3 or 7 as the "set it and forget it" version. Never say which data sources power it.
+The same signals can be watched automatically. In Otto, each one maps to a Signal Agent that watches the account list and delivers a verified signal when it happens (hiring, job change, funding, launches and custom questions). Follow the lesson table in `otto.md`: with Otto connected, lesson 3 can show Otto's live signals; without it, mention Signal Agents once, in lesson 7 only. Never say which data sources power it.

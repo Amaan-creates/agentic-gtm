@@ -1,0 +1,1434 @@
+{
+ "title": "How to sell Lindus",
+ "lede": "Lindus stopped selling trials in August 2026 and now buys drug assets, so the \"customer\" to win is a biotech that owns a chronic-disease drug and can't fund the next trial alone.",
+ "company": {
+  "name": "Lindus Therapeutics",
+  "url": "https://www.lindushealth.com",
+  "one_liner": "Next-generation drug developer that in-licenses clinical-stage assets and runs the trials itself."
+ },
+ "meta": [
+  {
+   "label": "accounts checked",
+   "value": "30"
+  },
+  {
+   "label": "kept",
+   "value": "15"
+  },
+  {
+   "label": "live signals",
+   "value": "9"
+  },
+  {
+   "label": "sources",
+   "value": "58"
+  }
+ ],
+ "glossary": {
+  "ICP": "Ideal customer profile: the kind of company that buys, and why. For Lindus, the kind of company that would hand over a drug asset.",
+  "persona": "A specific person inside the target company, described by role, what they own and why they would care.",
+  "buying signal": "Something you can see from outside that makes the need urgent now, like a readout, a funding gap or a pivot.",
+  "licensor": "The company that owns a drug asset and grants the rights to develop it to someone else. Lindus's real customer.",
+  "in-licensing": "Taking the rights to someone else's drug asset, usually for an upfront fee, milestones and royalties.",
+  "CVR": "Contingent value right: a promise to pay former shareholders if an asset later earns money, often used when a company plans to sell an asset.",
+  "ex-APAC rights": "The rights to a drug everywhere except Asia-Pacific, the deal type an Asian drug owner offers a Western partner.",
+  "champion": "The person inside the account who wants the deal and pushes it internally.",
+  "economic buyer": "The person who can say yes and sign. In a small biotech that is usually the CEO with the board."
+ },
+ "sources": [
+  {
+   "id": "s1",
+   "title": "Lindus Therapeutics home",
+   "url": "https://www.lindushealth.com"
+  },
+  {
+   "id": "s2",
+   "title": "Lindus news archive",
+   "url": "https://www.lindushealth.com/news"
+  },
+  {
+   "id": "s3",
+   "title": "Dr. Gillian Cannon joins Lindus Therapeutics' board (8 Sep 2026)",
+   "url": "https://www.lindushealth.com/news/dr-gillian-cannon-joins-lindus-therapeutics-board-as-a-non-executive-director"
+  },
+  {
+   "id": "s4",
+   "title": "Curavit acquires Lindus Health CRO assets (18 Aug 2026)",
+   "url": "https://www.prnewswire.com/news-releases/curavit-expands-clinical-research-capabilities-with-acquisition-of-lindus-health-cro-assets-accelerating-global-trial-execution-for-life-science-sponsors-302854586.html"
+  },
+  {
+   "id": "s5",
+   "title": "Applied Clinical Trials on the Curavit deal",
+   "url": "https://www.appliedclinicaltrialsonline.com/view/curavit-acquires-lindus-health-clinical-research-organization-assets-expand-us-european-trial-operations"
+  },
+  {
+   "id": "s6",
+   "title": "Endpoints: Lindus sells CRO arm in pivot (4 Sep 2026)",
+   "url": "https://endpoints.news/thiel-backed-lindus-sells-cro-arm-in-pivot-to-hunt-for-drug-assets/"
+  },
+  {
+   "id": "s7",
+   "title": "Lindus leadership page (stale CRO copy)",
+   "url": "https://www.lindushealth.com/leadership"
+  },
+  {
+   "id": "s8",
+   "title": "Lindus job board",
+   "url": "https://jobs.ashbyhq.com/lindus"
+  },
+  {
+   "id": "s9",
+   "title": "Contrary Research, Formation Bio landscape",
+   "url": "https://research.contrary.com/company/formation-bio"
+  },
+  {
+   "id": "s10",
+   "title": "Pila Pharma agreement with Lindus Health (Jul 2024)",
+   "url": "https://www.lindushealth.com/news/pila-pharma-inks-agreement-with-lindus-health-about-next-clinical-trial-with-safety-and-obesity-readouts"
+  },
+  {
+   "id": "s11",
+   "title": "Lindus Health and Tiefenbacher ME/CFS trial (Mar 2025)",
+   "url": "https://www.lindushealth.com/news/lindus-health-and-tiefenbacher-group-launching-clinical-trial-to-advance-me-cfs-research-and-treatment"
+  },
+  {
+   "id": "s12",
+   "title": "Pila Pharma: EMA approval for PP-CT04 (18 Aug 2026)",
+   "url": "https://www.tradingview.com/news/modular_finance:b6101480f9bf7:0-pila-pharma-regulatory-approval-received-to-conduct-pp-ct04-a-12-week-trial-exploring-the-safety-and-efficacy-of-xen-d0501-in-people-living-with-obesity/"
+  },
+  {
+   "id": "s13",
+   "title": "Carlsquare equity research on Pila",
+   "url": "https://carlsquare.com/equity-research-pila-pharma-receives-go-ahead-for-start-of-obesity-trials/"
+  },
+  {
+   "id": "s14",
+   "title": "Reviva Q2 2026 results (SEC exhibit)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1742927/000143774926027356/ex_1003442.htm"
+  },
+  {
+   "id": "s15",
+   "title": "Reviva Q1 2026, OTCQB move, partnerships",
+   "url": "https://www.stocktitan.net/news/RVPH/reviva-reports-first-quarter-2026-financial-results-and-recent-dbono7ol22cn.html"
+  },
+  {
+   "id": "s16",
+   "title": "Dermata FY2025 update (IND withdrawn, DTC pivot)",
+   "url": "https://www.stocktitan.net/news/DRMA/dermata-therapeutics-provides-corporate-update-and-reports-financial-nxi1awgbfqcg.html"
+  },
+  {
+   "id": "s17",
+   "title": "Skye/Redx transaction remarks (8-K, 14 Aug 2026)",
+   "url": "https://ir.skyebioscience.com/sec-filings/all-sec-filings/content/0001628280-26-056966/a260813_skyexredxxceosxscr.htm"
+  },
+  {
+   "id": "s18",
+   "title": "The Pharma Letter, Skye profile",
+   "url": "https://www.thepharmaletter.com/ones-to-watch/skye-bioscience"
+  },
+  {
+   "id": "s19",
+   "title": "Vistagen PALISADE-4 topline (30 Jun 2026)",
+   "url": "https://www.businesswire.com/news/home/20260630359558/en/Vistagen-Announces-Topline-and-Post-Hoc-Data-from-PALISADE-4-Phase-3-Public-Speaking-Challenge-Trial-of-Fasedienol-for-the-Acute-Treatment-of-Social-Anxiety-Disorder"
+  },
+  {
+   "id": "s20",
+   "title": "Vistagen FY2026 results (15 Jun 2026)",
+   "url": "https://www.nasdaq.com/press-release/vistagen-reports-fiscal-year-2026-financial-results-and-provides-corporate-update"
+  },
+  {
+   "id": "s21",
+   "title": "Corbus CANYON-1 topline (14 Sep 2026)",
+   "url": "https://www.globenewswire.com/news-release/2026/09/14/3360951/0/en/corbus-pharmaceuticals-announces-positive-topline-data-from-canyon-1-study-of-daily-oral-crb-913-for-the-treatment-of-obesity.html"
+  },
+  {
+   "id": "s22",
+   "title": "MetaVia ADA 2026 data",
+   "url": "https://www.prnewswire.com/news-releases/metavia-presents-new-late-breaking-obesity-and-metabolic-data-at-the-ada-2026-scientific-sessions-supporting-da-1726-differentiation-and-vanoglipel-combination-potential-302793358.html"
+  },
+  {
+   "id": "s23",
+   "title": "MetaVia 9 Sep 2026 release",
+   "url": "https://www.prnewswire.com/news-releases/metavia-announces-preclinical-findings-supporting-biological-rationale-for-da-1726s-waist-circumference-reduction-302873244.html"
+  },
+  {
+   "id": "s24",
+   "title": "HighTide NDA acceptance in China (10 Mar 2026)",
+   "url": "https://www.hightidetx.com/blog/2026/03/10/hightide-therapeutics-announces-acceptance-of-new-drug-application-for-htd1801-by-chinas-national-medical-products-administration/"
+  },
+  {
+   "id": "s25",
+   "title": "Aclaris Q1 2026",
+   "url": "https://investor.aclaristx.com/news-releases/news-release-details/aclaris-therapeutics-reports-first-quarter-2026-financial"
+  },
+  {
+   "id": "s26",
+   "title": "Aclaris at Jefferies (Nov 2025)",
+   "url": "https://www.investing.com/news/transcripts/aclaris-therapeutics-at-jefferies-conference-strategic-expansion-in-biopharma-93CH-4362858"
+  },
+  {
+   "id": "s27",
+   "title": "VYNE 10-K on Yarrow merger and legacy assets",
+   "url": "https://www.stocktitan.net/sec-filings/VYNE/10-k-vyne-therapeutics-inc-files-annual-report-7630b92fa88d.html"
+  },
+  {
+   "id": "s28",
+   "title": "VYNE news: dividend, split, merger timing (23 Jul 2026)",
+   "url": "https://www.stocktitan.net/news/VYNE/"
+  },
+  {
+   "id": "s29",
+   "title": "Sciwind licence to Verdiva Bio",
+   "url": "https://www.prnewswire.com/news-releases/sciwind-biosciences-announces-global-licensing-and-collaboration-agreement-for-metabolic-disease-portfolio-302347773.html"
+  },
+  {
+   "id": "s30",
+   "title": "Sciwind and Pfizer China (24 Feb 2026)",
+   "url": "https://www.prnewswire.com/news-releases/sciwind-biosciences-partners-with-pfizer-china-to-commercialize-its-biased-glp-1-in-china-302695339.html"
+  },
+  {
+   "id": "s31",
+   "title": "Bloomberg: Sciwind pursues overseas deals (7 Jun 2026)",
+   "url": "https://www.bloomberg.com/news/articles/2026-06-07/pfizer-partnered-obesity-drugmaker-eyes-deals-outside-china"
+  },
+  {
+   "id": "s32",
+   "title": "Endpoints: Sciwind open to more partners",
+   "url": "https://endpoints.news/sciwind-has-two-western-partners-for-its-obesity-drug-but-is-open-to-more/"
+  },
+  {
+   "id": "s33",
+   "title": "Tiefenbacher/Lindus release with company boilerplate",
+   "url": "https://www.prnewswire.com/news-releases/lindus-health-and-tiefenbacher-group-launching-clinical-trial-to-advance-mecfs-research-and-treatment-302393805.html"
+  },
+  {
+   "id": "s34",
+   "title": "Seoul Economic Daily: D&D CEO targets licensing deal (18 Jun 2026)",
+   "url": "https://en.sedaily.com/culture/2026/06/18/dd-pharmatech-targets-mash-drug-licensing-deal-profit"
+  },
+  {
+   "id": "s35",
+   "title": "D&D licence to Salubris for China",
+   "url": "https://www.businesswire.com/news/home/20210927005386/en/DD-Pharmatech-Announces-Agreement-with-Salubris-Pharmaceuticals-for-Licensing-and-Development-of-DD01-in-China"
+  },
+  {
+   "id": "s36",
+   "title": "Gesynta Pharma home",
+   "url": "https://www.gesynta.se/"
+  },
+  {
+   "id": "s37",
+   "title": "Labiotech on endometriosis research (Gesynta Series B)",
+   "url": "https://www.labiotech.eu/best-biotech/endometriosis-research-latest-advancements/"
+  },
+  {
+   "id": "s38",
+   "title": "Connect Biopharma Seabreeze STAT asthma topline (15 Sep 2026)",
+   "url": "https://www.globenewswire.com/news-release/2026/09/15/3361907/0/en/connect-biopharma-announces-positive-preliminary-topline-data-from-its-global-phase-2-study-of-rademikibart-as-an-add-on-treatment-for-acute-exacerbations-in-adult-and-adolescent-p.html"
+  },
+  {
+   "id": "s39",
+   "title": "Connect Biopharma Q2 2026",
+   "url": "https://investors.connectbiopharma.com/news-releases/news-release-details/connect-biopharma-reports-second-quarter-2026-financial-results/"
+  },
+  {
+   "id": "s40",
+   "title": "Fierce Biotech: Terns seeks partners for metabolic assets",
+   "url": "https://www.fiercebiotech.com/biotech/terns-vows-stop-funding-metabolic-disease-trials-beyond-2025-seeks-partners-assets"
+  },
+  {
+   "id": "s41",
+   "title": "Merck completes acquisition of Terns (5 May 2026)",
+   "url": "https://www.merck.com/news/merck-completes-acquisition-of-terns-pharmaceuticals-inc/"
+  },
+  {
+   "id": "s42",
+   "title": "Lilly completes acquisition of AtaiBeckley",
+   "url": "https://investor.lilly.com/news-releases/news-release-details/lilly-completes-acquisition-ataibeckley-advance-therapies"
+  },
+  {
+   "id": "s43",
+   "title": "Gedeon Richter acquires Mithra assets",
+   "url": "https://www.gedeonrichter.com/en/news/240612"
+  },
+  {
+   "id": "s44",
+   "title": "Upstream Bio Q2 2026",
+   "url": "https://www.biospace.com/press-releases/upstream-bio-reports-second-quarter-2026-financial-results-and-highlights-continued-progress"
+  },
+  {
+   "id": "s45",
+   "title": "Altimmune Q1 2026",
+   "url": "https://ir.altimmune.com/news-releases/news-release-details/altimmune-announces-first-quarter-2026-financial-results-and"
+  },
+  {
+   "id": "s46",
+   "title": "Areteia EXHALE-4 release",
+   "url": "https://www.biospace.com/press-releases/areteia-therapeutics-announces-positive-topline-results-from-the-first-phase-iii-study-of-oral-dexpramipexole-in-eosinophilic-asthma"
+  },
+  {
+   "id": "s47",
+   "title": "Ascletis Phase 3 first dosing (30 Aug 2026)",
+   "url": "https://www.biospace.com/press-releases/ascletis-announces-first-participant-dosed-in-a-global-phase-iii-clinical-program-of-once-daily-oral-small-molecule-glp-1-receptor-agonist-asc30-for-chronic-weight-management"
+  },
+  {
+   "id": "s48",
+   "title": "Antag Phase 2a first patient (28 Jul 2026)",
+   "url": "https://antagtx.com/antag-therapeutics-announces-dosing-of-first-patient-in-phase-2a-trial-of-first-in-class-gipr-antagonist-at7687/"
+  },
+  {
+   "id": "s49",
+   "title": "The Pharma Letter, Neumora profile",
+   "url": "https://www.thepharmaletter.com/ones-to-watch/neumora-therapeutics"
+  },
+  {
+   "id": "s50",
+   "title": "Neumora Q1 2026",
+   "url": "https://ir.neumoratx.com/news-releases/news-release-details/neumora-therapeutics-reports-first-quarter-2026-financial"
+  },
+  {
+   "id": "s51",
+   "title": "FinanceWire on Palatin (13 May 2026)",
+   "url": "https://financewire.com/2026/05/13/palatin-is-betting-on-the-next-generation-of-obesity-drugs-nyse-ptn/"
+  },
+  {
+   "id": "s52",
+   "title": "Relmada Q2 2026",
+   "url": "https://www.biospace.com/press-releases/relmada-therapeutics-reports-second-quarter-2026-financial-results-and-provides-business-update"
+  },
+  {
+   "id": "s53",
+   "title": "Bright Minds offering (Jan 2026)",
+   "url": "https://www.globenewswire.com/news-release/2026/01/06/3214114/0/en/Bright-Minds-Biosciences-Announces-Launch-of-US-100-Million-Public-Offering.html"
+  },
+  {
+   "id": "s54",
+   "title": "Daré Q2 2026",
+   "url": "https://darebioscience.com/press-release-dare-bioscience-reports-second-quarter-2026-results-and-highlights-commercial-inflection-as-multi-product-womens-health-strategy-advances/"
+  },
+  {
+   "id": "s55",
+   "title": "Alto ALTO-101 topline and partnering (1 Apr 2026)",
+   "url": "https://www.businesswire.com/news/home/20260401931058/en/Alto-Neuroscience-Reports-Topline-Data-from-Phase-2-Proof-of-Concept-Study-of-ALTO-101-and-Highlights-Pipeline-Advancements"
+  },
+  {
+   "id": "s56",
+   "title": "AllSci: Gan & Lee licenses bofanglutide to Menarini",
+   "url": "https://allsci.com/news/licensing-and-partnerships/bofanglutide-licensing-agreement-europe/"
+  },
+  {
+   "id": "s57",
+   "title": "Claude pricing",
+   "url": "https://claude.com/pricing"
+  },
+  {
+   "id": "s58",
+   "title": "yarrowbio.com (unrelated \"Coming Soon\" page, fetched 24 Sep 2026)",
+   "url": "https://yarrowbio.com/"
+  }
+ ],
+ "lessons": [
+  {
+   "id": "who",
+   "nav": "Who buys",
+   "kicker": "Lesson 1",
+   "title": "Who buys this?",
+   "idea": "Lindus used to sell trials. Since August 2026 it does {{in-licensing}} of drug assets, so the company you have to win is the one that owns the drug and decides who develops it next.",
+   "blocks": [
+    {
+     "type": "stats",
+     "items": [
+      {
+       "value": "Aug 2026",
+       "label": "CRO arm sold to Curavit"
+      },
+      {
+       "value": "45+",
+       "label": "trials run before the pivot"
+      },
+      {
+       "value": "$80M",
+       "label": "raised, funds the first deals"
+      },
+      {
+       "value": "H1 2027",
+       "label": "first in-licensed trials"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "body": "Curavit bought the CRO assets of Lindus Health on 18 August 2026, and Lindus now calls itself Lindus Therapeutics [s4, s6]. The home page says it in-licenses \"phase I-III ready assets\" in \"non-ultrarare chronic disease\" and funds the first deals from its own balance sheet [s1]. So the old buyer, a trial sponsor, is now someone else's customer."
+    },
+    {
+     "type": "bars",
+     "heading": "Where Lindus has proof it can run trials",
+     "items": [
+      {
+       "label": "Psychiatry and sleep",
+       "value": 3
+      },
+      {
+       "label": "Cardiometabolic",
+       "value": 3
+      },
+      {
+       "label": "Dermatology",
+       "value": 2
+      },
+      {
+       "label": "Women's health",
+       "value": 2
+      },
+      {
+       "label": "Other chronic (ME/CFS, tinnitus)",
+       "value": 2
+      },
+      {
+       "label": "Respiratory",
+       "value": 1
+      },
+      {
+       "label": "Oncology diagnostics",
+       "value": 1,
+       "tone": "amber"
+      }
+     ],
+     "unit": " trials",
+     "caption": "The 14 sponsor trials Lindus announced on its own news page, by area [s2]. Only 3 were drug trials; most were devices and digital therapeutics."
+    },
+    {
+     "type": "principle",
+     "name": "Beachhead market",
+     "body": "For Lindus the beachhead is small Western biotechs with a Phase 2-ready chronic-disease drug and not enough cash for the next trial. They have the most reason to take a partner that runs the trial, and they match every line of Lindus's own brief [s1, s3]. Asian owners offering {{ex-APAC rights}} are the second lane, not the first.",
+     "source": "Geoffrey Moore, *Crossing the Chasm*"
+    },
+    {
+     "type": "callout",
+     "tone": "tip",
+     "title": "The decision, and why",
+     "body": "Four segments were on the table: old trial sponsors, big pharma pruning its pipeline, small biotechs short of cash, and Asian drug owners. Sponsors went to Curavit with the CRO [s4], and big pharma runs auctions that an $80M balance sheet rarely wins (our judgement). Small biotechs fit Lindus's stated rule of \"in-licensing programs after early clinical readouts\" [s3], so they come first."
+    },
+    {
+     "type": "fields",
+     "heading": "The {{ICP}} card: the {{licensor}}",
+     "items": [
+      {
+       "label": "Who",
+       "value": "Clinical-stage biotechs (and some pharma) that own a drug with human data, typically Phase 2-ready [s1]"
+      },
+      {
+       "label": "Disease areas",
+       "value": "Non-ultrarare chronic disease where Lindus has run trials: cardiometabolic, respiratory, psychiatry, dermatology, women's health [s1, s2]"
+      },
+      {
+       "label": "Size",
+       "value": "Small caps and venture-backed privates with roughly a year of cash or less, or a pivot away from the asset"
+      },
+      {
+       "label": "Regions",
+       "value": "Owner anywhere; the trial runs in the US, UK and Europe [s1]"
+      },
+      {
+       "label": "The pain, in their words",
+       "value": "\"Subject to receipt of additional financing\" [s14]; \"to be divested or partnered\" [s17]"
+      },
+      {
+       "label": "Not a fit",
+       "value": "Acquired or being acquired; cash-rich and running its own next trial; rare disease or oncology; bankrupt; no human data"
+      },
+      {
+       "label": "Why now",
+       "value": "Lindus is targeting deal close on its first assets through 2026 [s1]"
+      }
+     ]
+    },
+    {
+     "type": "cards",
+     "heading": "The {{persona}} cards: who is in a licensing deal",
+     "items": [
+      {
+       "title": "CEO",
+       "body": "Owns the runway and the story to investors. Cares whether a deal funds the next value step without a dilutive raise.",
+       "tag": "Signs",
+       "tone": "accent"
+      },
+      {
+       "title": "Chief Business Officer or head of BD",
+       "body": "Runs the partnering process and the data room. Cares about a credible partner who can close fast.",
+       "tag": "Champion",
+       "tone": "amber"
+      },
+      {
+       "title": "Chief Medical Officer",
+       "body": "Judges whether Lindus can run the next trial well. Cares about enrollment speed and data quality, where Lindus has a record [s1].",
+       "tag": "Evaluates"
+      },
+      {
+       "title": "Board and lead investor",
+       "body": "Want value from the asset. Often push for a partner when cash is short.",
+       "tag": "Influences"
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "trap",
+     "title": "Your own website is trap number one",
+     "body": "The home page says Lindus Therapeutics with a team of 80 [s1], but the leadership page still says \"Lindus is a next-generation CRO\" and \"Over 160 people\" [s7]. A biotech CEO who clicks through will wonder which company is writing to them. Fix or redirect the old pages before any outreach."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "A small biotech's CMO loves how Lindus runs trials. Who most likely signs the licence?",
+     "options": [
+      "The CMO",
+      "The CEO, with the board",
+      "The head of clinical operations",
+      "The lead investigator at the trial site"
+     ],
+     "answer": 1,
+     "why": "In a small biotech the CEO and board own the runway and the asset, so they sign. The CMO is the one who can block it on trial quality."
+    },
+    {
+     "q": "Which company is outside the beachhead?",
+     "options": [
+      "A Swedish biotech with Phase 2a obesity data and one funded trial",
+      "A US biotech with a positive Phase 2 in asthma and a year of cash",
+      "A trial sponsor that used Lindus as its CRO in 2024 and wants another trial run",
+      "A biotech shelving a Phase 3 acne drug after a pivot"
+     ],
+     "answer": 2,
+     "why": "Running trials for sponsors is now Curavit's business [s4]. The other three own assets and have a reason to take a partner."
+    }
+   ]
+  },
+  {
+   "id": "where",
+   "nav": "Where they are",
+   "kicker": "Lesson 2",
+   "title": "Where are they?",
+   "idea": "A target list is only useful if every row is a company that could actually hand Lindus an asset this year. Most wrong rows come from a few traps you can check for.",
+   "blocks": [
+    {
+     "type": "funnel",
+     "stages": [
+      {
+       "label": "Candidates researched",
+       "value": 30
+      },
+      {
+       "label": "Still independent and operating",
+       "value": 27
+      },
+      {
+       "label": "Fit the ICP on the facts",
+       "value": 18
+      },
+      {
+       "label": "Settled and kept",
+       "value": 15
+      }
+     ],
+     "caption": "Counts from this run. The 15 dropped companies and their sources are in research.md."
+    },
+    {
+     "type": "bars",
+     "heading": "Why 15 were dropped",
+     "items": [
+      {
+       "label": "Cash-rich, running its own next trial",
+       "value": 6,
+       "tone": "amber"
+      },
+      {
+       "label": "Rare disease or oncology focus",
+       "value": 3,
+       "tone": "amber"
+      },
+      {
+       "label": "Could not settle",
+       "value": 3,
+       "tone": "red"
+      },
+      {
+       "label": "Acquired by a bigger company",
+       "value": 2,
+       "tone": "red"
+      },
+      {
+       "label": "Bankrupt, assets sold",
+       "value": 1,
+       "tone": "red"
+      }
+     ],
+     "unit": ""
+    },
+    {
+     "type": "principle",
+     "name": "Tier your accounts",
+     "body": "Not every licensor deserves a letter this week. A fresh readout plus a short runway, like Connect's, gets a personal note now; a good asset with no trigger, like Gesynta's, goes on the watch list. The matrix below places each account only on dated evidence."
+    },
+    {
+     "type": "table",
+     "heading": "The 15 accounts",
+     "columns": [
+      "Company",
+      "Location",
+      "Segment",
+      "Why it fits",
+      "Why now",
+      "Check"
+     ],
+     "rows": [
+      [
+       "[Connect Biopharma](https://www.connectbiopharma.com)",
+       "San Diego, US",
+       "Respiratory",
+       "Anti-IL-4R antibody, positive Phase 2 in acute asthma [s38]",
+       "Readout 15 Sep; ~1 year of cash [s39]",
+       "✓ domain, independent"
+      ],
+      [
+       "[Skye Bioscience](https://skyebioscience.com)",
+       "San Diego, US",
+       "Cardiometabolic",
+       "Phase 2a obesity antibody to be divested or partnered [s17]",
+       "Redx deal 14 Aug [s17]",
+       "✓ domain (bot wall), asset for sale"
+      ],
+      [
+       "[Reviva Pharmaceuticals](https://revivapharma.com)",
+       "Cupertino, US",
+       "Psychiatry",
+       "Schizophrenia drug, one Phase 3 done, second needed [s14]",
+       "Phase 3 \"subject to financing\", 12 Aug [s14]",
+       "✓ domain (bot wall), independent"
+      ],
+      [
+       "[Pila Pharma](https://pilapharma.com)",
+       "Malmö, SE",
+       "Cardiometabolic",
+       "Oral obesity drug, two Phase 2a trials done [s12]",
+       "EMA approval 18 Aug; more capital needed [s13]",
+       "✓ domain; ex-Lindus sponsor [s10]"
+      ],
+      [
+       "[D&D Pharmatech](https://ddpharmatech.com)",
+       "Seongnam, KR",
+       "Cardiometabolic",
+       "MASH drug hit Phase 2 biopsy endpoints [s34]",
+       "CEO wants ex-China deal by year-end [s34]",
+       "✓ domain; China rights at Salubris [s35]"
+      ],
+      [
+       "[Corbus Pharmaceuticals](https://www.corbuspharma.com)",
+       "Norwood, US",
+       "Cardiometabolic",
+       "Oral CB1 drug, 5% weight loss in Phase 1b [s21]",
+       "Readout 14 Sep [s21]",
+       "✓ domain; no stated partner search"
+      ],
+      [
+       "[Vistagen](https://vistagen.com)",
+       "S. San Francisco, US",
+       "Women's health",
+       "Phase 2-ready non-hormonal hot-flash drug [s20]",
+       "Phase 3 miss 30 Jun; new BD chief [s19, s20]",
+       "✓ domain (bot wall), independent"
+      ],
+      [
+       "[Dermata Therapeutics](https://www.dermatarx.com)",
+       "San Diego, US",
+       "Dermatology",
+       "Positive Phase 3 acne drug, shelved after consumer pivot [s16]",
+       "Program paused [s16]",
+       "✓ domain, independent"
+      ],
+      [
+       "[Sciwind Biosciences](https://sciwindbio.com)",
+       "Hangzhou, CN",
+       "Cardiometabolic",
+       "Injectable GLP-1 approved in China, rights abroad open [s30]",
+       "\"Deep discussions\" abroad, 7 Jun [s31]",
+       "✓ domain; oral already at Verdiva [s29]"
+      ],
+      [
+       "[Yarrow Bioscience (ex-VYNE)](https://yarrowbioscience.com)",
+       "Bridgewater, US",
+       "Dermatology",
+       "Legacy psoriasis drug may be sold or licensed [s27]",
+       "Merger closing late Jul; old domain redirects [s28]",
+       "✓ renamed; not yarrowbio.com [s58]"
+      ],
+      [
+       "[MetaVia](https://metaviatx.com)",
+       "Cambridge, US",
+       "Cardiometabolic",
+       "GLP-1/glucagon drug, up to 9.1% weight loss in Phase 1 [s22]",
+       "16-week data due Q4 [s23]",
+       "✓ domain; licensed from Dong-A ST [s23]"
+      ],
+      [
+       "[Aclaris Therapeutics](https://aclaristx.com)",
+       "Wayne, US",
+       "Respiratory",
+       "Asthma antibodies in Phase 1b/2 [s25]",
+       "Seeking respiratory partners outside China [s26]",
+       "✓ domain, independent"
+      ],
+      [
+       "[Gesynta Pharma](https://www.gesynta.se)",
+       "Stockholm, SE",
+       "Women's health",
+       "Non-hormonal endometriosis drug in Phase 2 [s36]",
+       "Half randomised; readout later [s36]",
+       "✓ domain, independent"
+      ],
+      [
+       "[HighTide Therapeutics](https://www.hightidetx.com)",
+       "Shenzhen, CN / Rockville, US",
+       "Cardiometabolic",
+       "Three Phase 3s done in type 2 diabetes in China [s24]",
+       "None dated",
+       "✓ domain, HKEX listed"
+      ],
+      [
+       "[Tiefenbacher Group](https://tiefenbacher-pharmaceuticals.com)",
+       "Germany",
+       "Other chronic",
+       "Sponsor of a Phase 2 in ME/CFS; family owned [s33]",
+       "None dated",
+       "✓ domain; ex-Lindus sponsor [s11]"
+      ]
+     ],
+     "caption": "Checked 24 September 2026. \"Bot wall\" means the site blocked automated fetches; the company was confirmed through its own investor releases."
+    },
+    {
+     "type": "matrix",
+     "x": {
+      "label": "Fit",
+      "low": "weaker",
+      "high": "stronger"
+     },
+     "y": {
+      "label": "Timing"
+     },
+     "quadrants": {
+      "tr": "Write now",
+      "br": "Watch",
+      "tl": "Timing, weaker fit",
+      "bl": "Later"
+     },
+     "items": [
+      {
+       "label": "Connect",
+       "x": 0.85,
+       "y": 0.95
+      },
+      {
+       "label": "Skye",
+       "x": 0.78,
+       "y": 0.9
+      },
+      {
+       "label": "Reviva",
+       "x": 0.72,
+       "y": 0.85
+      },
+      {
+       "label": "Pila",
+       "x": 0.8,
+       "y": 0.8
+      },
+      {
+       "label": "D&D",
+       "x": 0.88,
+       "y": 0.72
+      },
+      {
+       "label": "Corbus",
+       "x": 0.6,
+       "y": 0.82
+      },
+      {
+       "label": "Vistagen",
+       "x": 0.68,
+       "y": 0.6
+      },
+      {
+       "label": "Dermata",
+       "x": 0.66,
+       "y": 0.52
+      },
+      {
+       "label": "Sciwind",
+       "x": 0.55,
+       "y": 0.64
+      },
+      {
+       "label": "Gesynta",
+       "x": 0.8,
+       "y": 0.25
+      },
+      {
+       "label": "HighTide",
+       "x": 0.58,
+       "y": 0.18
+      },
+      {
+       "label": "Tiefenbacher",
+       "x": 0.45,
+       "y": 0.15
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "trap",
+     "title": "Acquired while you were researching",
+     "body": "Terns had put its obesity assets up for partnering [s40], which looks like a perfect lead. Then Merck completed its acquisition of Terns on 5 May 2026 [s41]. AtaiBeckley, the former employer of Lindus's own VP of Corporate Development, is now part of Lilly too [s42]."
+    },
+    {
+     "type": "callout",
+     "tone": "trap",
+     "title": "A new name, and a lookalike domain",
+     "body": "VYNE Therapeutics merged into Yarrow Bioscience, and vynetherapeutics.com now redirects to yarrowbioscience.com [s28]. yarrowbio.com is a different, empty \"Coming Soon\" site [s58]. Put the redirecting domain in the table, not the one a search suggests."
+    },
+    {
+     "type": "callout",
+     "tone": "trap",
+     "title": "A competitor is already in",
+     "body": "Sciwind licensed the oral version of its GLP-1 outside China to Verdiva Bio [s29], a company that also builds a pipeline by licensing assets. Only the injectable's rights abroad are still open [s31, s32]. Pitch the asset that is actually available."
+    },
+    {
+     "type": "callout",
+     "tone": "trap",
+     "title": "Closed, and the assets belong to someone else",
+     "body": "Mithra's menopause drug fits the women's health brief perfectly. But Mithra went bankrupt in 2024 and Gedeon Richter owns its estetrol assets [s43]. Old directories still list Mithra as a developer."
+    },
+    {
+     "type": "callout",
+     "tone": "trap",
+     "title": "Rich companies don't need you",
+     "body": "Upstream Bio has $261M and is starting its own Phase 3s [s44]; Altimmune has $535M [s45]. A great asset with a funded owner is not a lead. Six of the 15 drops were this."
+    },
+    {
+     "type": "steps",
+     "heading": "The checks, in order",
+     "items": [
+      "Open the domain. Confirm name, drug and location match; follow redirects and note renames.",
+      "Search \"<company> acquired\" and \"<company> merger\", newest first. Drop anything bought or being bought.",
+      "Check it is still operating: a filing, results release or trial update from the last 90 days.",
+      "Read the latest quarterly release for cash runway and who funds the next trial.",
+      "Check the asset's rights: who already holds China, Asia or global rights?",
+      "Confirm the disease area is chronic and not rare, and that the drug has human data.",
+      "If any check can't be settled, drop the row and write down why."
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Two sites come up for \"Yarrow\": yarrowbio.com and yarrowbioscience.com. Which check settles which one is the ex-VYNE company?",
+     "options": [
+      "Pick the shorter domain",
+      "Open the old company's domain and see where it redirects",
+      "Search the CEO's name",
+      "Pick the one with more pages"
+     ],
+     "answer": 1,
+     "why": "vynetherapeutics.com redirects to yarrowbioscience.com [s28]. The other domain is an unrelated empty page [s58]."
+    },
+    {
+     "q": "A biotech has a great Phase 2 obesity asset and $400M in the bank. Where does it go?",
+     "options": [
+      "Write now",
+      "Watch list or drop: funded owners rarely license out",
+      "Top of the list: big budgets mean big deals",
+      "Hand it to the agent"
+     ],
+     "answer": 1,
+     "why": "Lindus needs owners who can't or won't fund the next trial. Cash-rich owners run it themselves, like Upstream Bio [s44]."
+    }
+   ]
+  },
+  {
+   "id": "when",
+   "nav": "When ready",
+   "kicker": "Lesson 3",
+   "title": "When are they ready?",
+   "idea": "The same biotech says no in March and yes in September. A {{buying signal}} is a public event that makes the owner need a partner now: fresh data, a funding gap, a pivot.",
+   "blocks": [
+    {
+     "type": "principle",
+     "name": "Trigger events",
+     "body": "Lindus says it in-licenses \"after early clinical readouts\" [s3], which is itself the trigger. A readout raises the asset's value while the owner's cash stays the same. Write in the week of the readout, not the week you finished your list."
+    },
+    {
+     "type": "timeline",
+     "heading": "Dated signals on the 15 accounts",
+     "items": [
+      {
+       "date": "2026-09-15",
+       "title": "Connect Biopharma",
+       "note": "Positive Phase 2: 66% fewer treatment failures in acute asthma [s38]"
+      },
+      {
+       "date": "2026-09-14",
+       "title": "Corbus",
+       "note": "Phase 1b obesity readout, Phase 2 planned for H1 2027 [s21]"
+      },
+      {
+       "date": "2026-08-18",
+       "title": "Pila Pharma",
+       "note": "EMA approves 12-week obesity trial; analysts expect more capital needed [s12, s13]"
+      },
+      {
+       "date": "2026-08-14",
+       "title": "Skye Bioscience",
+       "note": "Redx deal; nimacimab to be divested or partnered [s17]"
+      },
+      {
+       "date": "2026-08-12",
+       "title": "Reviva",
+       "note": "Phase 3 start moved to H1 2027, subject to financing [s14]"
+      },
+      {
+       "date": "2026-06-30",
+       "title": "Vistagen",
+       "note": "Phase 3 miss in social anxiety [s19]"
+      },
+      {
+       "date": "2026-06-18",
+       "title": "D&D Pharmatech",
+       "note": "CEO targets a licensing deal outside China by year-end [s34]"
+      },
+      {
+       "date": "2026-06-15",
+       "title": "Vistagen",
+       "note": "New Chief Corporate Development Officer with licensing background [s20]"
+      },
+      {
+       "date": "2026-06-07",
+       "title": "Sciwind",
+       "note": "In \"deep discussions\" for deals outside China [s31]"
+      }
+     ]
+    },
+    {
+     "type": "signals",
+     "items": [
+      {
+       "name": "Asset put up for sale or partnering",
+       "watch": "\"Divest\", \"strategic alternatives\", a CVR tied to one asset, or a pivot away from a disease area in a release or 8-K",
+       "why": "The owner has already decided not to fund the asset. The only question is who takes it.",
+       "example": {
+        "company": "Skye Bioscience",
+        "fact": "Nimacimab to be divested or partnered, with proceeds to former holders via a {{CVR}} [s17]",
+        "date": "2026-08-14"
+       }
+      },
+      {
+       "name": "Early readout, thin runway",
+       "watch": "A Phase 1b or 2 topline release in the same quarter as a runway of about a year or less",
+       "why": "The asset just got more valuable and the next trial just got more expensive. That is when a trial-running partner looks best.",
+       "example": {
+        "company": "Connect Biopharma",
+        "fact": "Positive Phase 2 in acute asthma; $31.5M cash, about one year of runway [s38, s39]",
+        "date": "2026-09-15"
+       }
+      },
+      {
+       "name": "Next trial \"subject to financing\"",
+       "watch": "That phrase, or \"pending additional capital\", in a quarterly release or 10-Q",
+       "why": "They are telling investors they can't start without new money. A partner is the alternative to a dilutive raise.",
+       "example": {
+        "company": "Reviva Pharmaceuticals",
+        "fact": "RECOVER-2 enrollment pushed to H1 2027, subject to additional financing [s14]",
+        "date": "2026-08-12"
+       }
+      },
+      {
+       "name": "New business development leader",
+       "watch": "Appointment of a Chief Business or Corporate Development Officer",
+       "why": "A new BD chief builds a partner list in the first 90 days.",
+       "example": {
+        "company": "Vistagen",
+        "fact": "Appointed a Chief Corporate Development Officer with licensing experience [s20]",
+        "date": "2026-06-15"
+       }
+      },
+      {
+       "name": "Asian owner seeking a partner outside Asia",
+       "watch": "Local business press or English releases about licensing rights outside China or Korea",
+       "why": "This is the {{ex-APAC rights}} deal Lindus lists on its own site [s1].",
+       "example": {
+        "company": "D&D Pharmatech",
+        "fact": "CEO says the aim is a licensing deal for DD01 by year-end [s34]",
+        "date": "2026-06-18"
+       }
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "warning",
+     "title": "Signals go stale",
+     "body": "Most of these are worth acting on for 30 to 90 days. Vistagen's BD hire is already 101 days old today, so lead with its June Phase 3 news instead, or wait for the next trigger. D&D's is different: it lasts until they sign someone."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Which of these is a buying signal for Lindus, not just news?",
+     "options": [
+      "Lilly completes its acquisition of AtaiBeckley",
+      "Connect Biopharma reports a positive Phase 2 with a year of cash left",
+      "A trade body publishes a women's health funding report"
+     ],
+     "answer": 1,
+     "why": "A fresh readout plus a short runway is the moment a trial-running partner matters. An acquisition closes the door; a report is context."
+    }
+   ]
+  },
+  {
+   "id": "who-exactly",
+   "nav": "Who exactly",
+   "kicker": "Lesson 4",
+   "title": "Who exactly?",
+   "idea": "Write to the person who runs partnering, then bring in the person who signs. In small biotechs people leave after every failed trial, so check they are still there first.",
+   "blocks": [
+    {
+     "type": "principle",
+     "name": "Champion vs economic buyer",
+     "body": "The {{champion}} at a licensor is the head of BD, who wants a deal done. The {{economic buyer}} is the CEO with the board, who decides whether giving up rights beats raising money. Win the first with speed and a clean term sheet; win the second with a trial plan and a timeline."
+    },
+    {
+     "type": "table",
+     "heading": "The roles to reach",
+     "columns": [
+      "Role",
+      "Where they sit",
+      "What they care about",
+      "How to find them"
+     ],
+     "rows": [
+      [
+       "Chief Business Officer / head of BD",
+       "Executive team page",
+       "A credible partner that can close before cash runs out",
+       "Leadership page; named in deal and partnering releases; conference partnering lists"
+      ],
+      [
+       "CEO",
+       "Executive team page, earnings calls",
+       "Funding the next step without a dilutive raise",
+       "Quarterly results release (quoted by name); annual report"
+      ],
+      [
+       "Chief Medical Officer",
+       "Executive team page",
+       "Whether Lindus can run the next trial fast and clean",
+       "Leadership page; trial registry entries; conference posters"
+      ],
+      [
+       "Board chair or lead investor",
+       "Board page, proxy statement",
+       "Getting value from the asset",
+       "Proxy filing; the investor's portfolio page"
+      ],
+      [
+       "Head of global BD (Asian owners)",
+       "International or US office",
+       "A Western partner with trial capacity in the US and Europe",
+       "English-language releases; US subsidiary team page"
+      ]
+     ]
+    },
+    {
+     "type": "steps",
+     "heading": "Check a person still works there",
+     "items": [
+      "Find them on the company's own leadership page today, not in an old release.",
+      "Check their public profile lists this company as current, with the same domain.",
+      "Look for something recent: quoted in a release, a conference talk, or a post in the last 90 days.",
+      "After a failed trial or a merger, check again: teams change fast (Neumora cut 35% of staff in June [s49]).",
+      "Write to two people per account: BD and the CEO or CMO."
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "tip",
+     "title": "The faster version",
+     "body": "Otto can find and verify the people in each role at your 15 accounts, checked against their current employer."
+    },
+    {
+     "type": "exercise",
+     "title": "Check one person",
+     "body": "Pick Connect Biopharma. Find the person who runs business development and the CEO on its own site, then confirm both still list Connect as their current employer. Note the date you checked."
+    }
+   ]
+  },
+  {
+   "id": "say",
+   "nav": "What to say",
+   "kicker": "Lesson 5",
+   "title": "What do you say?",
+   "idea": "The first message is about their asset and their problem, not about Lindus. Prove you read their news, make one point, ask one easy question.",
+   "blocks": [
+    {
+     "type": "principle",
+     "name": "Problem before product",
+     "body": "A biotech CEO gets pitched by CROs and bankers every week. What they have not heard is someone who read last week's readout and last quarter's cash line and put the two together. Lead with that, and let Lindus's record come up in the reply."
+    },
+    {
+     "type": "compare",
+     "left": {
+      "label": "The message everyone sends",
+      "body": "Hi Sam, hope you're well! I'm reaching out from Lindus Therapeutics, a next-generation drug development company backed by Peter Thiel. We pair proprietary AI asset selection with an integrated trial platform to reach value inflection points faster. Would you be open to a quick 30-minute call next week to explore potential synergies?"
+     },
+     "right": {
+      "label": "Yours, to Connect Biopharma",
+      "body": "Hi [first name], saw Seabreeze STAT cut treatment failure by 66% in acute asthma, with the COPD readout due this month.\n\nThe next step is a Phase 3, and the last quarterly report showed $31.5M in cash.\n\nIs that Phase 3 something you plan to fund alone, or would you look at a partner who runs the trial and shares the upside?",
+      "notes": "Opens on their 15 September readout [s38] and their own cash figure [s39]. One either/or question they can answer from memory. No call ask, no investor names, no \"AI\"."
+     }
+    },
+    {
+     "type": "steps",
+     "heading": "The rules applied",
+     "items": [
+      "Open on their signal, with a number from their own release.",
+      "Say why it matters from their side in one sentence.",
+      "Ask one either/or question.",
+      "Under 90 words; no meeting ask, no hype words.",
+      "Send in the signal's window: this one is fresh until mid-December."
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Which opening line gets a reply from a biotech CEO?",
+     "options": [
+      "\"Hope you're well! Lindus is a next-generation drug developer.\"",
+      "\"We're backed by Peter Thiel and Bob Langer.\"",
+      "\"Saw the Phase 2 cut treatment failure by 66%; the Phase 3 is next.\""
+     ],
+     "answer": 2,
+     "why": "It is about them, it is specific, and it shows you read their news. The other two are about Lindus."
+    }
+   ]
+  },
+  {
+   "id": "lab",
+   "nav": "Model lab",
+   "kicker": "Lesson 6",
+   "title": "Which Claude model for which job?",
+   "idea": "Sorting and extracting at volume doesn't need the biggest model; judgement calls do. We measured it on this course's own accounts.",
+   "blocks": [
+    {
+     "type": "principle",
+     "name": "Match the tool to the job",
+     "body": "Lindus will screen hundreds of assets to sign four or five. Screening is volume work; the final call on a licence is expensive to get wrong. Use the cheapest model that sorts well, and the best one where a mistake costs a deal."
+    },
+    {
+     "type": "modellab",
+     "task": "Sort 15 real companies into fit / no fit as licensors for Lindus Therapeutics, with a one-line reason. 10 passed our checks, 5 failed them.",
+     "measured": true,
+     "runs": [
+      {
+       "model": "claude-haiku-4-5",
+       "label": "Haiku 4.5",
+       "latency_s": 5.33,
+       "input_tokens": 1752,
+       "output_tokens": 578,
+       "cost_usd": 0.004642,
+       "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Upstream Bio | No fit | $261.3M cash, clear runway through Phase 3, and no partnering plans announced. |\n| Corbus Pharmaceuticals | Fit | Phase 1b obesity data, Phase 2 planned H1 2027, likely needs capital for parallel oncology trial. |\n| Mithra Pharmaceuticals | No fit | Bankrupt; assets acquired by Gedeon Richter in 2024. |\n| Pila Pharma | Fit | Two Phase 2a trials done, EMA approval for obesity trial, analysts assume more capital needed. |\n| Reviva Pharmaceuticals | Fit | Phase 3 completed, FDA requesting second Phase 3, financing contingent, actively pursuing partnerships. |\n| Terns Pharmaceuticals | No fit | Being acquired by Merck; decision-making no longer theirs. |\n| Skye Bioscience | Fit | Phase 2a obesity completed, merging with Redx, nimacimab to be divested or partnered. |\n| Palatin Technologies | No fit | First IND expected Q4 2026; no human clinical data yet. |\n| Dermata Therapeutics | No fit | Withdrew IND and paused acne drug program in 2025-2026; asset no longer active. |\n| Neumora Therapeutics | No fit | Lead drug failed Phase 3; $147M cash to Q3 2027; no partnering plans announced. |\n| Vistagen | Fit | Fasedienol failed Phase 3, refisolone Phase 2-ready, newly appointed Chief Corporate Development Officer signaling openness to licensing. |\n| D&D Pharmatech | Fit | Phase 2 MASH data positive (May 2026), China rights out, CEO explicitly says aiming to sign licensing deal by year-end. |\n| Connect Biopharma | Fit | Phase 2 asthma efficacy data (Sep 2026), $31.5M cash (~1 year runway), needs Phase 3 funding. |\n| Yarrow Bioscience | Fit | Legacy dermatology BET inhibitors in Phase 1b/2 with psoriasis signal; company signals assets may be sold or licensed. |\n| Aclaris Therapeutics | No fit | Cash to end of 2028; pursuing partnerships only for respiratory programs outside China, not seeking external funding. |",
+       "verdict": "Fastest and cheapest; called a shelved asset and a partner-seeker no fit",
+       "score": "13/15"
+      },
+      {
+       "model": "claude-sonnet-5",
+       "label": "Sonnet 5",
+       "latency_s": 17.08,
+       "input_tokens": 2432,
+       "output_tokens": 1807,
+       "cost_usd": 0.022934,
+       "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Upstream Bio | No fit | Well-funded, plans its own Phase 3 trials with no partnering intent stated |\n| Corbus Pharmaceuticals | No fit | Phase 1b obesity data exists but company is funding its own next trial with no stated need for a partner |\n| Mithra Pharmaceuticals | No fit | Bankrupt and its assets already acquired by Gedeon Richter |\n| Pila Pharma | Fit | Phase 2a obesity/diabetes asset with human data, likely needs additional capital to proceed |\n| Reviva Pharmaceuticals | Fit | Phase 3-stage schizophrenia asset, cash-constrained, explicitly pursuing partnerships |\n| Terns Pharmaceuticals | No fit | Being acquired by Merck, so decision no longer theirs |\n| Skye Bioscience | Fit | Phase 2a obesity antibody with human data being divested/partnered after merger |\n| Palatin Technologies | No fit | Rare genetic obesity focus with no human data yet |\n| Dermata Therapeutics | Fit | Positive Phase 3 acne asset shelved after company pivot to consumer skincare |\n| Neumora Therapeutics | No fit | Lead asset failed and discontinued; remaining program is self-funded with no partnering plans |\n| Vistagen | Fit | Phase 2-ready women's health asset (refisolone) with new licensing-focused hire |\n| D&D Pharmatech | Fit | Phase 2 MASH asset with human data, Asian company seeking ex-China/world partner |\n| Connect Biopharma | Fit | Phase 2 asthma antibody with human data, short cash runway, needs partner for Phase 3 |\n| Yarrow Bioscience (ex-VYNE) | Fit | Phase 1b dermatology asset with human data now up for sale or license after pivot |\n| Aclaris Therapeutics | Fit | Phase 1b/2 respiratory/dermatology antibodies with human data, explicitly seeking strategic partnerships |",
+       "verdict": "Caught every trap; disputed Corbus, and implied a funding fact not given",
+       "score": "14/15"
+      },
+      {
+       "model": "claude-opus-5-5",
+       "label": "Opus 5.5",
+       "latency_s": 14.88,
+       "input_tokens": 2434,
+       "output_tokens": 1741,
+       "cost_usd": 0.044556,
+       "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Upstream Bio | No fit | Has $261.3M and runway through 2027 to run its own Phase 3s, with no partnering plans announced. |\n| Corbus Pharmaceuticals | No fit | Plans to run the obesity Phase 2 itself, with no stated cash gap or partner search; priority is a registrational oncology trial. |\n| Mithra Pharmaceuticals | No fit | Went bankrupt in 2024, and Gedeon Richter acquired its estetrol assets. |\n| Pila Pharma | Fit | Obesity/T2D drug has two Phase 2a trials done and only part of the next trial funded, so more capital is needed. |\n| Reviva Pharmaceuticals | Fit | Schizophrenia Phase 3 depends on new financing; the company moved to OTCQB and is openly pursuing partnerships. |\n| Terns Pharmaceuticals | No fit | Merck is acquiring it, so the metabolic assets are no longer its decision. |\n| Skye Bioscience | Fit | Obesity antibody has Phase 2a data and will be divested or partnered after the company refocuses on fibrosis. |\n| Palatin Technologies | No fit | Targets rare genetic obesities and has no human data on the new molecules. |\n| Dermata Therapeutics | Fit | Acne drug has positive Phase 3 data, but the program is paused after the pivot to consumer skincare. |\n| Neumora Therapeutics | No fit | Is funding its own next Phase 2 into Q3 2027 and has announced no partnering plans. |\n| Vistagen | Fit | Has a Phase 2-ready menopausal hot-flash drug after its lead drug missed Phase 3, cash only into 2027, and a new licensing-focused BD chief. |\n| D&D Pharmatech | Fit | MASH drug hit its Phase 2 endpoints, and the company is actively seeking a licensee for rights outside China. |\n| Connect Biopharma | Fit | Has a positive Phase 2 in acute asthma attacks but only about one year of cash, and needs a Phase 3 next. |\n| Yarrow Bioscience (formerly VYNE) | Fit | Legacy dermatology BET inhibitor with a Phase 1b psoriasis signal may be sold or licensed after the merger (note the partial clinical hold). |\n| Aclaris Therapeutics | Fit | Has Phase 1b/2 asthma and atopic dermatitis assets and says it is seeking partners for respiratory programs outside China. |",
+       "verdict": "Caught every trap; disputed Corbus with the clearest, most careful reasons",
+       "score": "14/15"
+      }
+     ],
+     "takeaway": "All three models caught every disqualifier: the Merck buyout, the bankruptcy, the cash-rich companies and the rare-disease focus. Haiku lost two real fits because it read \"program paused\" and \"funded but seeking partners\" as reasons to walk away, which is backwards for an in-licenser. Sonnet and Opus only disagreed with our key on Corbus, and they have a point: the line shows a fresh readout but no stated cash gap or partner search, so our \"fit\" was a timing judgement. Sonnet matched Opus for about half the price, so it is the default for sorting; use Haiku only as a first pass with a human reading its no-fits."
+    },
+    {
+     "type": "text",
+     "body": "Total cost of the lab: $0.0721, run on 24 September 2026 with the list prices in model-lab.json (checked the same day) [s57]. Prices change, so re-check before you plan a budget."
+    },
+    {
+     "type": "table",
+     "heading": "Which model for which job",
+     "columns": [
+      "Job",
+      "Model",
+      "Why"
+     ],
+     "rows": [
+      [
+       "Sorting candidate licensors against the ICP",
+       "Sonnet 5",
+       "14/15 in the lab, same as Opus, at about half the cost"
+      ],
+      [
+       "Pulling phase, cash runway and rights out of filings",
+       "Haiku 4.5",
+       "Fast and cheap for extraction; the lab showed it misreads nuance, so a human checks its no-fits"
+      ],
+      [
+       "Drafting first messages at volume",
+       "Sonnet 5",
+       "Good writing, runs often, cost adds up"
+      ],
+      [
+       "The ICP decision, notes to your top five, grading the agent",
+       "Opus 5.5",
+       "Few calls, and the costly mistakes happen here"
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "body": "Every current model also takes an effort setting, from low to max. A bigger model on low effort is sometimes a better trade than a smaller model."
+    }
+   ]
+  },
+  {
+   "id": "agent",
+   "nav": "Make it an agent",
+   "kicker": "Lesson 7",
+   "title": "Can this run without me?",
+   "idea": "Everything in lessons 1 to 5 can run every week. An agent is a model with instructions, tools and a way to check its own work; Claude Managed Agents hosts it on your schedule and grades each run against a rubric.",
+   "blocks": [
+    {
+     "type": "principle",
+     "name": "Systems beat heroics",
+     "body": "Readouts and runway warnings land every week across these 15 companies. A Monday check you never skip will catch Connect-style windows that a quarterly push misses. Put the watching on a schedule and spend your time on the calls."
+    },
+    {
+     "type": "pipeline",
+     "steps": [
+      {
+       "icon": "🗓️",
+       "label": "On your schedule",
+       "detail": "Scheduled deployment, weekday mornings by default"
+      },
+      {
+       "icon": "🤖",
+       "label": "Agent",
+       "detail": "Your licensor ICP, five signals and message rules"
+      },
+      {
+       "icon": "🔎",
+       "label": "Tools",
+       "detail": "Web search and fetch on releases, filings and news"
+      },
+      {
+       "icon": "🎯",
+       "label": "Grader",
+       "detail": "Checks sources, dates, independence and drafts against the rubric"
+      },
+      {
+       "icon": "📄",
+       "label": "Report",
+       "detail": "New signals on your 15 accounts, each with a draft note"
+      }
+     ]
+    },
+    {
+     "type": "code",
+     "body": "cd agent\ncp .env.example .env     # paste your Anthropic API key\nbash launch.sh           # creates the agent and schedule, runs once now\npython3 report.py        # when the run finishes: downloads the report",
+     "caption": "The kit is in agent/. MODEL is set to Sonnet 5 because it matched Opus in the lab at about half the price."
+    },
+    {
+     "type": "callout",
+     "tone": "tip",
+     "title": "Cost and control",
+     "body": "Each run reads news and filings for 15 companies, so cost grows with the list; each run's cost shows in the Console, and RUN_BUDGET_CENTS in .env is a hard cap per run. The agent only writes a report: it sends nothing and contacts no one. The kit can also connect Otto for verified contacts at each account with a signal."
+    },
+    {
+     "type": "callout",
+     "tone": "warning",
+     "title": "Keep trial data out of it",
+     "body": "Lindus runs clinical trials, which involve patient health data. This agent only reads public web data. Never give it trial, patient or partner data-room files."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "The agent's first run flags Terns as \"ready\" because of its partnering news, but Merck bought Terns in May. What do you change so it doesn't happen again?",
+     "options": [
+      "The instructions",
+      "The rubric",
+      "The schedule"
+     ],
+     "answer": 1,
+     "why": "Add a rubric line that every reported company must still be independent, so the grader sends the run back when it isn't. Instructions help, but only the rubric makes it a checked rule."
+    }
+   ]
+  },
+  {
+   "id": "next",
+   "nav": "What next",
+   "kicker": "Lesson 8",
+   "title": "What happens next?",
+   "idea": "A list and a message are a plan. Pipeline comes from sending, following up, handling replies and learning which assets say yes.",
+   "blocks": [
+    {
+     "type": "principle",
+     "name": "Founder-led sales first",
+     "body": "The first five licences will be won by the CEO, the VP of Corporate Development and the CMO in the room, not by a sequence. Only they can change the deal shape, from an option to a co-development to a SpinCo, in the same call [s1]. Automate the watching and the first touch; keep the conversations."
+    },
+    {
+     "type": "stack",
+     "layers": [
+      {
+       "name": "Positioning and ICP",
+       "detail": "The licensor, who signs, and the alternative (a dilutive raise)",
+       "owner": "course"
+      },
+      {
+       "name": "Target accounts",
+       "detail": "15 checked licensors, tiered by fit and timing",
+       "owner": "course"
+      },
+      {
+       "name": "Buying signals",
+       "detail": "Readouts, funding gaps, pivots, watched on your schedule",
+       "owner": "course"
+      },
+      {
+       "name": "The right people",
+       "detail": "BD heads and CEOs, confirmed at their current company",
+       "owner": "otto"
+      },
+      {
+       "name": "Outreach",
+       "detail": "Sequences on LinkedIn and email, sent once you approve",
+       "owner": "otto"
+      },
+      {
+       "name": "Replies",
+       "detail": "Sorted by intent, with drafts to approve",
+       "owner": "otto"
+      },
+      {
+       "name": "Calls, diligence and term sheets",
+       "detail": "Data rooms, trial plans, deal terms",
+       "owner": "you"
+      },
+      {
+       "name": "Pipeline and learning",
+       "detail": "Results synced to the CRM; every no feeds back into lesson 1",
+       "owner": "otto"
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "heading": "From plan to pipeline",
+     "columns": [
+      "Step",
+      "This course",
+      "Otto"
+     ],
+     "rows": [
+      [
+       "Decide who buys (ICP, personas)",
+       "✓ lesson 1",
+       "Keeps the ICP and scores new accounts against it"
+      ],
+      [
+       "Build the account list",
+       "✓ lesson 2, checked once",
+       "Company search against the ICP, kept in a workbook"
+      ],
+      [
+       "Watch for buying signals",
+       "✓ lesson 3, then the agent on your schedule",
+       "Signal Agents watching the accounts continuously"
+      ],
+      [
+       "Find the right people",
+       "Method only (lesson 4)",
+       "Verified people and their current employer"
+      ],
+      [
+       "Write the first message",
+       "✓ one example (lesson 5)",
+       "A sequence per account: first message plus follow-ups"
+      ],
+      [
+       "Send it, follow up, stop when they reply",
+       "Next step →",
+       "Campaigns on LinkedIn and email, paced within daily limits"
+      ],
+      [
+       "Handle replies",
+       "Next step →",
+       "Inbox triage and reply drafts"
+      ],
+      [
+       "Track what works",
+       "Next step →",
+       "Campaign performance: accepts, replies, reply rate"
+      ],
+      [
+       "Keep the CRM up to date",
+       "Next step →",
+       "Pushes companies and contacts to a connected CRM without duplicates"
+      ]
+     ]
+    },
+    {
+     "type": "steps",
+     "heading": "Setting up a campaign in Otto from this course",
+     "items": [
+      "Bring the accounts in: import the lesson 2 table into a workbook named after this course, with each domain so Otto matches existing companies.",
+      "Bring the people in: add the BD heads and CEOs you verified, as a dry run first; every person should attach to one of the 15 companies, with no new companies created.",
+      "Pick a sequence: create a draft campaign from a template. Nothing launches yet.",
+      "Write the steps: the lesson 5 message as step 1, then one or two follow-ups that each bring a new fact (the COPD readout, a trial timeline), not a repeat.",
+      "Enrol and schedule: add the workbook, set send days, window, time zone and a daily cap.",
+      "Check before launch: run the pre-launch check for missing leads, empty copy, no connected mailbox or LinkedIn account, or no schedule.",
+      "Launch when you're ready, yourself. Replies land in Otto's inbox, sorted, with drafts for your approval."
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "tip",
+     "title": "Nothing sends until you launch it",
+     "body": "This course made no campaign and sent nothing. Start at [otto-pilot.io](https://otto-pilot.io) when you want the sending, follow-up and replies handled."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "The pre-launch check says \"no mailbox that can see replies\". What happens if you try to launch anyway?",
+     "options": [
+      "It sends and you miss the replies",
+      "Otto refuses to launch until the blocker is fixed",
+      "It launches on LinkedIn only"
+     ],
+     "answer": 1,
+     "why": "The pre-launch check blocks launch until the missing piece is fixed."
+    }
+   ]
+  }
+ ]
+}

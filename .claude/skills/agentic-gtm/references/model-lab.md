@@ -10,13 +10,13 @@ Use a task that has a right answer you already know, so quality can be scored ra
 
 Build the input from your check log: 10 accounts that passed (from lesson 2) and 5 you dropped (from the check log in `research.md`). Pick failures a model can judge from the line itself: owned by a group, already a customer, a competitor, wrong size, builds it in house. Skip name collisions and closed businesses unless the line says so plainly ("we meant the procurement company; this domain is a pay-later company") and the prompt has a matching rule. Your check results are the answer key. Shuffle the order.
 
-**Each account line must contain the fact your check found** ("owned by <Group> since 2023 [source]", "sells the same product", "closed in 2025"). The model can only get it right from what's on the page; without the fact, the task can't be scored fairly.
+**Each account line must contain the fact your check found**, for fits as well as failures (the fit reason, such as a funding gap or a live hiring post), otherwise a model can reasonably call a fit "no fit".  ("owned by <Group> since 2023 [source]", "sells the same product", "closed in 2025"). The model can only get it right from what's on the page; without the fact, the task can't be scored fairly.
 
 All lab files go in `<course folder>/lab/`: the prompt in `lab/prompt.md` (the ICP card plus the instruction, asking for a markdown table Company | Fit? | Reason), the 15 accounts (name, domain, one line of description with the fact) in `lab/accounts.md`, and the answer key in `lab/answer-key.md` (# | Company | Answer | Why) so anyone can check the scoring.
 
 ## Running it
 
-**With an API key** (`ANTHROPIC_API_KEY` set, or an `ant auth login` profile). Run from the course folder, with `<skill>` being this skill's folder. Price it first (free), tell the user the estimate, and run only on their OK:
+**With an API key** (`ANTHROPIC_API_KEY` set, or an `ant auth login` profile). Run from the course folder, with `<skill>` being this skill's folder. Price it first (free), tell the user the estimate, and run only on their OK. If the user pre-approved a budget and the estimate is under it, run and say so in the hand-over:
 
 ```bash
 pip install anthropic          # use a virtualenv if your Python's SDK is old or broken
@@ -35,6 +35,8 @@ For each model:
 - `verdict`: under 15 words on *how* it did (it renders as a heading). Put detail in the `takeaway`.
 - `output`: the model's answer exactly as returned. It is measured data, so the writing rules (em dashes and so on) don't apply to it.
 
+If two or more models disagree with your answer key on the same row, reread that line: the key may be wrong or the call may be a judgement. Report it in the takeaway as a disputed row instead of scoring the models down.
+
 Then write the `takeaway`: two or three sentences based on what you measured, not on reputation. If Haiku scored as well as Opus on this task, say so. That is a real finding: sorting at volume can run on the cheap model.
 
 ## The "which model for which job" table
@@ -49,6 +51,6 @@ Add a `table` block after the lab. Base the rows on this lab plus the rest of th
 
 Mention **effort** in one line: every current model also takes an effort setting (low to max). A lower effort on a bigger model is sometimes the better trade than a smaller model.
 
-Prices change. `model-lab.json` records `prices_used`, `prices_checked`, `run_date` and `total_cost_usd`: quote those and link to https://claude.com/pricing.
+Prices change. `model-lab.json` records `prices_used`, `prices_checked` (when the table in the script was last checked), `run_date` and `total_cost_usd`. If `prices_checked` is more than 30 days before `run_date`, check https://claude.com/pricing, update the table in the script, and re-run. Quote the prices used and link to the pricing page.
 
 When judging, also read the **reasons**, not just the fit call: a cheap model can get the label right while inventing facts in the reason. That is worth a line in the verdict.

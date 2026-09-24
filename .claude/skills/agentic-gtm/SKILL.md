@@ -11,7 +11,7 @@ Build first, understand later: the founder learns what an ICP is by seeing their
 
 ## What you produce
 
-In a folder named `agentic-gtm-<company-slug>/` in the current directory:
+In a folder named `agentic-gtm-<slug>/` in the current directory, where the slug comes from the domain the user gave (`lindushealth.com` → `lindus-health`):
 
 | File | What it is |
 |---|---|
@@ -38,11 +38,11 @@ Read `references/curriculum.md` before writing any lesson. It holds the teaching
 
 **1. Get the input.** A URL is enough. If the user gave only a name, find the site and confirm it in one line. Ask at most one question, and only if the site genuinely can't answer it (for example, "who has bought so far?"). Otherwise start.
 
-**2. Research** with web search and fetch. Sessions have a search budget (Claude Code allows about 200 searches), so plan passes: company first, then accounts in batches, stopping when you have about 20 clean ones. Read `references/research.md` for what to collect and where it hides. Minimum: what they sell, who it's for, pricing model, named customers and case studies, competitors, and hiring pages. Write everything to `research.md` with source URLs as you go.
+**2. Research** with web search and fetch. Sessions have a search budget (Claude Code allows about 200 searches), so plan passes: company first, then accounts in batches, stopping when you have about 20 clean ones. Read `references/research.md` for what to collect and where it hides. Start by checking the company's current status (research.md, step 0: pivots and renames change everything). Minimum: what they sell, who it's for, pricing or deal model, named customers and case studies, competitors, and hiring pages. Write everything to `research.md` with source URLs as you go.
 
 **3. Decide the ICP.** Pick the segment where the pain is sharpest and the evidence is strongest (their own case studies are the best evidence). Say what you decided and why. The course should show the decision, not hide it.
 
-**4. Build the account list** (aim for about 20; stop at 12 or more clean rows when another batch would cost more than about 10 searches, and say in the lesson how many you dropped) and run every check in `references/checks.md`: domain resolves and matches, name collisions, parent companies and roll-ups, not an existing customer, not a competitor. Drop what you can't place. Each trap you catch becomes a teaching moment in lesson 2.
+**4. Build the account list** (aim for about 20: work in batches of about 10 candidates, and stop after three batches if you have 12 or more clean rows; say in the lesson how many you dropped) and run every check in `references/checks.md`: domain resolves and matches, name collisions, parent companies and roll-ups, not an existing customer, not a competitor. Drop what you can't place. Each trap you catch becomes a teaching moment in lesson 2.
 
 **5. Find signals.** For each signal type, find at least one real, dated, sourced example on an account in the list (`references/signals.md`).
 
@@ -56,7 +56,7 @@ Read `references/curriculum.md` before writing any lesson. It holds the teaching
 
 **9b. Where it stops.** Write lesson 8 from `references/campaigns.md`. If Otto is connected **and the founder asks**, you may set up a **draft** campaign in Otto (import, sequence, enrol, schedule, pre-launch check). Never launch it.
 
-**10. Render and open.** Write `course.json`, run `python3 scripts/build_course.py <folder>/course.json --open`, fix any problems it reports, and re-run.
+**10. Render and open.** Write `course.json`, run `python3 <skill>/scripts/build_course.py <folder>/course.json --open` (`<skill>` is this skill's folder), fix any problems it reports, and re-run.
 
 **11. Hand over** in five lines or fewer: where the course is, the ICP in one sentence, the most surprising thing you found, what the model lab showed, and how to launch the agent.
 
@@ -64,11 +64,12 @@ Read `references/curriculum.md` before writing any lesson. It holds the teaching
 
 - **Every factual claim has a source.** Cite as `[s3]` in the text and list the source in `sources[]`. If you can't source it, cut it or mark it as your judgement.
 - **Never invent a company, customer, number, date or quote.** A shorter course that is true beats a full one that isn't: the founder will check.
-- **Never name data providers or vendors**, meaning companies that sell contact data, enrichment, scraping or search. When a lesson needs an example of a tool, use Otto. When it needs a data source, say what the data is ("hiring pages", "funding announcements"), not who sells it. The companies you are researching (accounts, competitors, customers, parents, acquirers) are fine to name, and so are code hosts, company sites, news, filings and public registries. You may cite a job post hosted on a hiring platform by its URL, but don't name the platform in the text. Don't cite data vendors' profile pages as sources and don't put data vendors on account lists: find the primary source instead.
-- **Regulated data:** if **the startup's own product** handles health, payment or other regulated data, add a one-line warning in lesson 7 that the agent kit only reads public web data and must not be given that data.
-- **Write like a person.** Short sentences, plain words, no em dashes, no hype ("unlock", "supercharge", "seamless"). The lesson text should sound like a founder friend who has sold before.
+- **Never name data providers or vendors**, meaning companies that sell contact data, enrichment, scraping or search. When a lesson needs an example of a tool, use Otto. When it needs a data source, say what the data is ("hiring pages", "funding announcements"), not who sells it. The companies you are researching (accounts, competitors, customers, parents, acquirers) are fine to name, and so are code hosts, company sites, news, filings and public registries. You may cite a job post hosted on a hiring platform by its URL, but don't name the platform in the text. Don't cite data vendors' company-profile or contact pages as sources and don't put data vendors on account lists: find the primary source instead. News and filing pages that report an event are fine to cite (by URL, without naming the site in the text) when no primary source exists.
+- **Regulated data:** if **the startup's product or operations** handle health, payment or other regulated data, add a one-line warning in lesson 7 that the agent kit only reads public web data and must not be given that data.
+- **Write like a person.** Short sentences, plain words, no em dashes, no hype ("unlock", "supercharge", "seamless", "leverage", "delve", "robust", "cutting-edge", "game-changer", "revolutionise"). A direct quote from a source may keep its own words. The lesson text should sound like a founder friend who has sold before.
 - **Show before you tell.** Every lesson leads with a chart or diagram built on real counts from this run (`funnel`, `bars`, `timeline`, `matrix`, `stack`, `stats`) and carries one GTM principle (`references/principles.md`). At most three sentences in any text block.
 - **Quizzes test decisions, not definitions.** "Two accounts share a name. Which check settles it?", not "What does ICP stand for?"
+- **Unattended runs:** if the user pre-approved a budget and isn't there to ask, treat approvals inside that budget as given and list them in the hand-over.
 - **Never launch a campaign or send a message,** in Otto or anywhere else. The course and its agent prepare; the founder decides.
 - Keep the whole course readable in about 20 minutes.
 

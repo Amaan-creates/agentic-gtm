@@ -91,6 +91,8 @@ def main():
     if args.input:
         prompt += "\n\n<input>\n" + open(args.input).read() + "\n</input>"
 
+    if (time.time() - time.mktime(time.strptime(PRICES_CHECKED, "%Y-%m-%d"))) > 30 * 86400:
+        print(f"note: the price table was last checked {PRICES_CHECKED}; confirm https://claude.com/pricing before quoting costs", file=sys.stderr)
     client = anthropic.Anthropic()
     models = [m.strip() for m in args.models.split(",") if m.strip()]
     if args.estimate:

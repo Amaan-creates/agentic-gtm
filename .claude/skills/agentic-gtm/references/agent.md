@@ -23,7 +23,7 @@ cp .env.example .env        # paste an Anthropic API key into .env
 bash launch.sh              # creates the environment, agent and schedule, then runs once now
 ```
 
-`launch.sh` is safe to re-run: it records IDs in `IDS.env` and skips what already exists. Write the commands as `bash launch.sh` and `python3 report.py` in the lesson: a downloaded folder loses the executable bit.
+Check the filled-in kit with `bash launch.sh --dry-run`: it prints the agent and schedule it would create, and lists any placeholders still unfilled, without calling any API. `launch.sh` is safe to re-run: it records IDs in `IDS.env` and skips what already exists. Write the commands as `bash launch.sh` and `python3 report.py` in the lesson: a downloaded folder loses the executable bit.
 
 Set `MODEL` in `agent/.env.example` from the model lab, with a one-line comment saying why (for example, Sonnet if it matched Opus on your accounts at lower cost).
 

@@ -24,7 +24,7 @@ Use glossary terms (`{{ICP}}`, `{{persona}}`, `{{buying signal}}`, `{{roll-up}}`
 - A `fields` block: the ICP card. Industries, company size, regions, the pain (in their customers' words where possible), disqualifiers, why now.
 - A `cards` block: 2 to 4 personas. Each card says the role, what they own, and the one reason they'd care. Tag the one who signs.
 - A `text` or `callout` showing **the decision**: which segments you considered and why you picked this one. Cite the evidence (case studies, pricing page, job posts).
-- A `bars` chart of the evidence: named customers or case studies per segment, so the founder sees where proof clusters. Principle: beachhead market, anti-ICP, jobs to be done or positioning.
+- A `bars` chart of the evidence: named customers or case studies per segment, so the founder sees where proof clusters. If there are no buyers yet (new company, or just pivoted), chart the evidence you do have (for example past delivery by area) and label it as proof of capability, not of demand. Principle: beachhead market, anti-ICP, jobs to be done or positioning.
 
 **Good quiz:** "A clinic's front-desk coordinator loves the product. Who most likely signs the contract?" with the persona cards as options.
 
@@ -33,10 +33,10 @@ Use glossary terms (`{{ICP}}`, `{{persona}}`, `{{buying signal}}`, `{{roll-up}}`
 **Teach:** a target account list is only useful if every row is the right company. Most list errors come from a few predictable traps.
 
 **Must contain:**
-- A `table`: 12 to 40 accounts (aim for about 20). Columns: Company (linked to its site), Location, Segment, Why it fits, Why now (if any), Check. (The agent kit's `accounts.md` uses the same columns.) Keep the "why" to one line.
+- A `table`: 12 to 40 accounts (aim for about 20). Columns: Company (linked to its site), Location, Segment, Why it fits, Why now (if any), Check. (The agent kit's `accounts.md` takes Company, Domain, Location, Segment and Why it fits from this table.) Keep the "why" to one line.
 - A `callout` with `tone: "trap"` for **each** trap you actually caught in this run (see `checks.md`): the name collision, the hidden parent company, the closed business, the existing customer. Name the real case.
 - A `steps` block: the checks, in order, so the founder can run them on their own list.
-- A `funnel`: candidates found → checks passed → kept, with the real counts.
+- A `funnel` with these stages and real counts: **Candidates found** → **Right company** (checks 1, 2 and 4: domain, collision, still operating) → **Independent and available** (checks 3, 5, 6, 6b, 6c) → **Kept** (fits the ICP on the facts). Accounts you couldn't settle leave at the stage where they stalled.
 - A `bars` chart of **why** accounts were dropped (owned by a group, competitor already in, existing customer, too small, could not settle…), with counts.
 - Optional `matrix`: fit (x) against timing (y) for the kept accounts, with quadrant labels such as "Call now" (top right), "Watch" (bottom right). Place accounts only on evidence: timing is high when there is a dated signal.
 Principle: tier your accounts, or a list is only as good as its checks.
@@ -78,7 +78,7 @@ Principle: problem before product, or one ask per message.
 
 **Good quiz:** "Which opening line gets a reply?" with one generic, one about you, one about them.
 
-## Lesson 6. Model lab
+## Lesson 6. Model lab (title: "Which Claude model for which job?")
 
 **Teach:** different Claude models suit different GTM jobs. Bulk sorting and extraction don't need the biggest model. Judgement calls (the ICP decision, a message to a key account, grading work) do. Measure it instead of guessing.
 
@@ -88,7 +88,7 @@ Principle: problem before product, or one ask per message.
 
 See `model-lab.md` for the task and how to judge it. Principle: match the tool to the job.
 
-## Lesson 7. Make it an agent
+## Lesson 7. Make it an agent (title: "Can this run without me?")
 
 **Teach:** everything in this course can run every week without you. An agent is a model with instructions, tools and a way to check its own work. Claude Managed Agents hosts it, runs it on a schedule, and grades each run against a rubric you write.
 

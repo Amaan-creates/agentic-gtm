@@ -1,0 +1,60 @@
+{
+  "task": "Sort 15 real companies into fit / no fit as licensors for Lindus Therapeutics, with a one-line reason. 10 passed our checks, 5 failed them.",
+  "measured": true,
+  "runs": [
+    {
+      "model": "claude-haiku-4-5",
+      "label": "Haiku 4.5",
+      "latency_s": 5.33,
+      "input_tokens": 1752,
+      "output_tokens": 578,
+      "cost_usd": 0.004642,
+      "stop_reason": "end_turn",
+      "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Upstream Bio | No fit | $261.3M cash, clear runway through Phase 3, and no partnering plans announced. |\n| Corbus Pharmaceuticals | Fit | Phase 1b obesity data, Phase 2 planned H1 2027, likely needs capital for parallel oncology trial. |\n| Mithra Pharmaceuticals | No fit | Bankrupt; assets acquired by Gedeon Richter in 2024. |\n| Pila Pharma | Fit | Two Phase 2a trials done, EMA approval for obesity trial, analysts assume more capital needed. |\n| Reviva Pharmaceuticals | Fit | Phase 3 completed, FDA requesting second Phase 3, financing contingent, actively pursuing partnerships. |\n| Terns Pharmaceuticals | No fit | Being acquired by Merck; decision-making no longer theirs. |\n| Skye Bioscience | Fit | Phase 2a obesity completed, merging with Redx, nimacimab to be divested or partnered. |\n| Palatin Technologies | No fit | First IND expected Q4 2026; no human clinical data yet. |\n| Dermata Therapeutics | No fit | Withdrew IND and paused acne drug program in 2025-2026; asset no longer active. |\n| Neumora Therapeutics | No fit | Lead drug failed Phase 3; $147M cash to Q3 2027; no partnering plans announced. |\n| Vistagen | Fit | Fasedienol failed Phase 3, refisolone Phase 2-ready, newly appointed Chief Corporate Development Officer signaling openness to licensing. |\n| D&D Pharmatech | Fit | Phase 2 MASH data positive (May 2026), China rights out, CEO explicitly says aiming to sign licensing deal by year-end. |\n| Connect Biopharma | Fit | Phase 2 asthma efficacy data (Sep 2026), $31.5M cash (~1 year runway), needs Phase 3 funding. |\n| Yarrow Bioscience | Fit | Legacy dermatology BET inhibitors in Phase 1b/2 with psoriasis signal; company signals assets may be sold or licensed. |\n| Aclaris Therapeutics | No fit | Cash to end of 2028; pursuing partnerships only for respiratory programs outside China, not seeking external funding. |",
+      "verdict": "Fastest and cheapest; called a shelved asset and a partner-seeker no fit",
+      "score": "13/15"
+    },
+    {
+      "model": "claude-sonnet-5",
+      "label": "Sonnet 5",
+      "latency_s": 17.08,
+      "input_tokens": 2432,
+      "output_tokens": 1807,
+      "cost_usd": 0.022934,
+      "stop_reason": "end_turn",
+      "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Upstream Bio | No fit | Well-funded, plans its own Phase 3 trials with no partnering intent stated |\n| Corbus Pharmaceuticals | No fit | Phase 1b obesity data exists but company is funding its own next trial with no stated need for a partner |\n| Mithra Pharmaceuticals | No fit | Bankrupt and its assets already acquired by Gedeon Richter |\n| Pila Pharma | Fit | Phase 2a obesity/diabetes asset with human data, likely needs additional capital to proceed |\n| Reviva Pharmaceuticals | Fit | Phase 3-stage schizophrenia asset, cash-constrained, explicitly pursuing partnerships |\n| Terns Pharmaceuticals | No fit | Being acquired by Merck, so decision no longer theirs |\n| Skye Bioscience | Fit | Phase 2a obesity antibody with human data being divested/partnered after merger |\n| Palatin Technologies | No fit | Rare genetic obesity focus with no human data yet |\n| Dermata Therapeutics | Fit | Positive Phase 3 acne asset shelved after company pivot to consumer skincare |\n| Neumora Therapeutics | No fit | Lead asset failed and discontinued; remaining program is self-funded with no partnering plans |\n| Vistagen | Fit | Phase 2-ready women's health asset (refisolone) with new licensing-focused hire |\n| D&D Pharmatech | Fit | Phase 2 MASH asset with human data, Asian company seeking ex-China/world partner |\n| Connect Biopharma | Fit | Phase 2 asthma antibody with human data, short cash runway, needs partner for Phase 3 |\n| Yarrow Bioscience (ex-VYNE) | Fit | Phase 1b dermatology asset with human data now up for sale or license after pivot |\n| Aclaris Therapeutics | Fit | Phase 1b/2 respiratory/dermatology antibodies with human data, explicitly seeking strategic partnerships |",
+      "verdict": "Caught every trap; disputed Corbus, and implied a funding fact not given",
+      "score": "14/15"
+    },
+    {
+      "model": "claude-opus-5-5",
+      "label": "Opus 5.5",
+      "latency_s": 14.88,
+      "input_tokens": 2434,
+      "output_tokens": 1741,
+      "cost_usd": 0.044556,
+      "stop_reason": "end_turn",
+      "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Upstream Bio | No fit | Has $261.3M and runway through 2027 to run its own Phase 3s, with no partnering plans announced. |\n| Corbus Pharmaceuticals | No fit | Plans to run the obesity Phase 2 itself, with no stated cash gap or partner search; priority is a registrational oncology trial. |\n| Mithra Pharmaceuticals | No fit | Went bankrupt in 2024, and Gedeon Richter acquired its estetrol assets. |\n| Pila Pharma | Fit | Obesity/T2D drug has two Phase 2a trials done and only part of the next trial funded, so more capital is needed. |\n| Reviva Pharmaceuticals | Fit | Schizophrenia Phase 3 depends on new financing; the company moved to OTCQB and is openly pursuing partnerships. |\n| Terns Pharmaceuticals | No fit | Merck is acquiring it, so the metabolic assets are no longer its decision. |\n| Skye Bioscience | Fit | Obesity antibody has Phase 2a data and will be divested or partnered after the company refocuses on fibrosis. |\n| Palatin Technologies | No fit | Targets rare genetic obesities and has no human data on the new molecules. |\n| Dermata Therapeutics | Fit | Acne drug has positive Phase 3 data, but the program is paused after the pivot to consumer skincare. |\n| Neumora Therapeutics | No fit | Is funding its own next Phase 2 into Q3 2027 and has announced no partnering plans. |\n| Vistagen | Fit | Has a Phase 2-ready menopausal hot-flash drug after its lead drug missed Phase 3, cash only into 2027, and a new licensing-focused BD chief. |\n| D&D Pharmatech | Fit | MASH drug hit its Phase 2 endpoints, and the company is actively seeking a licensee for rights outside China. |\n| Connect Biopharma | Fit | Has a positive Phase 2 in acute asthma attacks but only about one year of cash, and needs a Phase 3 next. |\n| Yarrow Bioscience (formerly VYNE) | Fit | Legacy dermatology BET inhibitor with a Phase 1b psoriasis signal may be sold or licensed after the merger (note the partial clinical hold). |\n| Aclaris Therapeutics | Fit | Has Phase 1b/2 asthma and atopic dermatitis assets and says it is seeking partners for respiratory programs outside China. |",
+      "verdict": "Caught every trap; disputed Corbus with the clearest, most careful reasons",
+      "score": "14/15"
+    }
+  ],
+  "takeaway": "All three models caught every disqualifier: the Merck buyout, the bankruptcy, the cash-rich companies and the rare-disease focus. Haiku lost two real fits because it read \"program paused\" and \"funded but seeking partners\" as reasons to walk away, which is backwards for an in-licenser. Sonnet and Opus only disagreed with our key on Corbus, and they have a point: the line shows a fresh readout but no stated cash gap or partner search, so our \"fit\" was a timing judgement. Sonnet matched Opus for about half the price, so it is the default for sorting; use Haiku only as a first pass with a human reading its no-fits.",
+  "total_cost_usd": 0.072132,
+  "run_date": "2026-09-24",
+  "prices_checked": "2026-09-24",
+  "prices_used": {
+    "claude-haiku-4-5": [
+      1.0,
+      5.0
+    ],
+    "claude-sonnet-5": [
+      2.0,
+      10.0
+    ],
+    "claude-opus-5-5": [
+      4.0,
+      20.0
+    ]
+  }
+}

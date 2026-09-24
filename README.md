@@ -15,7 +15,7 @@ Give it your URL. It researches your market and gives you a short interactive co
 
 ![Scrolling through a course: the funnel from 107 candidates to 23 kept accounts, why 84 were dropped, a timeline of dated buying signals, and the 0 to 1 GTM stack](docs/demo.gif)
 
-**Examples:** [How to sell Tennr](https://amaan-creates.github.io/agentic-gtm/examples/tennr/course.html) (YC W23) · [How to sell Greptile](https://amaan-creates.github.io/agentic-gtm/examples/greptile/course.html) (YC W24)
+**Examples:** [How to sell Tennr](https://amaan-creates.github.io/agentic-gtm/examples/tennr/course.html) (YC W23) · [How to sell Greptile](https://amaan-creates.github.io/agentic-gtm/examples/greptile/course.html) (YC W24) · [How to sell Lindus Health](https://amaan-creates.github.io/agentic-gtm/examples/lindus-health/course.html) (London, life sciences, mid-pivot)
 
 ## Get started
 
@@ -132,10 +132,12 @@ A new operations lead reviews every tool in their first 90 days. A hiring post f
 
 | You want | `SCHEDULE` |
 |---|---|
-| Every weekday morning | `0 8 * * 1-5` |
-| Monday morning | `0 8 * * 1` |
-| Tuesdays and Thursdays | `0 9 * * 2,4` |
-| Once a month | `0 7 1 * *` |
+| Every weekday morning | `SCHEDULE="0 8 * * 1-5"` |
+| Monday morning | `SCHEDULE="0 8 * * 1"` |
+| Tuesdays and Thursdays | `SCHEDULE="0 9 * * 2,4"` |
+| Once a month | `SCHEDULE="0 7 1 * *"` |
+
+Keep the quotes: the value has spaces.
 
 Set `TIMEZONE` to yours (for example `Europe/London` or `America/New_York`), and `WINDOW_DAYS` to how far back each run looks: 1 for a daily schedule, 7 for weekly.
 

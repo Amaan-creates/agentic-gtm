@@ -7,10 +7,34 @@
 #   bash launch.sh --pause      stop the schedule (nothing is deleted)
 #   bash launch.sh --resume     start it again from the next scheduled time
 #   bash launch.sh --status     show the schedule and the next runs
+#   bash launch.sh --dry-run    print the agent and schedule it would create; no API calls, no key needed
 #
 # Safe to re-run: IDs are saved to IDS.env and existing objects are reused.
 set -euo pipefail
 cd "$(dirname "$0")"
+if [ "${1:-}" = "--dry-run" ]; then
+  set -a; source "$( [ -f .env ] && echo .env || echo .env.example )"; set +a
+  COMPANY=$(sed -n 's/^# Brief: *//p' brief.md | head -1)
+  python3 - "$COMPANY" "${MODEL:-claude-sonnet-5}" <<'PY'
+import json, os, sys
+a = json.load(open("agent.json"))
+for k in ("name", "description", "system"):
+    a[k] = a[k].replace("{{COMPANY}}", sys.argv[1] or "Your company")
+a["model"] = sys.argv[2]
+task = open("kickoff.md").read().replace("{{WINDOW_DAYS}}", os.environ.get("WINDOW_DAYS", "7"))
+task += "\n\n" + open("brief.md").read() + "\n\n" + open("accounts.md").read()
+dep = {"name": "Signal watch", "agent": "<created by launch.sh>", "environment_id": "<created by launch.sh>",
+       "schedule": {"type": "cron", "expression": os.environ.get("SCHEDULE", "0 8 * * 1"), "timezone": os.environ.get("TIMEZONE", "UTC")},
+       "budget": {"type": "limit", "max_list_cost": {"amount": os.environ.get("RUN_BUDGET_CENTS", "500"), "currency": "USD"}},
+       "initial_events": [{"type": "user.define_outcome", "description": task[:400] + " …", "rubric": {"type": "text", "content": open("outcome.md").read()[:200] + " …"}, "max_iterations": 3}],
+       "resources": [{"type": "memory_store", "memory_store_id": "<created by launch.sh>", "access": "read_write"}]}
+print("AGENT\n" + json.dumps({k: (v[:300] + " …" if isinstance(v, str) and len(v) > 300 else v) for k, v in a.items()}, indent=2))
+print("\nSCHEDULE\n" + json.dumps(dep, indent=2))
+leftover = [f for f in ("brief.md", "accounts.md") if "{{" in open(f).read()]
+print("\nplaceholders still to fill: " + (", ".join(leftover) if leftover else "none"))
+PY
+  exit 0
+fi
 [ -f .env ] || { echo "Copy .env.example to .env and add your API key first."; exit 1; }
 set -a; source .env; [ -f IDS.env ] && source IDS.env; set +a
 : "${ANTHROPIC_API_KEY:?Add ANTHROPIC_API_KEY to .env}"
