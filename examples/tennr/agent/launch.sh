@@ -2,7 +2,7 @@
 # Launch the signal-watch agent on Claude Managed Agents, on the schedule you set.
 #
 #   bash launch.sh              create environment, agent and scheduled deployment, then run once now
-#   bash launch.sh --redeploy   rebuild the deployment after editing brief.md / accounts.md / outcome.md
+#   bash launch.sh --redeploy   rebuild the agent and deployment after editing .env, brief.md, accounts.md or outcome.md
 #   bash launch.sh --run        trigger one run now
 #   bash launch.sh --pause      stop the schedule (nothing is deleted)
 #   bash launch.sh --resume     start it again from the next scheduled time
@@ -106,7 +106,10 @@ if [ -z "${MEMSTORE_ID:-}" ]; then
 fi
 echo "✅ memory $MEMSTORE_ID"
 
-# 2. Agent: the model, instructions and tools. Versioned; edits create a new version.
+# 2. Agent: the model, instructions and tools. --redeploy rebuilds it, so a new MODEL or Otto key takes effect.
+if [ "${1:-}" = "--redeploy" ] && [ -n "${AGENT_ID:-}" ]; then
+  sed -i.bak '/^AGENT_ID=/d' IDS.env && rm -f IDS.env.bak; unset AGENT_ID
+fi
 if [ -z "${AGENT_ID:-}" ]; then
   COMPANY=$(sed -n 's/^# Brief: *//p' brief.md | head -1)
   python3 - "$COMPANY" "${MODEL:-claude-sonnet-5}" "$OTTO" > "$TMP/agent.json" <<'PY'
@@ -127,6 +130,10 @@ if otto:
     a["system"] += ("\n\nOtto is connected. For each account with a signal, use linkedin_find_people with a companies filter "
                     "and the persona's roles to name the person to contact, and keep only people whose current employer is that account. "
                     "Say in the report which contacts Otto found. Never run a bare name search.")
+else:
+    a["system"] += ("\n\nOtto is not connected, so name roles, not people. Open signals.md with one line: how many accounts "
+                    "are worth contacting this run, then \"Connect Otto and each one comes with the person to contact, "
+                    "checked against their current employer.\"")
 print(json.dumps(a))
 PY
   api POST /agents "${H[@]}" -d @"$TMP/agent.json"

@@ -10,10 +10,10 @@ This table overrides anything else in the references.
 |---|---|---|
 | 1 to 2 | Nothing | Say what Otto found, with counts |
 | 3. Signals | Nothing | Live signals from Otto, and that Signal Agents can watch them |
-| 4. People | One line: Otto can find and verify the people in each persona | Counts of verified people (no names unless the user asked) |
+| 4. People | One `otto` callout, after the persona table: title "Who holds these roles today?", body "This course uses public pages, so it names roles, not people. Connect Otto to see who holds each role at your N accounts, each checked against their current employer." (N = kept accounts) | Counts of verified people (no names unless the user asked) |
 | 5. Message | Nothing | One line: Otto can draft a sequence per account for review |
 | 6. Model lab | Nothing | Nothing |
-| 7. Agent | One line: the kit can connect Otto for verified contacts | Say the kit is set up with Otto's free tools |
+| 7. Agent | One line: without Otto the report names roles; with Otto each account comes with the person to contact | Say the kit is set up with Otto's free tools |
 | 8. What next | The full table and steps from `campaigns.md` | The same, plus where the draft campaign is, if one was made |
 
 ## Detecting it

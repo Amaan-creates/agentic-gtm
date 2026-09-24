@@ -57,7 +57,7 @@
 
 **table**: `{"type": "table", "columns": ["Company", "Why it fits"], "rows": [["[Example Co](https://example.com)", "…"]], "numeric": [2], "caption": "…"}`. `numeric` lists the column indexes shown in monospace.
 
-**callout**: `{"type": "callout", "tone": "trap", "title": "Two companies, one name", "body": "…"}`. `tone` is `trap`, `tip` or `warning`.
+**callout**: `{"type": "callout", "tone": "trap", "title": "Two companies, one name", "body": "…"}`. `tone` is `trap`, `tip`, `warning` or `otto` (mint, for the one Otto line a lesson may carry; see `otto.md`).
 
 **signals**:
 ```json

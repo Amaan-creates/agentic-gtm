@@ -696,9 +696,9 @@
         },
         {
           "type": "callout",
-          "tone": "tip",
-          "title": "Otto can do this part",
-          "body": "Otto finds people in each persona at your accounts and checks each one against their current employer before they go on a list. This course used public pages only, so it names no one."
+          "tone": "otto",
+          "title": "Who holds these roles today?",
+          "body": "This course uses public pages, so it names roles, not people. Connect Otto to see who holds each role at your 23 accounts, each checked against their current employer."
         },
         {
           "type": "exercise",

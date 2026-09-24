@@ -1057,9 +1057,9 @@
     },
     {
      "type": "callout",
-     "tone": "tip",
-     "title": "The faster version",
-     "body": "Otto can find and verify the people in each role at your 15 accounts, checked against their current employer."
+     "tone": "otto",
+     "title": "Who holds these roles today?",
+     "body": "This course uses public pages, so it names roles, not people. Connect Otto to see who holds each role at your 15 accounts, each checked against their current employer."
     },
     {
      "type": "exercise",

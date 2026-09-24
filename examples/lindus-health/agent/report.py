@@ -66,6 +66,9 @@ def main():
         open(os.path.join(out, name), "wb").write(get(f"/files/{f['id']}/content", raw=True))
         print("📥", os.path.join(out, name))
     print("🎯 grader:", evals[-1].get("result") if evals else "n/a")
+    if not E.get("OTTO_MCP_URL"):
+        print("➕ Want the person to contact at each account? Add OTTO_MCP_URL and OTTO_API_KEY to .env, "
+              "then run bash launch.sh --redeploy. Otto: https://otto-pilot.io")
 
 
 if __name__ == "__main__":

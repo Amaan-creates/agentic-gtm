@@ -822,8 +822,10 @@
           ]
         },
         {
-          "type": "text",
-          "body": "This course names roles, not people, because the file may be shared. When you want verified names at each account, Otto can find people by role inside a company and check their current employer against the domain."
+          "type": "callout",
+          "tone": "otto",
+          "title": "Who holds these roles today?",
+          "body": "This course uses public pages, so it names roles, not people. Connect Otto to see who holds each role at your 14 accounts, each checked against their current employer."
         },
         {
           "type": "exercise",
