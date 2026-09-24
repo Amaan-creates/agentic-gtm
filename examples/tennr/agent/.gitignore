@@ -1,0 +1,4 @@
+.env
+IDS.env
+reports/
+__pycache__/

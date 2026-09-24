@@ -1,0 +1,44 @@
+{
+  "task": "Sort 15 home medical equipment suppliers into fit / no fit for Tennr's ICP, with a one-line reason. 10 passed our checks. 5 failed: a fresh acquisition, a private equity owner, an existing customer, too many locations, a cash retail store. Three fits carry facts that sound alarming but break no rule.",
+  "measured": true,
+  "runs": [
+    {
+      "model": "claude-haiku-4-5",
+      "label": "Haiku 4.5",
+      "latency_s": 4.11,
+      "input_tokens": 1448,
+      "output_tokens": 411,
+      "cost_usd": 0.003503,
+      "stop_reason": "end_turn",
+      "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Medical Comfort Systems | fit | 4 locations, independent, all three product lines, referral-driven |\n| Dynamic Healthcare Services | no fit | Acquired by national provider Nationwide Medical in 2026 |\n| Corner Home Medical | fit | ~25 locations, family-owned, sleep and respiratory, referral-driven |\n| Kansas City Home Medical Supply | no fit | Homepage indicates cash/retail-first model, no insurance billing or physician orders |\n| Reliable Respiratory | fit | 21 locations, independent, all three product lines, referral-driven |\n| BritKare Home Medical | fit | 3 locations, family-owned, sleep and respiratory, independent after 2020 division sale |\n| Performance Home Medical | no fit | Existing Tennr customer |\n| Regional Home Care | fit | 21 locations, independent since 1982, all three product lines, referral-driven |\n| DASCO Home Medical Equipment | no fit | Private equity portfolio company after 2020 recapitalization |\n| Buckeye Home Medical Equipment | fit | 13 locations, family-owned, all three product lines, referral-driven |\n| Total Respiratory | fit | 31 locations, independent with multiple legal entity names, all three product lines, referral-driven |\n| Norco Medical | no fit | 85 locations exceeds 40-location maximum |\n| OxyCare Plus | fit | 6 locations, independent, all three product lines, actively growing |\n| Medi-Rents & Sales | no fit | 2 locations falls below 2-location minimum |\n| Home Oxygen Company | fit | 3 locations, independent, all three product lines, referral-driven |",
+      "verdict": "Caught all five traps, then dropped Medi-Rents: read \"2 offices\" as below a 2-to-40 range. Reasons are padded: says \"all three product lines\" for suppliers that sell one or two.",
+      "score": "14/15"
+    },
+    {
+      "model": "claude-sonnet-5",
+      "label": "Sonnet 5",
+      "latency_s": 12.9,
+      "input_tokens": 2050,
+      "output_tokens": 1492,
+      "cost_usd": 0.01902,
+      "stop_reason": "end_turn",
+      "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Medical Comfort Systems | fit | Independent, 4 SC locations, sleep/respiratory/diabetes\u2014the \"acquired\" hit is an unrelated HVAC firm, no real acquisition. |\n| Dynamic Healthcare Services | no fit | Acquired by Nationwide Medical, a national provider\u2014decision now made at head office. |\n| Corner Home Medical | fit | Family-owned, 25 locations, CPAP/respiratory, fits size and product lines. |\n| Kansas City Home Medical Supply | no fit | Retail-first, \"NO paperwork,\" no mention of insurance billing or physician orders. |\n| Reliable Respiratory | fit | Independently owned, 21 locations, sleep/oxygen/ventilation, referral-driven with auth staff. |\n| BritKare Home Medical | fit | Family-owned, 3 locations, core CPAP/oxygen business stayed independent after divesting rehab unit. |\n| Performance Home Medical | no fit | Existing Tennr customer. |\n| Regional Home Care | fit | Independent since 1982, 21 offices, sleep/oxygen/CGM within size range. |\n| DASCO Home Medical Equipment | no fit | Currently a private equity portfolio company despite \"family owned\" branding. |\n| Buckeye Home Medical Equipment | fit | Family-owned, 13 locations, oxygen/PAP/ventilation, referral-based. |\n| Total Respiratory | fit | Independent, 31 locations, no parent found, referral-driven intake. |\n| Norco Medical | no fit | 85 locations exceeds the 2\u201340 location range. |\n| OxyCare Plus | fit | Independent, 6 locations, oxygen/CPAP/BiPAP, growing regionally. |\n| Medi-Rents & Sales | fit | Locally owned since 1980, 2 offices, ventilation/oxygen, in-house reimbursement team. |\n| Home Oxygen Company | fit | Independent, 3 sites, oxygen/CPAP/ventilation; acquiring a hospice equipment line doesn't break any rule. |",
+      "verdict": "All 15 right. Saw through all three distractors (the HVAC namesake, the sold wheelchair division, the hospice deal) and said why.",
+      "score": "15/15"
+    },
+    {
+      "model": "claude-opus-5-5",
+      "label": "Opus 5.5",
+      "latency_s": 9.79,
+      "input_tokens": 2052,
+      "output_tokens": 1108,
+      "cost_usd": 0.030368,
+      "stop_reason": "end_turn",
+      "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Medical Comfort Systems | fit | Independent SC supplier with 4 locations covering respiratory, sleep and CGM; the \"acquired\" hits are for an unrelated HVAC company |\n| Dynamic Healthcare Services | no fit | Acquired by Nationwide Medical, a national home medical provider, in Apr 2026, so decisions are made at head office |\n| Corner Home Medical | fit | Family-owned, about 25 locations, CPAP and respiratory, and branch staff do order entry and insurance verification |\n| Kansas City Home Medical Supply | no fit | Retail-first store: praises \"NO paperwork\" and mentions no insurance billing or physician orders |\n| Reliable Respiratory | fit | Independently owned, 21 locations, sleep, oxygen and ventilation, and hiring an authorization specialist |\n| BritKare Home Medical | fit | Family-owned, 3 TX locations, CPAP and oxygen; it sold only its rehab division, and the core business stayed with the family |\n| Performance Home Medical | no fit | Already a Tennr customer |\n| Regional Home Care | fit | Independent since 1982, 21 offices, sleep, oxygen and CGM |\n| DASCO Home Medical Equipment | no fit | Private equity portfolio company since its 2020 recapitalization, despite the \"family owned\" claim |\n| Buckeye Home Medical Equipment | fit | Family-owned, 13 locations, oxygen, PAP and ventilation, and referral-driven |\n| Total Respiratory | fit | 31 locations with no parent found; branches under other legal names break no rule; intake handles physician referrals |\n| Norco Medical | no fit | 85 locations, well over the 40-location maximum |\n| OxyCare Plus | fit | 6 locations in MS and AL, oxygen and CPAP; recent branch growth keeps it within the size range |\n| Medi-Rents & Sales | fit | Locally owned, 2 offices (meets the 2-location minimum), ventilation and oxygen, and bills insurance through its own reimbursement department |\n| Home Oxygen Company | fit | 3 CA sites, oxygen, CPAP and ventilation, and takes physician orders; it was the buyer in the 2024 deal, not the one acquired |",
+      "verdict": "All 15 right, with the most exact reasons: the April 2026 deal, the \"family owned\" claim that hides a PE owner, and that 2 offices meets the minimum.",
+      "score": "15/15"
+    }
+  ],
+  "takeaway": "All three models caught all five real traps. Haiku's one miss was a boundary (2 locations is inside \"2 to 40\"), and its reasons claimed facts that weren't in the input, so read its reasons with care. Sonnet matched Opus for about 60% of the price here.",
+  "note": "Second run of the lab after one input line was corrected; the first run (same scores) cost $0.0533. Total lab spend $0.1062."
+}

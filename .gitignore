@@ -1,0 +1,9 @@
+.env
+IDS.env
+*.bak
+__pycache__/
+.DS_Store
+# courses you generate for yourself; the published example lives in examples/
+agentic-gtm-*/
+**/agent/reports/
+.impeccable/

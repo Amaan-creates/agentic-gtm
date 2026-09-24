@@ -1,0 +1,54 @@
+{
+  "task": "Sort 15 accounts into Fit / No fit for Greptile's ICP, with a one-line reason. 10 passed our checks, 5 failed (a roll-up, a competitor, an existing customer, a competitor's customer, an in-house build). Each line carries the fact the check found.",
+  "measured": true,
+  "runs": [
+    {
+      "model": "claude-haiku-4-5",
+      "label": "Haiku 4.5",
+      "latency_s": 4.63,
+      "input_tokens": 1212,
+      "output_tokens": 470,
+      "cost_usd": 0.003562,
+      "stop_reason": "end_turn",
+      "output": "| Company | Fit? | Reason |\n|---------|------|--------|\n| Chime | Fit | Fintech, San Francisco, hiring for AI platforms team with code review focus |\n| Confluent | No fit | Rule 4: acquired by IBM on 2026-03-17, now wholly owned subsidiary |\n| Gusto | Fit | Payroll software, hiring Manager for Developer Productivity with AI code review ownership |\n| Instacart | Fit | 1,000+ engineers, monorepo, hiring to build AI-powered code review |\n| Sentry | No fit | Rule 2: sells its own AI code review product (Seer AI Code Review) |\n| Samsara | Fit | IoT platform, Developer Experience team hiring for AI coding agents and code review |\n| Plaid | Fit | Financial data infrastructure, hiring for AI tooling to automate lower-leverage work |\n| Harvey | No fit | Rule 4: acquired Guardrails AI on 2026-09-09; buying decision complexity from acquisition spree |\n| Asana | No fit | Rule 3: named public customer of direct competitor Graphite (case study on homepage) |\n| Brex | No fit | Rule 4: acquired by Capital One on 2026-04-07; also Rule 1: existing Greptile customer |\n| Temporal | Fit | Open-source platform, 570-person team, large engineering org, raised $550M Series E |\n| Mercury | Fit | Business banking, 300+ engineers implied, fintech-adjacent with banking approval, hiring for DX |\n| Benchling | Fit | Biotech R&D software, high-stakes codebase, hiring for Platform/Developer Experience |\n| Intercom | No fit | Rule 5: built its own PR review agent and auto-approves 19%+ of PRs without human review |\n| Checkr | Fit | 800 employees, $800M+ revenue, verification platform with likely high-stakes code requirements |",
+      "verdict": "Fast. Caught all 5 traps, misread Harvey (acquirer, not acquired), invented 2 details in its reasons",
+      "score": "14/15",
+      "verdict_long": "Fast and cheap. Caught all five traps, but marked Harvey No fit under rule 4 when Harvey is the acquirer, not the acquired. Invented two details in its reasons (a 'code review focus' for Chime, '300+ engineers implied' for Mercury)."
+    },
+    {
+      "model": "claude-sonnet-5",
+      "label": "Sonnet 5",
+      "latency_s": 17.99,
+      "input_tokens": 1633,
+      "output_tokens": 1837,
+      "cost_usd": 0.021636,
+      "stop_reason": "end_turn",
+      "output": "# Sorted Accounts\n\n| Company | Fit? | Reason |\n|---|---|---|\n| Chime | Fit | Consumer fintech (regulated, high-stakes) building AI enablement/guardrails team, no disqualifiers. |\n| Confluent | No fit | Rule 4 \u2014 now a wholly owned subsidiary of IBM; buying decision moves to parent. |\n| Gusto | Fit | HR/payroll software actively building dev-productivity/AI code review function and owning vendor contracts, fits ICP. |\n| Instacart | Fit | 1,000+ engineers, monorepo, hiring for AI code review capability \u2014 no rule triggers (not yet built/live). |\n| Sentry | No fit | Rule 2 \u2014 sells its own AI code review product (Seer), a direct competitor. |\n| Samsara | Fit | IoT/connected-ops company building AI code review agents via Dev Experience team, fits ICP. |\n| Plaid | Fit | Financial data infra (regulated, high-stakes) hiring for AI tooling to offload review work. |\n| Harvey | Fit | Software company (legal AI) with no disqualifying rule; it is the acquirer, not the acquired. |\n| Asana | No fit | Rule 3 \u2014 named public customer of Graphite (competitor). |\n| Brex | No fit | Rule 1 (existing Greptile customer) and Rule 4 (acquired by Capital One). |\n| Temporal | Fit | Independent software company, no competitor ties or acquisition, fits general ICP. |\n| Mercury | Fit | Regulated fintech (national bank approval) hiring for frontend dev experience, fits ICP. |\n| Benchling | Fit | Biotech R&D software (high-stakes data) hiring for developer experience/platform, fits ICP. |\n| Intercom | No fit | Rule 5 \u2014 built own PR review agent, publicly auto-approves 19% of PRs with no human reviewer. |\n| Checkr | Fit | Background-check/verification platform (high-stakes data), ~800 employees, no disqualifiers. |",
+      "verdict": "All 15 right, reasons close to the facts, slowest run",
+      "score": "15/15",
+      "verdict_long": "All 15 right, with rule numbers. Reasons stay close to the facts; one small stretch (says Plaid is offloading 'review work' when the line says 'lower-leverage work'). Slowest run, because it wrote the most."
+    },
+    {
+      "model": "claude-opus-5-5",
+      "label": "Opus 5.5",
+      "latency_s": 13.1,
+      "input_tokens": 1635,
+      "output_tokens": 1329,
+      "cost_usd": 0.03312,
+      "stop_reason": "end_turn",
+      "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Chime | Fit | San Francisco consumer fintech (regulated) building an AI Enablement team for internal AI platforms and guardrails. |\n| Confluent | No fit | Rule 4: now a wholly owned IBM subsidiary (acquisition closed 2026-03-17), so the buying decision sits with IBM. |\n| Gusto | Fit | Payroll/HR (regulated data) hiring a Developer Productivity manager to own automated AI code review and its vendor contracts. |\n| Instacart | Fit | 1,000+ engineers on a monorepo, with a DevEx role hiring to build AI-powered code review; no auto-approval claim, so Rule 5 does not apply. |\n| Sentry | No fit | Rule 2: sells its own AI code review product (Seer AI Code Review, $40 per contributor per month). |\n| Samsara | Fit | IoT infrastructure platform whose Developer Experience team is designing AI agents for coding and code review. |\n| Plaid | Fit | Financial data infrastructure (high-stakes) hiring for AI tooling so engineers can delegate work to AI agents. |\n| Harvey | Fit | Legal AI company that is the acquirer, not the acquired, so Rule 4 does not apply; well-funded, but engineering size and review pain are not stated. |\n| Asana | No fit | Rule 3: named public Graphite customer (case study on Graphite's homepage). |\n| Brex | No fit | Rule 1: already a Greptile customer (Greptile reviews 100% of its code); Rule 4 also applies since Capital One acquired it. |\n| Temporal | Fit | Infrastructure platform with fast growth (570 people, new $550M Series E); engineer count may be near the low end of the range. |\n| Mercury | Fit | Business banking moving toward a national bank charter (regulated), hiring for Developer Experience. |\n| Benchling | Fit | Biotech R&D software (high-stakes data) hiring for Platform/Developer Experience. |\n| Intercom | No fit | Rule 5: built its own PR review agent and says over 19% of PRs are auto-approved with no human reviewer. |\n| Checkr | Fit | Regulated background-check platform with about 800 employees; no disqualifier, but no review or DevEx signal is given. |",
+      "verdict": "All 15 right, and the only one to say what it didn't know",
+      "score": "15/15",
+      "verdict_long": "All 15 right, and the only one that said what it did not know: Harvey's engineering size, Temporal near the low end of the size band, no signal for Checkr. The reasons you would forward to a teammate."
+    }
+  ],
+  "takeaway": "On a sorting task with written rules, Haiku got 14 of 15 for about a ninth of Opus's cost and in a third of the time. Its miss was a careless read (acquirer vs acquired) and it padded two reasons with facts that were not on the page, so use it for volume and spot-check its reasons. Sonnet and Opus were both perfect; Opus was faster than Sonnet here and flagged its own gaps, which is what you want on the calls that matter.",
+  "total_cost_usd": 0.0583,
+  "prices_used": {
+    "claude-haiku-4-5": "$1 in / $5 out per million tokens",
+    "claude-sonnet-5": "$2 / $10",
+    "claude-opus-5-5": "$4 / $20",
+    "source": "scripts/model_lab.py PRICES table; check https://claude.com/pricing"
+  },
+  "run_date": "2026-09-24"
+}

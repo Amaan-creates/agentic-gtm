@@ -1,0 +1,1 @@
+Check every account below for new buying signals from the last {{WINDOW_DAYS}} days as of this run, following the brief. Write the report to /mnt/session/outputs/signals.md (most promising signal first, then the rest, then a one-line "nothing new" list) and the same data to /mnt/session/outputs/signals.json.

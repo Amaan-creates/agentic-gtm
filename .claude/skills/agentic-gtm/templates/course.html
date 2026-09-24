@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTM course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f7f3ea; --paper-2: #efe9dc; --card: #fffdf8; --ink: #1d1b16; --ink-2: #57524a; --ink-3: #6f695f;
+  --line: #ddd5c4; --accent: #1f5c4a; --accent-ink: #ffffff; --accent-soft: #e2ede7;
+  --amber: #9a5b00; --amber-soft: #f8ead0; --red: #a3302a; --red-soft: #f6e1dc; --blue: #245a8f; --blue-soft: #e1ebf5;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #16150f; --paper-2: #1e1c16; --card: #22201a; --ink: #f1ece0; --ink-2: #c3bcad; --ink-3: #a39c8d;
+    --line: #3a362c; --accent: #7fc7a8; --accent-ink: #10231c; --accent-soft: #1d3029;
+    --amber: #f0b45a; --amber-soft: #3a2c14; --red: #f08a80; --red-soft: #3a1f1c; --blue: #8fbce8; --blue-soft: #1a2837;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #16150f; --paper-2: #1e1c16; --card: #22201a; --ink: #f1ece0; --ink-2: #c3bcad; --ink-3: #a39c8d;
+  --line: #3a362c; --accent: #7fc7a8; --accent-ink: #10231c; --accent-soft: #1d3029;
+  --amber: #f0b45a; --amber-soft: #3a2c14; --red: #f08a80; --red-soft: #3a1f1c; --blue: #8fbce8; --blue-soft: #1a2837;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+code { font: 0.88em var(--mono); background: var(--paper-2); padding: 1px 5px; border-radius: 4px; }
+
+.progress { position: fixed; inset: 0 0 auto 0; height: 3px; background: transparent; z-index: 20; }
+.progress > div { height: 100%; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; transition: transform .15s linear; }
+
+.layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); max-width: 1180px; margin: 0 auto; gap: 48px; padding: 0 24px; }
+nav.toc { position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto; padding: 40px 0 24px; }
+nav.toc .brand { font: 600 12px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 18px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; }
+nav.toc li a { display: flex; gap: 10px; align-items: baseline; padding: 7px 10px; border-radius: 8px; color: var(--ink-2); text-decoration: none; font-size: 14px; }
+nav.toc li a:hover { background: var(--paper-2); color: var(--ink); }
+nav.toc li a.active { background: var(--accent-soft); color: var(--ink); font-weight: 600; }
+nav.toc li a .n { font: 500 12px var(--mono); color: var(--ink-3); min-width: 18px; }
+nav.toc li a .done { margin-left: auto; color: var(--accent); font-size: 12px; }
+.theme-btn { margin-top: 20px; background: none; border: 1px solid var(--line); color: var(--ink-2); font: 13px var(--sans); padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+
+main { padding: 56px 0 120px; min-width: 0; }
+header.hero { padding-bottom: 36px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 700 clamp(34px, 5vw, 54px)/1.05 var(--serif); letter-spacing: -0.02em; margin: 14px 0 16px; text-wrap: balance; }
+.lede { font-size: 19px; color: var(--ink-2); max-width: 62ch; margin: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 20px; font-size: 13px; color: var(--ink-3); }
+.meta b { color: var(--ink-2); font-weight: 600; }
+
+section.lesson { padding: 56px 0 8px; scroll-margin-top: 16px; }
+.kicker { font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+h2 { font: 700 clamp(26px, 3.4vw, 36px)/1.15 var(--serif); letter-spacing: -0.015em; margin: 10px 0 18px; text-wrap: balance; }
+h3 { font: 600 17px/1.35 var(--sans); margin: 0 0 6px; }
+.idea { border-left: 3px solid var(--accent); padding: 4px 0 4px 18px; margin: 0 0 26px; font-size: 17.5px; color: var(--ink); max-width: 66ch; }
+.idea .label { display: block; font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.block { margin: 0 0 24px; }
+.block p { margin: 0 0 12px; max-width: 70ch; }
+.block-title { font: 600 13px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
+.card p { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+.tag { display: inline-block; font: 500 11px/1 var(--mono); letter-spacing: .04em; padding: 4px 7px; border-radius: 5px; background: var(--paper-2); color: var(--ink-2); margin-bottom: 10px; }
+.tag.accent { background: var(--accent-soft); color: var(--accent); }
+.tag.amber { background: var(--amber-soft); color: var(--amber); }
+
+.fields { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.fields > div { background: var(--card); padding: 14px 16px; }
+.fields .k { font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+.fields .v { font-size: 15px; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--card); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 600 12px var(--sans); color: var(--ink-3); background: var(--paper-2); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--mono); white-space: nowrap; }
+.caption { font-size: 13px; color: var(--ink-3); margin-top: 8px; }
+
+.callout { border-radius: var(--r); padding: 16px 18px; border: 1px solid; }
+.callout .t { font-weight: 600; margin-bottom: 4px; display: flex; gap: 8px; align-items: center; }
+.callout p { margin: 0; font-size: 15px; }
+.callout p + p, .exercise p + p { margin-top: 8px; }
+.callout.trap { background: var(--amber-soft); border-color: color-mix(in srgb, var(--amber) 35%, transparent); }
+.callout.trap .t { color: var(--amber); }
+.callout.tip { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 30%, transparent); }
+.callout.tip .t { color: var(--accent); }
+.callout.warning { background: var(--red-soft); border-color: color-mix(in srgb, var(--red) 30%, transparent); }
+.callout.warning .t { color: var(--red); }
+
+.signals { display: grid; gap: 12px; }
+.signal { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 18px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
+.signal .watch { font-size: 14px; color: var(--ink-2); margin: 6px 0 0; }
+.signal .why { font-size: 14px; margin: 0; }
+.signal .ex { margin-top: 10px; font-size: 13.5px; background: var(--paper-2); border-radius: 8px; padding: 8px 10px; color: var(--ink-2); }
+.signal .ex b { color: var(--ink); }
+
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.compare > div { border-radius: var(--r); padding: 16px 18px; border: 1px solid var(--line); background: var(--card); }
+.compare .lbl { font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+.compare .bad .lbl { color: var(--red); } .compare .good .lbl { color: var(--accent); }
+.compare .bad { border-top: 3px solid var(--red); } .compare .good { border-top: 3px solid var(--accent); }
+.compare .body { white-space: pre-wrap; font-size: 14.5px; }
+.compare .notes { margin-top: 12px; font-size: 13px; color: var(--ink-3); }
+
+.lab-bars { display: grid; gap: 10px; margin-bottom: 14px; }
+.lab-row { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 12px; align-items: center; font-size: 14px; }
+.lab-row .name { font-weight: 600; }
+.lab-row .bars { display: grid; gap: 4px; }
+.bar { height: 10px; border-radius: 5px; background: var(--accent); min-width: 3px; }
+.bar.t { background: var(--blue); }
+.bar-l { font: 12px var(--mono); color: var(--ink-3); }
+.legend { display: flex; gap: 16px; font-size: 12.5px; color: var(--ink-3); margin-bottom: 10px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.outputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 14px; }
+.outputs .card pre { white-space: pre-wrap; font: 12.5px/1.5 var(--mono); margin: 8px 0 0; color: var(--ink-2); max-height: 260px; overflow: auto; }
+.score { font: 600 13px var(--mono); color: var(--accent); }
+
+.pipeline { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+.pipe-step { flex: 1 1 150px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; position: relative; }
+.pipe-step .ic { font-size: 20px; }
+.pipe-step .lb { font-weight: 600; margin: 6px 0 4px; }
+.pipe-step .dt { font-size: 13px; color: var(--ink-2); }
+.pipe-arrow { align-self: center; color: var(--ink-3); font-size: 18px; }
+
+pre.code { background: #1d1b16; color: #efe9dc; border-radius: var(--r); padding: 16px 18px; overflow-x: auto; font: 13px/1.55 var(--mono); margin: 0; }
+pre.code code { background: none; color: inherit; padding: 0; font: inherit; }
+ol.steps { margin: 0; padding-left: 22px; } ol.steps li { margin-bottom: 8px; }
+.exercise { background: var(--blue-soft); border-radius: var(--r); padding: 16px 18px; }
+.exercise .t { color: var(--blue); font-weight: 600; margin-bottom: 4px; }
+.exercise p { margin: 0; }
+
+.quiz { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; margin-bottom: 14px; }
+.quiz .q { font-weight: 600; margin-bottom: 12px; }
+.quiz button.opt { display: block; width: 100%; text-align: left; background: var(--paper); border: 1px solid var(--line); color: var(--ink); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; font: 15px var(--sans); cursor: pointer; }
+.quiz button.opt:hover:not([disabled]) { border-color: var(--accent); }
+.quiz button.opt.right { border-color: var(--accent); background: var(--accent-soft); }
+.quiz button.opt.wrong { border-color: var(--red); background: var(--red-soft); }
+.quiz button.opt[disabled] { cursor: default; }
+.quiz .why { display: none; font-size: 14.5px; color: var(--ink-2); margin-top: 6px; }
+.quiz.answered .why { display: block; }
+
+.term { border-bottom: 1px dashed var(--ink-3); cursor: help; position: relative; }
+.term:hover::after, .term:focus::after { content: attr(data-def); position: absolute; left: 0; top: 130%; z-index: 10; width: min(300px, 70vw); background: var(--ink); color: var(--paper); font: 13px/1.45 var(--sans); padding: 9px 11px; border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+sup.src a { font: 11px var(--mono); text-decoration: none; margin-left: 1px; }
+footer.sources { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--ink-2); }
+footer.sources ol { padding-left: 22px; } footer.sources li { margin-bottom: 4px; word-break: break-word; }
+.credit { margin-top: 28px; font-size: 13px; color: var(--ink-3); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 0; padding: 0 16px; }
+  nav.toc { position: sticky; top: 0; z-index: 15; height: auto; padding: 10px 0; background: var(--paper); border-bottom: 1px solid var(--line); overflow-x: auto; }
+  nav.toc .brand, .theme-btn { display: none; }
+  nav.toc ol { display: flex; gap: 4px; }
+  nav.toc li a { white-space: nowrap; padding: 6px 10px; }
+  nav.toc li a .t { display: none; }
+  main { padding-top: 32px; }
+  .signal, .compare { grid-template-columns: 1fr; }
+  .lab-row { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><div id="progress"></div></div>
+<div class="layout">
+  <nav class="toc" aria-label="Lessons">
+    <div class="brand">agentic-gtm</div>
+    <ol id="toc"></ol>
+    <button class="theme-btn" id="theme" type="button">Toggle theme</button>
+  </nav>
+  <main id="main"></main>
+</div>
+
+<script id="course-data" type="application/json">/*COURSE_DATA*/</script>
+<script>
+(function () {
+  "use strict";
+  var data;
+  try { data = JSON.parse(document.getElementById("course-data").textContent); }
+  catch (e) { document.getElementById("main").textContent = "course.json could not be read: " + e.message; return; }
+
+  var glossary = data.glossary || {};
+  var sources = {};
+  (data.sources || []).forEach(function (s, i) { sources[s.id] = { n: i + 1, url: s.url, title: s.title }; });
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function unesc(s) {
+    return String(s).replace(/&(amp|lt|gt|quot|#39);/g, function (_, e) { return { amp: "&", lt: "<", gt: ">", quot: '"', "#39": "'" }[e]; });
+  }
+  function safeUrl(u) { return /^https?:\/\//i.test(String(u || "")) ? esc(u) : "#"; }
+
+  // Inline markup on already-escaped text: **bold**, `code`, [text](https://…), {{Term}}, [s1]
+  function md(s) {
+    var t = esc(s);
+    t = t.replace(/`([^`]+)`/g, "<code>$1</code>");
+    t = t.replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+    t = t.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, function (_, a, u) { return '<a href="' + u + '" target="_blank" rel="noopener">' + a + "</a>"; });
+    t = t.replace(/\{\{([^}]+)\}\}/g, function (_, term) {
+      var def = glossary[unesc(term)];
+      return def ? '<span class="term" tabindex="0" data-def="' + esc(def) + '">' + term + "</span>" : term;
+    });
+    t = t.replace(/\[(s\d+(?:\s*,\s*s\d+)*)\]/g, function (_, ids) {
+      var links = ids.split(/\s*,\s*/).map(function (id) {
+        var s = sources[id];
+        return s ? '<a href="#src-' + id + '" title="' + esc(s.title) + '">' + s.n + "</a>" : "";
+      }).filter(Boolean);
+      return links.length ? '<sup class="src">' + links.join(", ") + "</sup>" : "";
+    });
+    return t;
+  }
+  function paras(s) { return String(s || "").split(/\n{2,}/).map(function (p) { return "<p>" + md(p) + "</p>"; }).join(""); }
+
+  var R = {
+    text: function (b) { return paras(b.body); },
+    cards: function (b) {
+      return '<div class="cards">' + (b.items || []).map(function (c) {
+        return '<div class="card">' + (c.tag ? '<span class="tag ' + (c.tone || "") + '">' + esc(c.tag) + "</span>" : "") +
+          "<h3>" + md(c.title) + "</h3><p>" + md(c.body) + "</p></div>";
+      }).join("") + "</div>";
+    },
+    fields: function (b) {
+      return '<div class="fields">' + (b.items || []).map(function (f) {
+        return '<div><div class="k">' + esc(f.label) + '</div><div class="v">' + md(f.value) + "</div></div>";
+      }).join("") + "</div>";
+    },
+    table: function (b) {
+      var cols = b.columns || [], num = b.numeric || [];
+      return '<div class="table-wrap"><table><thead><tr>' + cols.map(function (c) { return "<th>" + esc(c) + "</th>"; }).join("") +
+        "</tr></thead><tbody>" + (b.rows || []).map(function (r) {
+          return "<tr>" + r.map(function (c, i) { return "<td" + (num.indexOf(i) > -1 ? ' class="num"' : "") + ">" + md(c) + "</td>"; }).join("") + "</tr>";
+        }).join("") + "</tbody></table></div>" + (b.caption ? '<div class="caption">' + md(b.caption) + "</div>" : "");
+    },
+    callout: function (b) {
+      var icon = { trap: "⚠", tip: "✓", warning: "!" }[b.tone] || "•";
+      return '<div class="callout ' + esc(b.tone || "tip") + '"><div class="t"><span aria-hidden="true">' + icon + "</span>" + md(b.title) + "</div>" + paras(b.body) + "</div>";
+    },
+    signals: function (b) {
+      return '<div class="signals">' + (b.items || []).map(function (s) {
+        var ex = "";
+        if (s.example && s.example.none) ex = '<div class="ex">No live example this week. ' + md(s.example.note || "") + "</div>";
+        else if (s.example) ex = '<div class="ex"><b>' + md(s.example.company) + ":</b> " + md(s.example.fact) +
+          (s.example.date ? ' <span style="color:var(--ink-3)">(' + esc(s.example.date) + ")</span>" : "") + "</div>";
+        return '<div class="signal"><div><h3>' + md(s.name) + '</h3><p class="watch">' + md(s.watch) + "</p></div><div>" +
+          '<p class="why">' + md(s.why) + "</p>" + ex + "</div></div>";
+      }).join("") + "</div>";
+    },
+    compare: function (b) {
+      function side(x, cls) {
+        return '<div class="' + cls + '"><div class="lbl">' + esc(x.label) + '</div><div class="body">' + md(x.body) + "</div>" +
+          (x.notes ? '<div class="notes">' + md(x.notes) + "</div>" : "") + "</div>";
+      }
+      return '<div class="compare">' + side(b.left || {}, "bad") + side(b.right || {}, "good") + "</div>";
+    },
+    modellab: function (b) {
+      var runs = b.runs || [];
+      var maxC = Math.max.apply(null, runs.map(function (r) { return r.cost_usd || 0; }).concat([1e-9]));
+      var maxT = Math.max.apply(null, runs.map(function (r) { return r.latency_s || 0; }).concat([1e-9]));
+      var bars = runs.map(function (r) {
+        return '<div class="lab-row"><div class="name">' + esc(r.label || r.model) + (r.score != null ? ' <span class="score">' + esc(r.score) + "</span>" : "") +
+          '</div><div class="bars"><div class="bar" style="width:' + Math.max(1, 100 * (r.cost_usd || 0) / maxC).toFixed(1) + '%"></div>' +
+          '<div class="bar-l">$' + (r.cost_usd || 0).toFixed(4) + " · " + (r.input_tokens || 0) + " in / " + (r.output_tokens || 0) + ' out</div>' +
+          '<div class="bar t" style="width:' + Math.max(1, 100 * (r.latency_s || 0) / maxT).toFixed(1) + '%"></div>' +
+          '<div class="bar-l">' + (r.latency_s || 0).toFixed(1) + " s</div></div></div>";
+      }).join("");
+      var outs = runs.map(function (r) {
+        return '<div class="card"><span class="tag accent">' + esc(r.model) + "</span><h3>" + md(r.verdict || "") + "</h3><pre>" + esc(r.output || "") + "</pre></div>";
+      }).join("");
+      return (b.task ? "<p><b>The task:</b> " + md(b.task) + "</p>" : "") +
+        '<div class="legend"><span><i style="background:var(--accent)"></i>cost per run</span><span><i style="background:var(--blue)"></i>time</span>' +
+        (b.measured === false ? "<span>timing only: no API key, costs not measured</span>" : "") + "</div>" +
+        '<div class="lab-bars">' + bars + '</div><div class="outputs">' + outs + "</div>" +
+        (b.takeaway ? '<div class="callout tip" style="margin-top:14px"><div class="t"><span aria-hidden="true">✓</span>Takeaway</div>' + paras(b.takeaway) + "</div>" : "");
+    },
+    pipeline: function (b) {
+      return '<div class="pipeline">' + (b.steps || []).map(function (s, i) {
+        return (i ? '<div class="pipe-arrow" aria-hidden="true">→</div>' : "") + '<div class="pipe-step"><div class="ic" aria-hidden="true">' + esc(s.icon || "") +
+          '</div><div class="lb">' + md(s.label) + '</div><div class="dt">' + md(s.detail) + "</div></div>";
+      }).join("") + "</div>";
+    },
+    code: function (b) { return '<pre class="code"><code>' + esc(b.body) + "</code></pre>" + (b.caption ? '<div class="caption">' + md(b.caption) + "</div>" : ""); },
+    steps: function (b) { return '<ol class="steps">' + (b.items || []).map(function (s) { return "<li>" + md(s) + "</li>"; }).join("") + "</ol>"; },
+    exercise: function (b) { return '<div class="exercise"><div class="t">Try it: ' + md(b.title) + "</div>" + paras(b.body) + "</div>"; }
+  };
+
+  var store = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  var doneKey = "agentic-gtm:" + (data.company && data.company.name || "x") + ":done";
+  var done = {}; try { done = JSON.parse(store.get(doneKey) || "{}") || {}; } catch (e) {}
+
+  var c = data.company || {};
+  document.title = (data.title || ("How to sell " + (c.name || "your startup")));
+  var html = '<header class="hero"><div class="eyebrow">A go-to-market course · built from ' + esc(c.url || "your site") + "</div>" +
+    "<h1>" + md(data.title || ("How to sell " + (c.name || "your startup"))) + "</h1>" +
+    '<p class="lede">' + md(data.lede || c.one_liner || "") + "</p>" +
+    '<div class="meta">' + (data.meta || []).map(function (m) { return "<span><b>" + esc(m.label) + ":</b> " + md(m.value) + "</span>"; }).join("") + "</div></header>";
+
+  var toc = "";
+  (data.lessons || []).forEach(function (L, i) {
+    var id = "l-" + (L.id || i);
+    toc += '<li><a href="#' + id + '" data-id="' + esc(L.id || i) + '"><span class="n">' + (i + 1) + '</span><span class="t">' + esc(L.nav || L.title) +
+      '</span><span class="done" aria-label="done">' + (done[L.id] ? "✓" : "") + "</span></a></li>";
+    html += '<section class="lesson" id="' + id + '"><div class="kicker">' + esc(L.kicker || ("Lesson " + (i + 1))) + "</div><h2>" + md(L.title) + "</h2>";
+    if (L.idea) html += '<div class="idea"><span class="label">The idea</span>' + md(L.idea) + "</div>";
+    (L.blocks || []).forEach(function (b) {
+      var r = R[b.type]; if (!r) return;
+      html += '<div class="block">' + (b.heading ? '<div class="block-title">' + esc(b.heading) + "</div>" : "") + r(b) + "</div>";
+    });
+    (L.quiz || []).forEach(function (q, qi) {
+      html += '<div class="quiz" data-lesson="' + esc(L.id) + '" data-answer="' + (q.answer | 0) + '"><div class="q">' + md(q.q) + "</div>" +
+        (q.options || []).map(function (o, oi) { return '<button class="opt" type="button" data-i="' + oi + '">' + md(o) + "</button>"; }).join("") +
+        '<div class="why">' + md(q.why) + "</div></div>";
+    });
+    html += "</section>";
+  });
+
+  if ((data.sources || []).length) {
+    html += '<footer class="sources"><div class="block-title">Sources</div><ol>' + data.sources.map(function (s) {
+      return '<li id="src-' + esc(s.id) + '"><a href="' + safeUrl(s.url) + '" target="_blank" rel="noopener">' + esc(s.title || s.url) + "</a></li>";
+    }).join("") + "</ol>";
+  } else { html += '<footer class="sources">'; }
+  html += '<div class="credit">' + md(data.credit || "Made with [agentic-gtm](https://github.com/Amaan-creates/agentic-gtm), a Claude skill.") + "</div></footer>";
+
+  document.getElementById("main").innerHTML = html;
+  document.getElementById("toc").innerHTML = toc;
+
+  document.querySelectorAll(".quiz").forEach(function (qz) {
+    qz.addEventListener("click", function (e) {
+      var btn = e.target.closest("button.opt"); if (!btn || qz.classList.contains("answered")) return;
+      var ans = +qz.dataset.answer, pick = +btn.dataset.i;
+      qz.querySelectorAll("button.opt").forEach(function (b) {
+        b.disabled = true;
+        if (+b.dataset.i === ans) b.classList.add("right");
+        else if (b === btn) b.classList.add("wrong");
+      });
+      qz.classList.add("answered");
+      var lesson = qz.dataset.lesson, all = document.querySelectorAll('.quiz[data-lesson="' + lesson + '"]');
+      if (Array.prototype.every.call(all, function (q) { return q.classList.contains("answered"); })) {
+        done[lesson] = 1; store.set(doneKey, JSON.stringify(done));
+        var mark = document.querySelector('nav.toc a[data-id="' + lesson + '"] .done'); if (mark) mark.textContent = "✓";
+      }
+    });
+  });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll("nav.toc a"));
+  var secs = links.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
+  var bar = document.getElementById("progress");
+  function onScroll() {
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = "scaleX(" + (max > 0 ? h.scrollTop / max : 0).toFixed(4) + ")";
+    var cur = 0; secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < 140) cur = i; });
+    links.forEach(function (a, i) { a.classList.toggle("active", i === cur); });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  var saved = store.get("agentic-gtm:theme"); if (saved) document.documentElement.dataset.theme = saved;
+  document.getElementById("theme").addEventListener("click", function () {
+    var dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = dark ? "light" : "dark"; document.documentElement.dataset.theme = next; store.set("agentic-gtm:theme", next);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.target.closest("input,textarea,button")) return;
+    var cur = links.findIndex(function (a) { return a.classList.contains("active"); });
+    if (e.key === "j" || e.key === "ArrowRight") { var n = links[Math.min(links.length - 1, cur + 1)]; if (n) n.click(); }
+    if (e.key === "k" || e.key === "ArrowLeft") { var p = links[Math.max(0, cur - 1)]; if (p) p.click(); }
+  });
+})();
+</script>
+</body>
+</html>

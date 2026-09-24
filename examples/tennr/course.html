@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTM course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f7f3ea; --paper-2: #efe9dc; --card: #fffdf8; --ink: #1d1b16; --ink-2: #57524a; --ink-3: #6f695f;
+  --line: #ddd5c4; --accent: #1f5c4a; --accent-ink: #ffffff; --accent-soft: #e2ede7;
+  --amber: #9a5b00; --amber-soft: #f8ead0; --red: #a3302a; --red-soft: #f6e1dc; --blue: #245a8f; --blue-soft: #e1ebf5;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #16150f; --paper-2: #1e1c16; --card: #22201a; --ink: #f1ece0; --ink-2: #c3bcad; --ink-3: #a39c8d;
+    --line: #3a362c; --accent: #7fc7a8; --accent-ink: #10231c; --accent-soft: #1d3029;
+    --amber: #f0b45a; --amber-soft: #3a2c14; --red: #f08a80; --red-soft: #3a1f1c; --blue: #8fbce8; --blue-soft: #1a2837;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #16150f; --paper-2: #1e1c16; --card: #22201a; --ink: #f1ece0; --ink-2: #c3bcad; --ink-3: #a39c8d;
+  --line: #3a362c; --accent: #7fc7a8; --accent-ink: #10231c; --accent-soft: #1d3029;
+  --amber: #f0b45a; --amber-soft: #3a2c14; --red: #f08a80; --red-soft: #3a1f1c; --blue: #8fbce8; --blue-soft: #1a2837;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+code { font: 0.88em var(--mono); background: var(--paper-2); padding: 1px 5px; border-radius: 4px; }
+
+.progress { position: fixed; inset: 0 0 auto 0; height: 3px; background: transparent; z-index: 20; }
+.progress > div { height: 100%; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; transition: transform .15s linear; }
+
+.layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); max-width: 1180px; margin: 0 auto; gap: 48px; padding: 0 24px; }
+nav.toc { position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto; padding: 40px 0 24px; }
+nav.toc .brand { font: 600 12px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 18px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; }
+nav.toc li a { display: flex; gap: 10px; align-items: baseline; padding: 7px 10px; border-radius: 8px; color: var(--ink-2); text-decoration: none; font-size: 14px; }
+nav.toc li a:hover { background: var(--paper-2); color: var(--ink); }
+nav.toc li a.active { background: var(--accent-soft); color: var(--ink); font-weight: 600; }
+nav.toc li a .n { font: 500 12px var(--mono); color: var(--ink-3); min-width: 18px; }
+nav.toc li a .done { margin-left: auto; color: var(--accent); font-size: 12px; }
+.theme-btn { margin-top: 20px; background: none; border: 1px solid var(--line); color: var(--ink-2); font: 13px var(--sans); padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+
+main { padding: 56px 0 120px; min-width: 0; }
+header.hero { padding-bottom: 36px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 700 clamp(34px, 5vw, 54px)/1.05 var(--serif); letter-spacing: -0.02em; margin: 14px 0 16px; text-wrap: balance; }
+.lede { font-size: 19px; color: var(--ink-2); max-width: 62ch; margin: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 20px; font-size: 13px; color: var(--ink-3); }
+.meta b { color: var(--ink-2); font-weight: 600; }
+
+section.lesson { padding: 56px 0 8px; scroll-margin-top: 16px; }
+.kicker { font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+h2 { font: 700 clamp(26px, 3.4vw, 36px)/1.15 var(--serif); letter-spacing: -0.015em; margin: 10px 0 18px; text-wrap: balance; }
+h3 { font: 600 17px/1.35 var(--sans); margin: 0 0 6px; }
+.idea { border-left: 3px solid var(--accent); padding: 4px 0 4px 18px; margin: 0 0 26px; font-size: 17.5px; color: var(--ink); max-width: 66ch; }
+.idea .label { display: block; font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.block { margin: 0 0 24px; }
+.block p { margin: 0 0 12px; max-width: 70ch; }
+.block-title { font: 600 13px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
+.card p { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+.tag { display: inline-block; font: 500 11px/1 var(--mono); letter-spacing: .04em; padding: 4px 7px; border-radius: 5px; background: var(--paper-2); color: var(--ink-2); margin-bottom: 10px; }
+.tag.accent { background: var(--accent-soft); color: var(--accent); }
+.tag.amber { background: var(--amber-soft); color: var(--amber); }
+
+.fields { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.fields > div { background: var(--card); padding: 14px 16px; }
+.fields .k { font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+.fields .v { font-size: 15px; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--card); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 600 12px var(--sans); color: var(--ink-3); background: var(--paper-2); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--mono); white-space: nowrap; }
+.caption { font-size: 13px; color: var(--ink-3); margin-top: 8px; }
+
+.callout { border-radius: var(--r); padding: 16px 18px; border: 1px solid; }
+.callout .t { font-weight: 600; margin-bottom: 4px; display: flex; gap: 8px; align-items: center; }
+.callout p { margin: 0; font-size: 15px; }
+.callout p + p, .exercise p + p { margin-top: 8px; }
+.callout.trap { background: var(--amber-soft); border-color: color-mix(in srgb, var(--amber) 35%, transparent); }
+.callout.trap .t { color: var(--amber); }
+.callout.tip { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 30%, transparent); }
+.callout.tip .t { color: var(--accent); }
+.callout.warning { background: var(--red-soft); border-color: color-mix(in srgb, var(--red) 30%, transparent); }
+.callout.warning .t { color: var(--red); }
+
+.signals { display: grid; gap: 12px; }
+.signal { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 18px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
+.signal .watch { font-size: 14px; color: var(--ink-2); margin: 6px 0 0; }
+.signal .why { font-size: 14px; margin: 0; }
+.signal .ex { margin-top: 10px; font-size: 13.5px; background: var(--paper-2); border-radius: 8px; padding: 8px 10px; color: var(--ink-2); }
+.signal .ex b { color: var(--ink); }
+
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.compare > div { border-radius: var(--r); padding: 16px 18px; border: 1px solid var(--line); background: var(--card); }
+.compare .lbl { font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+.compare .bad .lbl { color: var(--red); } .compare .good .lbl { color: var(--accent); }
+.compare .bad { border-top: 3px solid var(--red); } .compare .good { border-top: 3px solid var(--accent); }
+.compare .body { white-space: pre-wrap; font-size: 14.5px; }
+.compare .notes { margin-top: 12px; font-size: 13px; color: var(--ink-3); }
+
+.lab-bars { display: grid; gap: 10px; margin-bottom: 14px; }
+.lab-row { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 12px; align-items: center; font-size: 14px; }
+.lab-row .name { font-weight: 600; }
+.lab-row .bars { display: grid; gap: 4px; }
+.bar { height: 10px; border-radius: 5px; background: var(--accent); min-width: 3px; }
+.bar.t { background: var(--blue); }
+.bar-l { font: 12px var(--mono); color: var(--ink-3); }
+.legend { display: flex; gap: 16px; font-size: 12.5px; color: var(--ink-3); margin-bottom: 10px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.outputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 14px; }
+.outputs .card pre { white-space: pre-wrap; font: 12.5px/1.5 var(--mono); margin: 8px 0 0; color: var(--ink-2); max-height: 260px; overflow: auto; }
+.score { font: 600 13px var(--mono); color: var(--accent); }
+
+.pipeline { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+.pipe-step { flex: 1 1 150px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; position: relative; }
+.pipe-step .ic { font-size: 20px; }
+.pipe-step .lb { font-weight: 600; margin: 6px 0 4px; }
+.pipe-step .dt { font-size: 13px; color: var(--ink-2); }
+.pipe-arrow { align-self: center; color: var(--ink-3); font-size: 18px; }
+
+pre.code { background: #1d1b16; color: #efe9dc; border-radius: var(--r); padding: 16px 18px; overflow-x: auto; font: 13px/1.55 var(--mono); margin: 0; }
+pre.code code { background: none; color: inherit; padding: 0; font: inherit; }
+ol.steps { margin: 0; padding-left: 22px; } ol.steps li { margin-bottom: 8px; }
+.exercise { background: var(--blue-soft); border-radius: var(--r); padding: 16px 18px; }
+.exercise .t { color: var(--blue); font-weight: 600; margin-bottom: 4px; }
+.exercise p { margin: 0; }
+
+.quiz { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; margin-bottom: 14px; }
+.quiz .q { font-weight: 600; margin-bottom: 12px; }
+.quiz button.opt { display: block; width: 100%; text-align: left; background: var(--paper); border: 1px solid var(--line); color: var(--ink); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; font: 15px var(--sans); cursor: pointer; }
+.quiz button.opt:hover:not([disabled]) { border-color: var(--accent); }
+.quiz button.opt.right { border-color: var(--accent); background: var(--accent-soft); }
+.quiz button.opt.wrong { border-color: var(--red); background: var(--red-soft); }
+.quiz button.opt[disabled] { cursor: default; }
+.quiz .why { display: none; font-size: 14.5px; color: var(--ink-2); margin-top: 6px; }
+.quiz.answered .why { display: block; }
+
+.term { border-bottom: 1px dashed var(--ink-3); cursor: help; position: relative; }
+.term:hover::after, .term:focus::after { content: attr(data-def); position: absolute; left: 0; top: 130%; z-index: 10; width: min(300px, 70vw); background: var(--ink); color: var(--paper); font: 13px/1.45 var(--sans); padding: 9px 11px; border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+sup.src a { font: 11px var(--mono); text-decoration: none; margin-left: 1px; }
+footer.sources { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--ink-2); }
+footer.sources ol { padding-left: 22px; } footer.sources li { margin-bottom: 4px; word-break: break-word; }
+.credit { margin-top: 28px; font-size: 13px; color: var(--ink-3); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 0; padding: 0 16px; }
+  nav.toc { position: sticky; top: 0; z-index: 15; height: auto; padding: 10px 0; background: var(--paper); border-bottom: 1px solid var(--line); overflow-x: auto; }
+  nav.toc .brand, .theme-btn { display: none; }
+  nav.toc ol { display: flex; gap: 4px; }
+  nav.toc li a { white-space: nowrap; padding: 6px 10px; }
+  nav.toc li a .t { display: none; }
+  main { padding-top: 32px; }
+  .signal, .compare { grid-template-columns: 1fr; }
+  .lab-row { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><div id="progress"></div></div>
+<div class="layout">
+  <nav class="toc" aria-label="Lessons">
+    <div class="brand">agentic-gtm</div>
+    <ol id="toc"></ol>
+    <button class="theme-btn" id="theme" type="button">Toggle theme</button>
+  </nav>
+  <main id="main"></main>
+</div>
+
+<script id="course-data" type="application/json">{"title": "How to sell Tennr", "lede": "Tennr reads the faxed referrals that pile up at healthcare providers and turns them into patients ready to be seen. Its best buyers are family-run equipment suppliers, and a surprising number of the ones that look family-run have already been bought.", "company": {"name": "Tennr", "url": "https://www.tennr.com", "one_liner": "Tennr automates referral intake: it reads faxed orders, chases missing paperwork, checks eligibility and payer rules, and starts prior authorizations."}, "meta": [{"label": "Built from", "value": "43 sources"}, {"label": "Accounts", "value": "23 checked, 84 dropped"}, {"label": "Reading time", "value": "20 min"}, {"label": "Researched", "value": "23 Sep 2026"}], "glossary": {"ICP": "Ideal customer profile: the kind of company that buys, and why. It describes a company, not a person.", "persona": "A role inside the ICP company: what they own and why they would care.", "buying signal": "Something you can see from outside that makes the pain urgent now, not just news.", "roll-up": "A company that grows by buying many smaller ones. Buying decisions move to its head office.", "DME": "Durable medical equipment: CPAP machines, oxygen, ventilators, wheelchairs and the supplies that go with them.", "CGM": "Continuous glucose monitor: a wearable sensor for diabetes, supplied and billed monthly.", "prior authorization": "Approval an insurer must give before it will pay for the equipment.", "competitive bidding": "Medicare's program where suppliers bid for the right to serve an area or product line at a set price.", "intake": "Everything between a referral arriving and the patient being ready to receive equipment: reading the order, checking insurance, collecting paperwork."}, "lessons": [{"id": "who", "nav": "Who buys", "kicker": "Lesson 1", "title": "Who buys this?", "idea": "The intake coordinator uses Tennr all day. The owner signs, because the saving shows up as people they no longer have to hire.", "blocks": [{"type": "text", "heading": "The decision", "body": "Tennr lists six kinds of customer [s1]. By our count, 11 of its 21 customer stories are home medical equipment, sleep or supply companies [s2]. That is where the proof is, so that is the {{ICP}}."}, {"type": "fields", "heading": "The ICP card", "items": [{"label": "Industry", "value": "Home medical equipment ({{DME}}) suppliers: sleep, respiratory and diabetes ({{CGM}}) [s3]"}, {"label": "Size", "value": "2 to 40 locations. A small {{intake}} team working hundreds of faxes a day [s4, s5]"}, {"label": "Region", "value": "Anywhere in the US: the paperwork follows Medicare and insurer rules, not geography"}, {"label": "Ownership", "value": "Independent, family or regionally owned, so the decision is made in the building"}, {"label": "The pain, in their words", "value": "\"I would have had to hire 3 to 4 more people to keep up with the volumes we were doing.\" (a customer's CEO) [s6]"}, {"label": "Not a fit", "value": "Owned by a national chain, a public {{roll-up}}, a hospital or a private equity platform. Single stores. Cash retail. Existing customers"}, {"label": "Why now", "value": "Medicare restarts {{competitive bidding}}: bid window targeted for late fall 2026, contracts from January 2028 [s7]"}]}, {"type": "cards", "heading": "Four people, one decision", "items": [{"title": "Owner, CEO or president", "body": "Owns the P&L. Cares because every growth spurt so far has meant hiring intake staff. CEOs speak for the customer in the Home Medix and Eastern MedTech stories [s6, s8].", "tag": "Signs", "tone": "accent"}, {"title": "Director of intake or operations manager", "body": "Owns the fax queue and the backlog. Your champion: they feel the pain daily [s5, s9].", "tag": "Owns the problem", "tone": "amber"}, {"title": "Revenue cycle or reimbursement manager", "body": "Owns denials and audit-ready paperwork. Asks whether the documents will hold up [s10].", "tag": "Influences"}, {"title": "Intake coordinator", "body": "Keys faxes into the billing system. Turnover is high, which is part of the owner's pain [s10].", "tag": "Uses"}]}, {"type": "callout", "tone": "tip", "title": "The segment you are not picking yet", "body": "Tennr is hiring a seller for health systems right now, and the job post talks about 6 to 12 month cycles and seven-figure deals [s11]. That is a real market, but not the one to learn on. Equipment suppliers already buy, and the owner can say yes in one meeting."}], "quiz": [{"q": "The intake coordinator at a 12-location sleep supplier loves your demo. Who most likely signs?", "options": ["The intake coordinator", "The owner or CEO", "The referring physician", "The IT contractor"], "answer": 1, "why": "In a family-run supplier the owner holds the budget, and the saving lands as hires they don't make. The coordinator is your best reference, not your signer."}]}, {"id": "where", "nav": "Where they are", "kicker": "Lesson 2", "title": "Where are they?", "idea": "A list is only useful if every row is the company you think it is. In home medical equipment the usual mistake is ownership: the local name stays up long after a national buyer moves in.", "blocks": [{"type": "table", "heading": "23 accounts that passed every check", "columns": ["Company", "Where", "Lines", "Why it fits", "Why now", "Check"], "rows": [["[Reliable Respiratory](https://reliablerespiratory.com)", "Norwood, MA · 21 locations, 7 states", "Sleep, oxygen, ventilation", "Independently owned [s12]; does its own prior auths", "Hiring an authorization specialist for 6 sites, 26 Aug 2026 [s13]", "✓ domain · ✓ independent · ✓ hiring"], ["[Regional Home Care](https://regionalhc.com)", "Leominster, MA · 20+ offices, 5 states", "Sleep, oxygen, CGM", "Independent since 1982, 300+ staff [s14]", "CGM line is in the 2028 bidding round [s7]", "✓ domain · ✓ independent · ✓ job posted May 2026"], ["[Hampton Homecare](https://www.hamptonhomecare.com)", "Southampton, NY · 3 locations", "CPAP, CGM, respiratory", "Long Island supplier since 1984 running CPAP and CGM resupply", "", "✓ domain · ✓ no parent found · ✓ news Jun 2026 [s15]"], ["[Medi-Rents & Sales](https://www.medirents.net)", "Baltimore, MD · 2 offices + VA field staff", "Home ventilation, oxygen", "Locally owned since 1980; runs its own reimbursement department", "Hiring an assistant reimbursement manager, 12 Aug 2026 [s16]", "✓ domain · ✓ locally owned · ✓ hiring"], ["[Buckeye Home Medical Equipment](https://whybuckeye.com)", "Jamestown, TN · 13 locations, TN and KY", "Oxygen, PAP, ventilation", "Family-owned since 1988; works with referral sources", "Opened 3 branches in 2025", "✓ domain · ✓ independent · ✓ posts Nov 2025"], ["[Carolina Home Medical](https://www.carolinahomemedical.com)", "New Bern, NC · 6 locations", "Sleep, respiratory", "Equipment arm of a locally owned pharmacy group", "", "✓ domain · ✓ locally owned · ✓ registry update Oct 2025"], ["[OxyCare Plus](https://www.oxycareplus.com)", "Columbus, MS · 6 locations, MS and AL", "Oxygen, CPAP", "Regional respiratory supplier, still adding branches", "New branch registered Mar 2026 (going stale)", "✓ domain · ✓ no parent found · ✓ registry Mar 2026"], ["[Medical Comfort Systems](https://www.medicalcomfortsystems.net)", "Lexington, SC · 4 locations", "Respiratory, PAP, CGM", "All three product lines; mission names its referral sources", "CGM line is in the 2028 bidding round [s7]", "✓ domain (not the HVAC namesake) · ✓ no parent found"], ["[Griffin Medical Services](https://www.griffinmedicalservices.com)", "Calhoun, GA · 3 locations", "Sleep, oxygen, ventilation", "Founder-owned since 1991; set up to serve referring practitioners", "", "✓ domain · ✓ founder-owned · ✓ blog Jan 2026"], ["[BritKare Home Medical](https://www.britkarehomemedical.com)", "Amarillo, TX · 3 locations", "CPAP, oxygen, enteral", "Family-founded 1995; only its wheelchair division was sold [s17]", "", "✓ domain · ✓ independent (partial sale) · ✓ registry Mar 2026"], ["[PHCS Home Medical Equipment](https://phcsmedical.com)", "Pensacola, FL · 3 locations", "Sleep, respiratory", "Sleep techs and RTs; a fax line at every office", "", "✓ domain (not the PPO network) · ✓ no parent found"], ["[Complete Care](https://www.completecarestores.com)", "Fort Payne, AL · 2 locations", "Oxygen, CPAP", "Owner-run since 1984; writes about Medicare denials", "", "✓ domain · ✓ locally owned · ✓ news Aug 2026 [s18]"], ["[Atlantic Respiratory Services](https://www.atlanticrespiratory.com)", "Charleston, SC · 2 locations", "Respiratory, ventilation, PAP", "Says it is independently owned, since 1989", "", "✓ domain · ✓ independent · ✓ registry Aug 2026"], ["[Corner Home Medical](https://cornermedical.com)", "New Hope, MN · about 25 locations, MN and ND", "CPAP, complex respiratory", "Family-owned; branch staff do order entry and insurance checks", "3 branch customer-service roles (order entry, insurance checks) posted Sep 2026 [s19]", "✓ domain · ✓ family-owned · ✓ hiring"], ["[Total Respiratory](https://www.totalrespiratory.com)", "Omaha, NE · 31 locations, 9 states [s20]", "CPAP, oxygen, ventilation", "Intake team takes orders from physician offices [s21]", "New Escanaba, MI branch registered 27 Aug 2026 [s22]", "✓ domain · ✓ no parent found · ✓ hiring"], ["[Alpine Home Medical](https://www.alpinehomemedical.com)", "Salt Lake City, UT · 11 stores, UT and ID", "CPAP, oxygen", "\"Largest privately owned DME in Utah\", family-owned [s23]", "", "✓ domain · ✓ family-owned · ✓ careers page Sep 2026"], ["[Home Oxygen Company](https://homeoxygencompany.com)", "Modesto, CA · 3 sites", "Oxygen, CPAP, ventilation", "Publishes physician order rules for referring offices", "", "✓ domain · ✓ no parent found · ✓ news Mar 2026"], ["[HME Home Medical](https://hmehomemedical.com)", "Green Bay, WI · 2 stores + warehouse", "Oxygen, CPAP", "Local since 1986 with 9 respiratory therapists", "", "✓ domain · ✓ locally owned · ✓ blog Sep 2026"], ["[Monitor Medical](https://www.monitormedical.com)", "Sugar Land, TX · 11 locations, TX, OH, FL", "CPAP and sleep", "Its team does insurance verification and prior auths in-house [s24]", "New location registered in New York, 9 Sep 2026 [s25]", "✓ domain · ✓ no parent found · ✓ registry Sep 2026"], ["[Bellevue Healthcare](https://bellevuehealthcare.com)", "Redmond, WA · 25 locations, WA, ID, OR", "Oxygen, CPAP, plus rehab", "\"Locally owned, operated\", 200+ staff [s26]", "Twin Falls, ID branch registered 22 Sep 2026 [s27]", "✓ domain · ✓ locally owned · ✓ opening branches"], ["[Howard's Medical Supply](https://www.howardsmedical.com)", "Yakima, WA · 6 locations", "CPAP, oxygen, rehab", "Family-owned; its process starts with \"your doctor sends a referral\"", "New Selah branch registered Apr 2026 [s28] (going stale)", "✓ domain · ✓ family-owned · ✓ registry Aug 2026"], ["[Care4All Home Medical Equipment](https://www.c4adme.com)", "Fort Scott, KS · 3 sites, KS and MO", "Oxygen, CPAP, ventilation", "Small respiratory supplier, founded 2011, still adding sites", "Kansas City, MO location registered Mar 2026 [s29]", "✓ domain · ✓ owner-run · ✓ registry Mar 2026"], ["[Day N Night Medical Supply](https://www.daynnightmed.com)", "Huntsville, TX · 2 stores", "CPAP, oxygen, ventilation", "Says its team manages orders, prior auths and billing [s30]", "", "✓ domain · ✓ locally owned · ✓ registry Dec 2025"]], "caption": "Every row: homepage fetched, ownership searched, something dated in the last 12 months, not a customer or competitor. Blank \"why now\" means no live signal this week, not a bad fit."}, {"type": "callout", "tone": "trap", "title": "Bought five months ago", "body": "Dynamic Healthcare Services, four locations in Pennsylvania and New Jersey, fits the card on every line. A national provider bought it on 29 April 2026 [s31], and its site now says so [s32]. A list built in March would still have it as independent, so run the ownership check again every time you use a list."}, {"type": "callout", "tone": "trap", "title": "\"Family owned\" on the homepage, private equity on the cap table", "body": "DASCO's homepage says it is a family owned company [s33]. A private equity firm recapitalized it in 2020 [s34] and still lists it as active [s35]. The about page is marketing, not a record."}, {"type": "callout", "tone": "trap", "title": "The domain gave it away", "body": "Rochester Oxygen & CPAP still turns up in searches for local suppliers. Its domain answers with a redirect to a national roll-up's site [s36]. Opening the homepage settled it in one click."}, {"type": "callout", "tone": "trap", "title": "An existing customer in a local search", "body": "Performance Home Medical came up in our search for independent respiratory suppliers in the Pacific Northwest. It is a Tennr customer [s5], and its site now lists a corporate office in Houston [s37]. Check every row against the customer page before you write."}, {"type": "callout", "tone": "trap", "title": "Same name, three companies", "body": "Alpine Home Medical is a family-owned chain of 11 stores in Utah and Idaho [s23]. Alpine Medical is a separate family business in Cody, Wyoming [s38]. Domain plus city settles which one a story is about."}, {"type": "callout", "tone": "warning", "title": "We dropped 24 good-looking suppliers", "body": "They fit on paper, but we couldn't prove who owns them or that they traded in the last 12 months. A \"© 2026\" footer proves nothing: many sites print the current year automatically. A shorter list you trust beats a longer one you don't."}, {"type": "table", "heading": "What the checks caught", "columns": ["Trap", "Count", "Example"], "numeric": [1], "rows": [["Owned by a national chain, roll-up, hospital or private equity firm", "31", "Dynamic Healthcare Services [s31], DASCO [s34], Rochester Oxygen & CPAP [s36], Roberts Home Medical [s39]"], ["Couldn't prove ownership or activity in the last 12 months", "24", "Suppliers whose only date was a copyright footer, and sites that block every visit"], ["Wrong size or model", "24", "Single stores, cash retail and web shops, hospice-focused suppliers, and one chain of 85 locations"], ["Existing Tennr customer", "4", "Performance Home Medical [s5], Medical Service Company [s40]"], ["Search result about a different company", "1", "A \"Medi-Rents acquired\" search returned a story about another firm"]]}, {"type": "steps", "heading": "Run these on your own list, in this order", "items": ["Open the domain. Name, services and city must match what you wrote. A redirect or a parked page ends it.", "If the name is common, search it with the city. Keep the row only when domain, city and industry all agree.", "Search \"<company> acquired\" and \"<company> parent company\", then read the site footer. Don't trust \"family owned\" on its own.", "Find something dated in the last 12 months: a job post, a news post, a new branch. A copyright year doesn't count.", "Compare against the customer stories and the competitor list.", "Count locations on the company's own site. Outside 2 to 40, drop it.", "Can't settle a check? Drop the row."]}], "quiz": [{"q": "Two suppliers on your list are both called \"Alpine\": 11 stores around Salt Lake City, and 4 around Cody, Wyoming. How do you know which one a news story is about?", "options": ["Whichever has more locations", "Match the story's domain and city to the row", "Ask the owner on the first call", "Keep both and let the reply sort it out"], "answer": 1, "why": "Name alone never settles a collision. Domain plus city does, and it takes a minute."}, {"q": "A supplier's homepage says \"family owned since 1987\". What do you still need?", "options": ["Nothing, the site says it", "An ownership search: \"acquired\", \"parent company\", recapitalization", "Their number of employees", "A reference from a customer"], "answer": 1, "why": "DASCO's homepage says family owned, and a private equity firm has owned a stake since 2020. Pages lag deals by years."}]}, {"id": "when", "nav": "When to call", "kicker": "Lesson 3", "title": "When are they ready?", "idea": "The same supplier is a bad target in March and a good one in September. A {{buying signal}} is something you can see from outside that makes the fax pile urgent now.", "blocks": [{"type": "signals", "items": [{"name": "Hiring for intake or authorizations", "watch": "Job posts for authorization specialists, intake or order-entry staff, insurance verification", "why": "The {{prior authorization}} and order paperwork is growing faster than the team. The budget for the hire can pay for Tennr instead.", "example": {"company": "Reliable Respiratory", "fact": "Posted an Authorization Specialist covering 6 locations on 26 Aug 2026, then a multi-site care coordinator on 23 Sep [s13]"}}, {"name": "A new branch", "watch": "New locations on the site, or a new branch in Medicare's public supplier registry", "why": "More orders into the same intake team. Each branch adds referral sources and fax lines.", "example": {"company": "Total Respiratory", "fact": "Registered a new branch in Escanaba, MI on 27 Aug 2026 [s22] and posted an intake role there"}}, {"name": "A change in the revenue cycle team", "watch": "Job posts or announcements for reimbursement, billing or revenue cycle managers", "why": "A new manager reviews how documents flow in their first 90 days, and denials land on their desk.", "example": {"company": "Medi-Rents & Sales", "fact": "Posted an Assistant Reimbursement Manager on 12 Aug 2026 [s16]"}}, {"name": "A rule with a date on it", "watch": "Medicare competitive bidding milestones for the product lines they sell", "why": "Winning a contract means pricing tight and handling more volume. Losing one means cutting cost. Both point at intake.", "example": {"company": "Regional Home Care and Medical Comfort Systems", "fact": "Both sell CGMs. The bid window for Round 2028, which includes CGMs, is targeted for late fall 2026 [s7]"}}, {"name": "A new product line", "watch": "A supplier adding CGM, ventilation or sleep testing", "why": "One Tennr customer's CGM launch doubled its inbound documents in two months [s8].", "example": {"company": "No live example this week", "fact": "None of the accounts announced a new line inside 90 days. Watch for it."}}]}, {"type": "callout", "tone": "warning", "title": "Signals go stale", "body": "A job post is worth acting on for about 30 days, a new branch for about 60, a new manager for about 90. OxyCare Plus opened a branch in March 2026: six months on, that is history, not a reason to write."}], "quiz": [{"q": "Which of these is a buying signal for Tennr?", "options": ["A supplier welcomes a new respiratory therapist to its clinical team (Aug 2026)", "A supplier posts an authorization specialist job covering six branches (Aug 2026)", "A supplier wins a local family-business award"], "answer": 1, "why": "Authorizations are the work Tennr does. A clinician hire [s18] or an award is news: nice to mention, but it doesn't make the fax pile urgent."}]}, {"id": "whom", "nav": "Who exactly", "kicker": "Lesson 4", "title": "Who exactly?", "idea": "Reach the {{persona}} who owns the backlog first, then the one who signs. People change jobs all the time, so check someone still works there before you write.", "blocks": [{"type": "table", "columns": ["Role", "Where they sit", "What they care about", "How to find them"], "rows": [["Director of intake / operations manager", "Head office, over the intake team", "Backlog, turnaround, staff turnover", "Job posts name the department (Total Respiratory's is called \"Intake\" [s21]); the company's employee list on professional networking sites, filtered by title"], ["Owner, CEO or president", "Head office; often a founding family", "Growth without hiring", "The About page of family businesses often names them; state business filings"], ["Reimbursement or revenue cycle manager", "Billing office", "Denials, audits, clean claims", "Job posts for their team; Medicare's public supplier registry lists each branch's authorized official by title"], ["Intake coordinator / branch CSR", "Every branch", "Getting through the day", "Job posts describe their work: order entry, insurance checks, paperwork [s19]"]]}, {"type": "steps", "heading": "Check a person before you write", "items": ["Their current job on their own profile names this company, and the company page links to this domain.", "The title is current: a post, a job change or a company announcement from this year.", "The location fits: someone at the Minnesota head office, not a branch driver three states away.", "Still not sure? Write to the role through the company's contact page instead of guessing."]}, {"type": "callout", "tone": "tip", "title": "Otto can do this part", "body": "Otto finds people in each persona at your accounts and checks each one against their current employer before they go on a list. This course used public pages only, so it names no one."}, {"type": "exercise", "title": "Find one signer", "body": "Pick Corner Home Medical or Reliable Respiratory. Find the person who runs intake and the owner or CEO. For each, write down the evidence that they work there today."}]}, {"id": "say", "nav": "What to say", "kicker": "Lesson 5", "title": "What do you say?", "idea": "The first message is about them. It proves you looked, makes one point, and asks one question they can answer from memory.", "blocks": [{"type": "compare", "left": {"label": "The message everyone sends", "body": "Hi {first name}, hope you're well! I'm reaching out from Tennr, an AI-powered patient orchestration platform that helps DME providers streamline intake and unlock efficiency. Would you be open to a quick 15-minute call next week to explore how we could help Reliable Respiratory?"}, "right": {"label": "Yours", "body": "Hi {first name}, saw Reliable Respiratory is hiring an authorization specialist to cover six locations, from Norwood up to Concord.\n\nUsually that means prior auths and rental paperwork are growing faster than the team chasing them.\n\nAre auths worked centrally in Norwood, or does each branch chase its own?", "notes": "Opens on their job post [s13], not on us. Names the pain the way they would. One either/or question. No meeting ask. 49 words."}}, {"type": "cards", "heading": "The rules we applied", "items": [{"title": "Open on them", "body": "The signal from lesson 3, in their words: \"authorization specialist\", \"six locations\"."}, {"title": "One sentence of why", "body": "From their side: the paperwork outgrowing the team. No product claims."}, {"title": "One easy question", "body": "Either/or, answerable in five words. Central or branch is also your first discovery question."}, {"title": "Under 90 words", "body": "No em dashes, no exclamation marks, no \"hope you're well\", no meeting ask."}]}], "quiz": [{"q": "Which opening line gets a reply from an intake director?", "options": ["\"I hope this finds you well!\"", "\"Tennr processed over 10 million patients in 2025.\"", "\"Saw you're hiring three branch intake coordinators this month.\""], "answer": 2, "why": "It proves you looked and is about their week. The second is true [s41] but it is about us."}]}, {"id": "lab", "nav": "Model lab", "kicker": "Lesson 6", "title": "Which Claude model for which job?", "idea": "Sorting accounts has a right answer, so you can measure it instead of guessing. We ran the same task on three models and scored them against our own checks.", "blocks": [{"type": "modellab", "task": "Sort 15 home medical equipment suppliers into fit / no fit for Tennr's ICP, with a one-line reason. 10 passed our checks. 5 failed: a fresh acquisition, a private equity owner, an existing customer, too many locations, a cash retail store. Three fits carry facts that sound alarming but break no rule.", "measured": true, "runs": [{"model": "claude-haiku-4-5", "label": "Haiku 4.5", "latency_s": 4.11, "input_tokens": 1448, "output_tokens": 411, "cost_usd": 0.003503, "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Medical Comfort Systems | fit | 4 locations, independent, all three product lines, referral-driven |\n| Dynamic Healthcare Services | no fit | Acquired by national provider Nationwide Medical in 2026 |\n| Corner Home Medical | fit | ~25 locations, family-owned, sleep and respiratory, referral-driven |\n| Kansas City Home Medical Supply | no fit | Homepage indicates cash/retail-first model, no insurance billing or physician orders |\n| Reliable Respiratory | fit | 21 locations, independent, all three product lines, referral-driven |\n| BritKare Home Medical | fit | 3 locations, family-owned, sleep and respiratory, independent after 2020 division sale |\n| Performance Home Medical | no fit | Existing Tennr customer |\n| Regional Home Care | fit | 21 locations, independent since 1982, all three product lines, referral-driven |\n| DASCO Home Medical Equipment | no fit | Private equity portfolio company after 2020 recapitalization |\n| Buckeye Home Medical Equipment | fit | 13 locations, family-owned, all three product lines, referral-driven |\n| Total Respiratory | fit | 31 locations, independent with multiple legal entity names, all three product lines, referral-driven |\n| Norco Medical | no fit | 85 locations exceeds 40-location maximum |\n| OxyCare Plus | fit | 6 locations, independent, all three product lines, actively growing |\n| Medi-Rents & Sales | no fit | 2 locations falls below 2-location minimum |\n| Home Oxygen Company | fit | 3 locations, independent, all three product lines, referral-driven |", "verdict": "Caught every trap; missed one size call and padded its reasons", "score": "14/15"}, {"model": "claude-sonnet-5", "label": "Sonnet 5", "latency_s": 12.9, "input_tokens": 2050, "output_tokens": 1492, "cost_usd": 0.01902, "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Medical Comfort Systems | fit | Independent, 4 SC locations, sleep/respiratory/diabetes—the \"acquired\" hit is an unrelated HVAC firm, no real acquisition. |\n| Dynamic Healthcare Services | no fit | Acquired by Nationwide Medical, a national provider—decision now made at head office. |\n| Corner Home Medical | fit | Family-owned, 25 locations, CPAP/respiratory, fits size and product lines. |\n| Kansas City Home Medical Supply | no fit | Retail-first, \"NO paperwork,\" no mention of insurance billing or physician orders. |\n| Reliable Respiratory | fit | Independently owned, 21 locations, sleep/oxygen/ventilation, referral-driven with auth staff. |\n| BritKare Home Medical | fit | Family-owned, 3 locations, core CPAP/oxygen business stayed independent after divesting rehab unit. |\n| Performance Home Medical | no fit | Existing Tennr customer. |\n| Regional Home Care | fit | Independent since 1982, 21 offices, sleep/oxygen/CGM within size range. |\n| DASCO Home Medical Equipment | no fit | Currently a private equity portfolio company despite \"family owned\" branding. |\n| Buckeye Home Medical Equipment | fit | Family-owned, 13 locations, oxygen/PAP/ventilation, referral-based. |\n| Total Respiratory | fit | Independent, 31 locations, no parent found, referral-driven intake. |\n| Norco Medical | no fit | 85 locations exceeds the 2–40 location range. |\n| OxyCare Plus | fit | Independent, 6 locations, oxygen/CPAP/BiPAP, growing regionally. |\n| Medi-Rents & Sales | fit | Locally owned since 1980, 2 offices, ventilation/oxygen, in-house reimbursement team. |\n| Home Oxygen Company | fit | Independent, 3 sites, oxygen/CPAP/ventilation; acquiring a hospice equipment line doesn't break any rule. |", "verdict": "All 15 right, and saw through all three distractors", "score": "15/15"}, {"model": "claude-opus-5-5", "label": "Opus 5.5", "latency_s": 9.79, "input_tokens": 2052, "output_tokens": 1108, "cost_usd": 0.030368, "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Medical Comfort Systems | fit | Independent SC supplier with 4 locations covering respiratory, sleep and CGM; the \"acquired\" hits are for an unrelated HVAC company |\n| Dynamic Healthcare Services | no fit | Acquired by Nationwide Medical, a national home medical provider, in Apr 2026, so decisions are made at head office |\n| Corner Home Medical | fit | Family-owned, about 25 locations, CPAP and respiratory, and branch staff do order entry and insurance verification |\n| Kansas City Home Medical Supply | no fit | Retail-first store: praises \"NO paperwork\" and mentions no insurance billing or physician orders |\n| Reliable Respiratory | fit | Independently owned, 21 locations, sleep, oxygen and ventilation, and hiring an authorization specialist |\n| BritKare Home Medical | fit | Family-owned, 3 TX locations, CPAP and oxygen; it sold only its rehab division, and the core business stayed with the family |\n| Performance Home Medical | no fit | Already a Tennr customer |\n| Regional Home Care | fit | Independent since 1982, 21 offices, sleep, oxygen and CGM |\n| DASCO Home Medical Equipment | no fit | Private equity portfolio company since its 2020 recapitalization, despite the \"family owned\" claim |\n| Buckeye Home Medical Equipment | fit | Family-owned, 13 locations, oxygen, PAP and ventilation, and referral-driven |\n| Total Respiratory | fit | 31 locations with no parent found; branches under other legal names break no rule; intake handles physician referrals |\n| Norco Medical | no fit | 85 locations, well over the 40-location maximum |\n| OxyCare Plus | fit | 6 locations in MS and AL, oxygen and CPAP; recent branch growth keeps it within the size range |\n| Medi-Rents & Sales | fit | Locally owned, 2 offices (meets the 2-location minimum), ventilation and oxygen, and bills insurance through its own reimbursement department |\n| Home Oxygen Company | fit | 3 CA sites, oxygen, CPAP and ventilation, and takes physician orders; it was the buyer in the 2024 deal, not the one acquired |", "verdict": "All 15 right, with the most exact reasons", "score": "15/15"}], "takeaway": "All three models caught all five real traps. Haiku's one miss was a boundary (2 locations is inside \"2 to 40\"), and its reasons claimed facts that weren't in the input, so read its reasons with care. Sonnet matched Opus for about 60% of the price here."}, {"type": "table", "heading": "What we'd use for each job in this course", "columns": ["Job", "Model", "Why"], "rows": [["Sorting hundreds of accounts against the ICP", "Haiku, with a human on the edges", "14 of 15 at a fifth of Sonnet's cost. Its one miss was a boundary, so spot-check the rows near the limits"], ["Researching an account, drafting first messages", "Sonnet", "15 of 15 here, specific reasons, about 60% of Opus's price"], ["Deciding the ICP, a message to a key account, grading the agent's work", "Opus", "Also 15 of 15, with the clearest reasons. Few calls, so cost barely matters"]], "caption": "Prices used: Haiku 4.5 $1 / $5, Sonnet 5 $2 / $10, Opus 5.5 $4 / $20 per million input / output tokens [s42]. One run each, so treat small gaps as noise."}, {"type": "callout", "tone": "tip", "title": "Effort is a second dial", "body": "Every current model also takes an effort setting, from low to max. A bigger model on low effort is sometimes a better trade than a smaller model."}], "quiz": [{"q": "You need to sort 2,000 suppliers into fit or no fit every month. Based on this lab, what do you do?", "options": ["Opus on everything, to be safe", "Haiku on everything, then a human checks the rows near the size and ownership limits", "Skip the model and sort by hand"], "answer": 1, "why": "Haiku caught every real trap. Its one miss was an edge case, which is cheap for a person to check."}]}, {"id": "agent", "nav": "Make it an agent", "kicker": "Lesson 7", "title": "Can this run every week without me?", "idea": "Yes. An agent is a model with instructions, tools and a way to check its own work. Claude Managed Agents hosts it, runs it on a schedule, and a separate grader checks each run [s43].", "blocks": [{"type": "pipeline", "steps": [{"icon": "🗓️", "label": "On your schedule", "detail": "Scheduled deployment"}, {"icon": "🤖", "label": "Agent", "detail": "Tennr's ICP, the 5 signals and the message rules"}, {"icon": "🔎", "label": "Tools", "detail": "Web search and fetch (plus Otto if connected)"}, {"icon": "🎯", "label": "Grader", "detail": "Checks sources, dates and drafts against the rubric"}, {"icon": "📄", "label": "Report", "detail": "New signals on the 23 accounts, each with a draft message"}]}, {"type": "code", "body": "cd agent\ncp .env.example .env    # paste your Anthropic API key\nbash launch.sh          # creates the agent on your schedule, runs once now\npython3 report.py       # when the run finishes: download the report", "caption": "The kit is in `agent/`. The brief and account list are filled in from this course."}, {"type": "callout", "tone": "tip", "title": "Cost and control", "body": "Cost grows with the list: each run reads every account's site, careers page and news. We haven't measured it, so watch each run in the Console and keep the hard cap in `.env` (`RUN_BUDGET_CENTS`, 500 = $5).\n\nThe agent only writes a report and never sends anything."}, {"type": "callout", "tone": "warning", "title": "Keep patient data out of it", "body": "Managed Agents is not currently covered by a HIPAA business associate agreement [s43]. This agent only reads public pages about companies. Don't give it referrals, faxes or anything about a patient."}, {"type": "text", "body": "To go further: connect Otto for verified people and Signal Agents that watch the same accounts as they change, or add a memory store so the agent never reports the same signal twice."}], "quiz": [{"q": "The first run flags a supplier that a national chain bought last month. What do you change so it doesn't happen again?", "options": ["The schedule", "The rubric: every account must pass an ownership check before a signal counts", "Nothing, it's a one-off"], "answer": 1, "why": "The grader enforces the rubric on every run. Put the check there and it runs on every scheduled run, not just when you remember."}]}, {"id": "next", "nav": "What's next", "kicker": "Lesson 8", "title": "What happens next?", "idea": "A plan isn't pipeline. This course decided who to sell to and what to say. Sending, following up and handling replies happen over the next few weeks, and that is where it stops.", "blocks": [{"type": "table", "heading": "Where this course stops", "columns": ["Step", "This course", "Otto"], "rows": [["Who buys", "✓ ICP and four personas (lesson 1)", "Keeps the ICP and scores new accounts against it"], ["Account list", "✓ 23 accounts, checked once (lesson 2)", "Company search against the ICP, kept in a workbook"], ["Buying signals", "✓ once (lesson 3), then on your schedule with the agent (lesson 7)", "Signal Agents watching the accounts continuously"], ["The right people", "The method only (lesson 4)", "Verified people and their current employer"], ["First message", "✓ one, for one account (lesson 5)", "A sequence for every account: first message and follow-ups"], ["**Sending and follow-ups**", "Next step →", "Campaigns on LinkedIn and email, paced within daily limits"], ["**Replies**", "Next step →", "Inbox triage and reply drafts for your approval"], ["**Results and CRM**", "Next step →", "Reply rates per campaign, synced to a CRM without duplicates"]]}, {"type": "steps", "heading": "From this course to a campaign in Otto", "items": ["**Accounts.** Import the 23 accounts from lesson 2 into a workbook called \"Tennr course\", with their domains, so Otto matches companies instead of creating duplicates.", "**People.** Add the intake and operations leaders you find at each one (lesson 4). Run the import as a dry run first: every person should attach to one of your accounts, with no new companies created.", "**Sequence.** Create a draft campaign from a template, put the lesson 5 message in as step 1, and add one or two follow-ups that bring a different finding instead of repeating the first message.", "**Enrol and schedule.** Add the workbook, then set weekdays, a morning send window and a daily cap.", "**Check.** Run the pre-launch check. It lists anything missing: copy, a connected mailbox or LinkedIn account, a schedule.", "**Launch it yourself** when the copy reads right. Replies land in Otto's inbox, sorted by intent, with drafts for you to approve."]}, {"type": "callout", "tone": "tip", "title": "Nothing here sends on its own", "body": "This course was built on public web data, without Otto connected, so no campaign was created. With Otto connected, the skill can set up steps 1 to 5 as a **draft** when you ask, and launching stays your decision.\n\nStart at [otto-pilot.io](https://otto-pilot.io)."}], "quiz": [{"q": "You import your contacts and the preview says it will create 18 new companies. What do you do?", "options": ["Import anyway, the duplicates can be merged later", "Fix the company names or domains so each person matches one of your accounts, then import", "Skip the people and enrol the companies only"], "answer": 1, "why": "New companies mean your people won't attach to the checked accounts, so the campaign, signals and replies would all hang off duplicates. Fix the match first."}, {"q": "The pre-launch check says no mailbox that can see replies is connected. What happens if you press launch?", "options": ["It sends, and replies are lost", "It refuses to launch until the blocker is fixed", "It sends LinkedIn steps only"], "answer": 1, "why": "Launch runs the same checks and won't start with a blocker, so you can't start a campaign that can't hear back."}]}], "sources": [{"id": "s1", "title": "Tennr: home page", "url": "https://www.tennr.com"}, {"id": "s2", "title": "Tennr: customer stories (21 stories)", "url": "https://www.tennr.com/customer-stories"}, {"id": "s3", "title": "Tennr: DME and manufacturers", "url": "https://www.tennr.com/solutions/dme"}, {"id": "s4", "title": "Tennr: Total Medical Supply customer story", "url": "https://www.tennr.com/customer-stories/total-medical-supply"}, {"id": "s5", "title": "Tennr: Performance Home Medical customer story", "url": "https://www.tennr.com/customer-stories/performance-home-medical"}, {"id": "s6", "title": "Tennr: Home Medix customer story", "url": "https://www.tennr.com/customer-stories/homemedix"}, {"id": "s7", "title": "AAHomecare: Competitive Bidding Round 2028", "url": "https://aahomecare.org/Competitive-Bidding"}, {"id": "s8", "title": "Tennr: Eastern MedTech customer story", "url": "https://www.tennr.com/customer-stories/eastern-medtech"}, {"id": "s9", "title": "Tennr: Kilgore's Respiratory customer story", "url": "https://www.tennr.com/customer-stories/kilgoresrespiratory"}, {"id": "s10", "title": "Tennr: NEB Medical customer story", "url": "https://www.tennr.com/customer-stories/neb-medical-services"}, {"id": "s11", "title": "Tennr: open roles, fetched 23 Sep 2026", "url": "https://jobs.ashbyhq.com/tennr"}, {"id": "s12", "title": "Reliable Respiratory: about us", "url": "https://reliablerespiratory.com/about-us/"}, {"id": "s13", "title": "Reliable Respiratory: Authorization Specialist, posted 26 Aug 2026", "url": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=e6f9df7c-e2e8-4259-ac31-d269d4fb1b1a&ccId=19000101_000001&jobId=9201231955167_1&lang=en_US"}, {"id": "s14", "title": "Regional Home Care: about", "url": "https://regionalhc.com/pages/about-regional-home-care"}, {"id": "s15", "title": "Hampton Homecare: news (Medicaid underpad update, 17 Jun 2026)", "url": "https://www.hamptonhomecare.com/news"}, {"id": "s16", "title": "Medi-Rents: careers (Asst. Reimbursement Manager, posted 12 Aug 2026)", "url": "https://www.medirents.net/careers"}, {"id": "s17", "title": "Numotion: acquires BritKare's complex rehab division, 30 Nov 2020", "url": "https://www.numotion.com/about-us/news/numotion-bolsters-texas-presence-with-acquisition"}, {"id": "s18", "title": "Complete Care: welcomes a respiratory therapist, 14 Aug 2026", "url": "https://www.completecarestores.com/post/complete-care-welcomes-local-respiratory-therapist"}, {"id": "s19", "title": "Corner Home Medical: open roles (CSR Branch, Sep 2026)", "url": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=663ac104-39ba-4ea5-b975-b4188793392f&ccId=9205272052421_2&lang=en_US&selectedMenuKey=CurrentOpenings"}, {"id": "s20", "title": "Total Respiratory: locations", "url": "https://www.totalrespiratory.com/locations"}, {"id": "s21", "title": "Total Respiratory: Patient Support Specialist, Intake, posted 22 Sep 2026", "url": "https://totalrr.bamboohr.com/careers/282"}, {"id": "s22", "title": "Medicare supplier registry: Total Respiratory branch in Escanaba, MI, registered 27 Aug 2026", "url": "https://npiregistry.cms.hhs.gov/api/?version=2.1&number=1538076005"}, {"id": "s23", "title": "Alpine Home Medical: about us", "url": "https://www.alpinehomemedical.com/about-us/"}, {"id": "s24", "title": "Monitor Medical: home page", "url": "https://www.monitormedical.com/"}, {"id": "s25", "title": "Medicare supplier registry: Monitor Medical location in Adams, NY, registered 9 Sep 2026", "url": "https://npiregistry.cms.hhs.gov/api/?version=2.1&number=1184534513"}, {"id": "s26", "title": "Bellevue Healthcare: our story", "url": "https://bellevuehealthcare.com/about-bhc/our-story/"}, {"id": "s27", "title": "Medicare supplier registry: Bellevue Healthcare branch in Twin Falls, ID, registered 22 Sep 2026", "url": "https://npiregistry.cms.hhs.gov/api/?version=2.1&number=1942112958"}, {"id": "s28", "title": "Medicare supplier registry: Howard's Medical branch in Selah, WA, registered 20 Apr 2026", "url": "https://npiregistry.cms.hhs.gov/api/?version=2.1&number=1992649826"}, {"id": "s29", "title": "Medicare supplier registry: Care4All (JKM DME) location in Kansas City, MO, registered 26 Mar 2026", "url": "https://npiregistry.cms.hhs.gov/api/?version=2.1&number=1104765940"}, {"id": "s30", "title": "Day N Night Medical Supply: physician resources", "url": "https://www.daynnightmed.com/physician-resources/"}, {"id": "s31", "title": "HomeCare: Nationwide Medical acquires Dynamic Healthcare Services, 29 Apr 2026", "url": "https://www.homecaremag.com/news/nationwide-medical-acquires-dynamic-healthcare-services"}, {"id": "s32", "title": "Dynamic Healthcare Services: home page", "url": "https://dhscompanies.com/"}, {"id": "s33", "title": "DASCO: home page", "url": "https://www.godasco.com/"}, {"id": "s34", "title": "PE Hub: Silver Oak recapitalizes DASCO, 17 Mar 2020", "url": "https://www.pehub.com/silver-oak-recaps-dasco/"}, {"id": "s35", "title": "Silver Oak: portfolio, DASCO listed as Active", "url": "https://www.silveroaksp.com/portfolio-info/dasco-home-medical-equipment"}, {"id": "s36", "title": "rochesteroxygen.com (redirects to a national provider's site)", "url": "https://rochesteroxygen.com/"}, {"id": "s37", "title": "Performance Home Medical: for patients (corporate office)", "url": "https://www.performancehomemed.com/for-patients/"}, {"id": "s38", "title": "Alpine Medical (Cody, WY): about", "url": "https://myalpinemedical.com/about/"}, {"id": "s39", "title": "AdaptHealth S-1 filing (Roberts Home Medical acquisition, 2017)", "url": "https://www.sec.gov/Archives/edgar/data/1725255/000104746920001120/a2240840zs-1a.htm"}, {"id": "s40", "title": "Tennr: Medical Service Company customer story", "url": "https://www.tennr.com/customer-stories/medical-service-company"}, {"id": "s41", "title": "Tennr: about", "url": "https://www.tennr.com/about"}, {"id": "s42", "title": "Claude pricing", "url": "https://claude.com/pricing"}, {"id": "s43", "title": "Claude Managed Agents overview", "url": "https://platform.claude.com/docs/en/managed-agents/overview"}]}</script>
+<script>
+(function () {
+  "use strict";
+  var data;
+  try { data = JSON.parse(document.getElementById("course-data").textContent); }
+  catch (e) { document.getElementById("main").textContent = "course.json could not be read: " + e.message; return; }
+
+  var glossary = data.glossary || {};
+  var sources = {};
+  (data.sources || []).forEach(function (s, i) { sources[s.id] = { n: i + 1, url: s.url, title: s.title }; });
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function unesc(s) {
+    return String(s).replace(/&(amp|lt|gt|quot|#39);/g, function (_, e) { return { amp: "&", lt: "<", gt: ">", quot: '"', "#39": "'" }[e]; });
+  }
+  function safeUrl(u) { return /^https?:\/\//i.test(String(u || "")) ? esc(u) : "#"; }
+
+  // Inline markup on already-escaped text: **bold**, `code`, [text](https://…), {{Term}}, [s1]
+  function md(s) {
+    var t = esc(s);
+    t = t.replace(/`([^`]+)`/g, "<code>$1</code>");
+    t = t.replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+    t = t.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, function (_, a, u) { return '<a href="' + u + '" target="_blank" rel="noopener">' + a + "</a>"; });
+    t = t.replace(/\{\{([^}]+)\}\}/g, function (_, term) {
+      var def = glossary[unesc(term)];
+      return def ? '<span class="term" tabindex="0" data-def="' + esc(def) + '">' + term + "</span>" : term;
+    });
+    t = t.replace(/\[(s\d+(?:\s*,\s*s\d+)*)\]/g, function (_, ids) {
+      var links = ids.split(/\s*,\s*/).map(function (id) {
+        var s = sources[id];
+        return s ? '<a href="#src-' + id + '" title="' + esc(s.title) + '">' + s.n + "</a>" : "";
+      }).filter(Boolean);
+      return links.length ? '<sup class="src">' + links.join(", ") + "</sup>" : "";
+    });
+    return t;
+  }
+  function paras(s) { return String(s || "").split(/\n{2,}/).map(function (p) { return "<p>" + md(p) + "</p>"; }).join(""); }
+
+  var R = {
+    text: function (b) { return paras(b.body); },
+    cards: function (b) {
+      return '<div class="cards">' + (b.items || []).map(function (c) {
+        return '<div class="card">' + (c.tag ? '<span class="tag ' + (c.tone || "") + '">' + esc(c.tag) + "</span>" : "") +
+          "<h3>" + md(c.title) + "</h3><p>" + md(c.body) + "</p></div>";
+      }).join("") + "</div>";
+    },
+    fields: function (b) {
+      return '<div class="fields">' + (b.items || []).map(function (f) {
+        return '<div><div class="k">' + esc(f.label) + '</div><div class="v">' + md(f.value) + "</div></div>";
+      }).join("") + "</div>";
+    },
+    table: function (b) {
+      var cols = b.columns || [], num = b.numeric || [];
+      return '<div class="table-wrap"><table><thead><tr>' + cols.map(function (c) { return "<th>" + esc(c) + "</th>"; }).join("") +
+        "</tr></thead><tbody>" + (b.rows || []).map(function (r) {
+          return "<tr>" + r.map(function (c, i) { return "<td" + (num.indexOf(i) > -1 ? ' class="num"' : "") + ">" + md(c) + "</td>"; }).join("") + "</tr>";
+        }).join("") + "</tbody></table></div>" + (b.caption ? '<div class="caption">' + md(b.caption) + "</div>" : "");
+    },
+    callout: function (b) {
+      var icon = { trap: "⚠", tip: "✓", warning: "!" }[b.tone] || "•";
+      return '<div class="callout ' + esc(b.tone || "tip") + '"><div class="t"><span aria-hidden="true">' + icon + "</span>" + md(b.title) + "</div>" + paras(b.body) + "</div>";
+    },
+    signals: function (b) {
+      return '<div class="signals">' + (b.items || []).map(function (s) {
+        var ex = "";
+        if (s.example && s.example.none) ex = '<div class="ex">No live example this week. ' + md(s.example.note || "") + "</div>";
+        else if (s.example) ex = '<div class="ex"><b>' + md(s.example.company) + ":</b> " + md(s.example.fact) +
+          (s.example.date ? ' <span style="color:var(--ink-3)">(' + esc(s.example.date) + ")</span>" : "") + "</div>";
+        return '<div class="signal"><div><h3>' + md(s.name) + '</h3><p class="watch">' + md(s.watch) + "</p></div><div>" +
+          '<p class="why">' + md(s.why) + "</p>" + ex + "</div></div>";
+      }).join("") + "</div>";
+    },
+    compare: function (b) {
+      function side(x, cls) {
+        return '<div class="' + cls + '"><div class="lbl">' + esc(x.label) + '</div><div class="body">' + md(x.body) + "</div>" +
+          (x.notes ? '<div class="notes">' + md(x.notes) + "</div>" : "") + "</div>";
+      }
+      return '<div class="compare">' + side(b.left || {}, "bad") + side(b.right || {}, "good") + "</div>";
+    },
+    modellab: function (b) {
+      var runs = b.runs || [];
+      var maxC = Math.max.apply(null, runs.map(function (r) { return r.cost_usd || 0; }).concat([1e-9]));
+      var maxT = Math.max.apply(null, runs.map(function (r) { return r.latency_s || 0; }).concat([1e-9]));
+      var bars = runs.map(function (r) {
+        return '<div class="lab-row"><div class="name">' + esc(r.label || r.model) + (r.score != null ? ' <span class="score">' + esc(r.score) + "</span>" : "") +
+          '</div><div class="bars"><div class="bar" style="width:' + Math.max(1, 100 * (r.cost_usd || 0) / maxC).toFixed(1) + '%"></div>' +
+          '<div class="bar-l">$' + (r.cost_usd || 0).toFixed(4) + " · " + (r.input_tokens || 0) + " in / " + (r.output_tokens || 0) + ' out</div>' +
+          '<div class="bar t" style="width:' + Math.max(1, 100 * (r.latency_s || 0) / maxT).toFixed(1) + '%"></div>' +
+          '<div class="bar-l">' + (r.latency_s || 0).toFixed(1) + " s</div></div></div>";
+      }).join("");
+      var outs = runs.map(function (r) {
+        return '<div class="card"><span class="tag accent">' + esc(r.model) + "</span><h3>" + md(r.verdict || "") + "</h3><pre>" + esc(r.output || "") + "</pre></div>";
+      }).join("");
+      return (b.task ? "<p><b>The task:</b> " + md(b.task) + "</p>" : "") +
+        '<div class="legend"><span><i style="background:var(--accent)"></i>cost per run</span><span><i style="background:var(--blue)"></i>time</span>' +
+        (b.measured === false ? "<span>timing only: no API key, costs not measured</span>" : "") + "</div>" +
+        '<div class="lab-bars">' + bars + '</div><div class="outputs">' + outs + "</div>" +
+        (b.takeaway ? '<div class="callout tip" style="margin-top:14px"><div class="t"><span aria-hidden="true">✓</span>Takeaway</div>' + paras(b.takeaway) + "</div>" : "");
+    },
+    pipeline: function (b) {
+      return '<div class="pipeline">' + (b.steps || []).map(function (s, i) {
+        return (i ? '<div class="pipe-arrow" aria-hidden="true">→</div>' : "") + '<div class="pipe-step"><div class="ic" aria-hidden="true">' + esc(s.icon || "") +
+          '</div><div class="lb">' + md(s.label) + '</div><div class="dt">' + md(s.detail) + "</div></div>";
+      }).join("") + "</div>";
+    },
+    code: function (b) { return '<pre class="code"><code>' + esc(b.body) + "</code></pre>" + (b.caption ? '<div class="caption">' + md(b.caption) + "</div>" : ""); },
+    steps: function (b) { return '<ol class="steps">' + (b.items || []).map(function (s) { return "<li>" + md(s) + "</li>"; }).join("") + "</ol>"; },
+    exercise: function (b) { return '<div class="exercise"><div class="t">Try it: ' + md(b.title) + "</div>" + paras(b.body) + "</div>"; }
+  };
+
+  var store = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  var doneKey = "agentic-gtm:" + (data.company && data.company.name || "x") + ":done";
+  var done = {}; try { done = JSON.parse(store.get(doneKey) || "{}") || {}; } catch (e) {}
+
+  var c = data.company || {};
+  document.title = (data.title || ("How to sell " + (c.name || "your startup")));
+  var html = '<header class="hero"><div class="eyebrow">A go-to-market course · built from ' + esc(c.url || "your site") + "</div>" +
+    "<h1>" + md(data.title || ("How to sell " + (c.name || "your startup"))) + "</h1>" +
+    '<p class="lede">' + md(data.lede || c.one_liner || "") + "</p>" +
+    '<div class="meta">' + (data.meta || []).map(function (m) { return "<span><b>" + esc(m.label) + ":</b> " + md(m.value) + "</span>"; }).join("") + "</div></header>";
+
+  var toc = "";
+  (data.lessons || []).forEach(function (L, i) {
+    var id = "l-" + (L.id || i);
+    toc += '<li><a href="#' + id + '" data-id="' + esc(L.id || i) + '"><span class="n">' + (i + 1) + '</span><span class="t">' + esc(L.nav || L.title) +
+      '</span><span class="done" aria-label="done">' + (done[L.id] ? "✓" : "") + "</span></a></li>";
+    html += '<section class="lesson" id="' + id + '"><div class="kicker">' + esc(L.kicker || ("Lesson " + (i + 1))) + "</div><h2>" + md(L.title) + "</h2>";
+    if (L.idea) html += '<div class="idea"><span class="label">The idea</span>' + md(L.idea) + "</div>";
+    (L.blocks || []).forEach(function (b) {
+      var r = R[b.type]; if (!r) return;
+      html += '<div class="block">' + (b.heading ? '<div class="block-title">' + esc(b.heading) + "</div>" : "") + r(b) + "</div>";
+    });
+    (L.quiz || []).forEach(function (q, qi) {
+      html += '<div class="quiz" data-lesson="' + esc(L.id) + '" data-answer="' + (q.answer | 0) + '"><div class="q">' + md(q.q) + "</div>" +
+        (q.options || []).map(function (o, oi) { return '<button class="opt" type="button" data-i="' + oi + '">' + md(o) + "</button>"; }).join("") +
+        '<div class="why">' + md(q.why) + "</div></div>";
+    });
+    html += "</section>";
+  });
+
+  if ((data.sources || []).length) {
+    html += '<footer class="sources"><div class="block-title">Sources</div><ol>' + data.sources.map(function (s) {
+      return '<li id="src-' + esc(s.id) + '"><a href="' + safeUrl(s.url) + '" target="_blank" rel="noopener">' + esc(s.title || s.url) + "</a></li>";
+    }).join("") + "</ol>";
+  } else { html += '<footer class="sources">'; }
+  html += '<div class="credit">' + md(data.credit || "Made with [agentic-gtm](https://github.com/Amaan-creates/agentic-gtm), a Claude skill.") + "</div></footer>";
+
+  document.getElementById("main").innerHTML = html;
+  document.getElementById("toc").innerHTML = toc;
+
+  document.querySelectorAll(".quiz").forEach(function (qz) {
+    qz.addEventListener("click", function (e) {
+      var btn = e.target.closest("button.opt"); if (!btn || qz.classList.contains("answered")) return;
+      var ans = +qz.dataset.answer, pick = +btn.dataset.i;
+      qz.querySelectorAll("button.opt").forEach(function (b) {
+        b.disabled = true;
+        if (+b.dataset.i === ans) b.classList.add("right");
+        else if (b === btn) b.classList.add("wrong");
+      });
+      qz.classList.add("answered");
+      var lesson = qz.dataset.lesson, all = document.querySelectorAll('.quiz[data-lesson="' + lesson + '"]');
+      if (Array.prototype.every.call(all, function (q) { return q.classList.contains("answered"); })) {
+        done[lesson] = 1; store.set(doneKey, JSON.stringify(done));
+        var mark = document.querySelector('nav.toc a[data-id="' + lesson + '"] .done'); if (mark) mark.textContent = "✓";
+      }
+    });
+  });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll("nav.toc a"));
+  var secs = links.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
+  var bar = document.getElementById("progress");
+  function onScroll() {
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = "scaleX(" + (max > 0 ? h.scrollTop / max : 0).toFixed(4) + ")";
+    var cur = 0; secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < 140) cur = i; });
+    links.forEach(function (a, i) { a.classList.toggle("active", i === cur); });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  var saved = store.get("agentic-gtm:theme"); if (saved) document.documentElement.dataset.theme = saved;
+  document.getElementById("theme").addEventListener("click", function () {
+    var dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = dark ? "light" : "dark"; document.documentElement.dataset.theme = next; store.set("agentic-gtm:theme", next);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.target.closest("input,textarea,button")) return;
+    var cur = links.findIndex(function (a) { return a.classList.contains("active"); });
+    if (e.key === "j" || e.key === "ArrowRight") { var n = links[Math.min(links.length - 1, cur + 1)]; if (n) n.click(); }
+    if (e.key === "k" || e.key === "ArrowLeft") { var p = links[Math.max(0, cur - 1)]; if (p) p.click(); }
+  });
+})();
+</script>
+</body>
+</html>

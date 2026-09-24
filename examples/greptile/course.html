@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTM course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f7f3ea; --paper-2: #efe9dc; --card: #fffdf8; --ink: #1d1b16; --ink-2: #57524a; --ink-3: #6f695f;
+  --line: #ddd5c4; --accent: #1f5c4a; --accent-ink: #ffffff; --accent-soft: #e2ede7;
+  --amber: #9a5b00; --amber-soft: #f8ead0; --red: #a3302a; --red-soft: #f6e1dc; --blue: #245a8f; --blue-soft: #e1ebf5;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #16150f; --paper-2: #1e1c16; --card: #22201a; --ink: #f1ece0; --ink-2: #c3bcad; --ink-3: #a39c8d;
+    --line: #3a362c; --accent: #7fc7a8; --accent-ink: #10231c; --accent-soft: #1d3029;
+    --amber: #f0b45a; --amber-soft: #3a2c14; --red: #f08a80; --red-soft: #3a1f1c; --blue: #8fbce8; --blue-soft: #1a2837;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #16150f; --paper-2: #1e1c16; --card: #22201a; --ink: #f1ece0; --ink-2: #c3bcad; --ink-3: #a39c8d;
+  --line: #3a362c; --accent: #7fc7a8; --accent-ink: #10231c; --accent-soft: #1d3029;
+  --amber: #f0b45a; --amber-soft: #3a2c14; --red: #f08a80; --red-soft: #3a1f1c; --blue: #8fbce8; --blue-soft: #1a2837;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+code { font: 0.88em var(--mono); background: var(--paper-2); padding: 1px 5px; border-radius: 4px; }
+
+.progress { position: fixed; inset: 0 0 auto 0; height: 3px; background: transparent; z-index: 20; }
+.progress > div { height: 100%; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; transition: transform .15s linear; }
+
+.layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); max-width: 1180px; margin: 0 auto; gap: 48px; padding: 0 24px; }
+nav.toc { position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto; padding: 40px 0 24px; }
+nav.toc .brand { font: 600 12px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 18px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; }
+nav.toc li a { display: flex; gap: 10px; align-items: baseline; padding: 7px 10px; border-radius: 8px; color: var(--ink-2); text-decoration: none; font-size: 14px; }
+nav.toc li a:hover { background: var(--paper-2); color: var(--ink); }
+nav.toc li a.active { background: var(--accent-soft); color: var(--ink); font-weight: 600; }
+nav.toc li a .n { font: 500 12px var(--mono); color: var(--ink-3); min-width: 18px; }
+nav.toc li a .done { margin-left: auto; color: var(--accent); font-size: 12px; }
+.theme-btn { margin-top: 20px; background: none; border: 1px solid var(--line); color: var(--ink-2); font: 13px var(--sans); padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+
+main { padding: 56px 0 120px; min-width: 0; }
+header.hero { padding-bottom: 36px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 700 clamp(34px, 5vw, 54px)/1.05 var(--serif); letter-spacing: -0.02em; margin: 14px 0 16px; text-wrap: balance; }
+.lede { font-size: 19px; color: var(--ink-2); max-width: 62ch; margin: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 20px; font-size: 13px; color: var(--ink-3); }
+.meta b { color: var(--ink-2); font-weight: 600; }
+
+section.lesson { padding: 56px 0 8px; scroll-margin-top: 16px; }
+.kicker { font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+h2 { font: 700 clamp(26px, 3.4vw, 36px)/1.15 var(--serif); letter-spacing: -0.015em; margin: 10px 0 18px; text-wrap: balance; }
+h3 { font: 600 17px/1.35 var(--sans); margin: 0 0 6px; }
+.idea { border-left: 3px solid var(--accent); padding: 4px 0 4px 18px; margin: 0 0 26px; font-size: 17.5px; color: var(--ink); max-width: 66ch; }
+.idea .label { display: block; font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.block { margin: 0 0 24px; }
+.block p { margin: 0 0 12px; max-width: 70ch; }
+.block-title { font: 600 13px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
+.card p { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+.tag { display: inline-block; font: 500 11px/1 var(--mono); letter-spacing: .04em; padding: 4px 7px; border-radius: 5px; background: var(--paper-2); color: var(--ink-2); margin-bottom: 10px; }
+.tag.accent { background: var(--accent-soft); color: var(--accent); }
+.tag.amber { background: var(--amber-soft); color: var(--amber); }
+
+.fields { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.fields > div { background: var(--card); padding: 14px 16px; }
+.fields .k { font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+.fields .v { font-size: 15px; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--card); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 600 12px var(--sans); color: var(--ink-3); background: var(--paper-2); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--mono); white-space: nowrap; }
+.caption { font-size: 13px; color: var(--ink-3); margin-top: 8px; }
+
+.callout { border-radius: var(--r); padding: 16px 18px; border: 1px solid; }
+.callout .t { font-weight: 600; margin-bottom: 4px; display: flex; gap: 8px; align-items: center; }
+.callout p { margin: 0; font-size: 15px; }
+.callout p + p, .exercise p + p { margin-top: 8px; }
+.callout.trap { background: var(--amber-soft); border-color: color-mix(in srgb, var(--amber) 35%, transparent); }
+.callout.trap .t { color: var(--amber); }
+.callout.tip { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 30%, transparent); }
+.callout.tip .t { color: var(--accent); }
+.callout.warning { background: var(--red-soft); border-color: color-mix(in srgb, var(--red) 30%, transparent); }
+.callout.warning .t { color: var(--red); }
+
+.signals { display: grid; gap: 12px; }
+.signal { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 18px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
+.signal .watch { font-size: 14px; color: var(--ink-2); margin: 6px 0 0; }
+.signal .why { font-size: 14px; margin: 0; }
+.signal .ex { margin-top: 10px; font-size: 13.5px; background: var(--paper-2); border-radius: 8px; padding: 8px 10px; color: var(--ink-2); }
+.signal .ex b { color: var(--ink); }
+
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.compare > div { border-radius: var(--r); padding: 16px 18px; border: 1px solid var(--line); background: var(--card); }
+.compare .lbl { font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+.compare .bad .lbl { color: var(--red); } .compare .good .lbl { color: var(--accent); }
+.compare .bad { border-top: 3px solid var(--red); } .compare .good { border-top: 3px solid var(--accent); }
+.compare .body { white-space: pre-wrap; font-size: 14.5px; }
+.compare .notes { margin-top: 12px; font-size: 13px; color: var(--ink-3); }
+
+.lab-bars { display: grid; gap: 10px; margin-bottom: 14px; }
+.lab-row { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 12px; align-items: center; font-size: 14px; }
+.lab-row .name { font-weight: 600; }
+.lab-row .bars { display: grid; gap: 4px; }
+.bar { height: 10px; border-radius: 5px; background: var(--accent); min-width: 3px; }
+.bar.t { background: var(--blue); }
+.bar-l { font: 12px var(--mono); color: var(--ink-3); }
+.legend { display: flex; gap: 16px; font-size: 12.5px; color: var(--ink-3); margin-bottom: 10px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.outputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 14px; }
+.outputs .card pre { white-space: pre-wrap; font: 12.5px/1.5 var(--mono); margin: 8px 0 0; color: var(--ink-2); max-height: 260px; overflow: auto; }
+.score { font: 600 13px var(--mono); color: var(--accent); }
+
+.pipeline { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+.pipe-step { flex: 1 1 150px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; position: relative; }
+.pipe-step .ic { font-size: 20px; }
+.pipe-step .lb { font-weight: 600; margin: 6px 0 4px; }
+.pipe-step .dt { font-size: 13px; color: var(--ink-2); }
+.pipe-arrow { align-self: center; color: var(--ink-3); font-size: 18px; }
+
+pre.code { background: #1d1b16; color: #efe9dc; border-radius: var(--r); padding: 16px 18px; overflow-x: auto; font: 13px/1.55 var(--mono); margin: 0; }
+pre.code code { background: none; color: inherit; padding: 0; font: inherit; }
+ol.steps { margin: 0; padding-left: 22px; } ol.steps li { margin-bottom: 8px; }
+.exercise { background: var(--blue-soft); border-radius: var(--r); padding: 16px 18px; }
+.exercise .t { color: var(--blue); font-weight: 600; margin-bottom: 4px; }
+.exercise p { margin: 0; }
+
+.quiz { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; margin-bottom: 14px; }
+.quiz .q { font-weight: 600; margin-bottom: 12px; }
+.quiz button.opt { display: block; width: 100%; text-align: left; background: var(--paper); border: 1px solid var(--line); color: var(--ink); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; font: 15px var(--sans); cursor: pointer; }
+.quiz button.opt:hover:not([disabled]) { border-color: var(--accent); }
+.quiz button.opt.right { border-color: var(--accent); background: var(--accent-soft); }
+.quiz button.opt.wrong { border-color: var(--red); background: var(--red-soft); }
+.quiz button.opt[disabled] { cursor: default; }
+.quiz .why { display: none; font-size: 14.5px; color: var(--ink-2); margin-top: 6px; }
+.quiz.answered .why { display: block; }
+
+.term { border-bottom: 1px dashed var(--ink-3); cursor: help; position: relative; }
+.term:hover::after, .term:focus::after { content: attr(data-def); position: absolute; left: 0; top: 130%; z-index: 10; width: min(300px, 70vw); background: var(--ink); color: var(--paper); font: 13px/1.45 var(--sans); padding: 9px 11px; border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+sup.src a { font: 11px var(--mono); text-decoration: none; margin-left: 1px; }
+footer.sources { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--ink-2); }
+footer.sources ol { padding-left: 22px; } footer.sources li { margin-bottom: 4px; word-break: break-word; }
+.credit { margin-top: 28px; font-size: 13px; color: var(--ink-3); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 0; padding: 0 16px; }
+  nav.toc { position: sticky; top: 0; z-index: 15; height: auto; padding: 10px 0; background: var(--paper); border-bottom: 1px solid var(--line); overflow-x: auto; }
+  nav.toc .brand, .theme-btn { display: none; }
+  nav.toc ol { display: flex; gap: 4px; }
+  nav.toc li a { white-space: nowrap; padding: 6px 10px; }
+  nav.toc li a .t { display: none; }
+  main { padding-top: 32px; }
+  .signal, .compare { grid-template-columns: 1fr; }
+  .lab-row { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><div id="progress"></div></div>
+<div class="layout">
+  <nav class="toc" aria-label="Lessons">
+    <div class="brand">agentic-gtm</div>
+    <ol id="toc"></ol>
+    <button class="theme-btn" id="theme" type="button">Toggle theme</button>
+  </nav>
+  <main id="main"></main>
+</div>
+
+<script id="course-data" type="application/json">{"title": "How to sell Greptile", "lede": "Greptile sells an AI code reviewer to engineering teams drowning in agent-written pull requests, and the hard part is that its best-looking prospects are often already running a competitor's bot.", "company": {"name": "Greptile", "url": "https://www.greptile.com", "one_liner": "AI agents that review and test pull requests with context from the whole codebase."}, "meta": [{"label": "Built from", "value": "42 sources"}, {"label": "Accounts", "value": "26 checked, 14 kept"}, {"label": "Model lab", "value": "$0.058, measured"}, {"label": "Reading time", "value": "20 min"}], "glossary": {"ICP": "Ideal customer profile: the kind of company that buys, and why. It describes a company, not a person.", "persona": "One role inside the target company, with what they own and why they would care.", "buying signal": "Something you can see from outside that makes the pain urgent now, like a job post or a funding round.", "roll-up": "A company that has been bought by a bigger group. The buying decision usually moves to the parent.", "champion": "The person inside the account who wants you to win and runs the evaluation for you.", "PR": "Pull request: a proposed code change that someone reviews before it is merged.", "DevEx": "Developer experience: the team that owns engineers' tools, CI, and increasingly the AI coding and review tools.", "build vs buy": "The moment a team decides whether to build a tool in-house or buy one. Greptile's case studies show both Mixpanel and Coinbase tried building first.", "Managed Agent": "A Claude agent hosted by Anthropic that runs on a schedule, uses tools, and is graded against a rubric you write.", "rubric": "The written definition of done a grader checks each agent run against.", "effort": "A setting on current Claude models (low to max) that trades thinking time for cost."}, "sources": [{"id": "s1", "title": "Greptile: home page (product, logos, FAQ, pricing summary)", "url": "https://www.greptile.com"}, {"id": "s2", "title": "Greptile: pricing", "url": "https://www.greptile.com/pricing"}, {"id": "s3", "title": "Greptile: customers", "url": "https://www.greptile.com/customers"}, {"id": "s4", "title": "Greptile case study: Brex", "url": "https://www.greptile.com/customers/brex"}, {"id": "s5", "title": "Greptile case study: Mixpanel", "url": "https://www.greptile.com/customers/mixpanel"}, {"id": "s6", "title": "Greptile case study: Coinbase", "url": "https://www.greptile.com/customers/coinbase"}, {"id": "s7", "title": "Greptile case study: Scale", "url": "https://www.greptile.com/customers/scale"}, {"id": "s8", "title": "Greptile case study: Datadog", "url": "https://www.greptile.com/customers/datadog"}, {"id": "s9", "title": "Greptile case study: NVIDIA", "url": "https://www.greptile.com/customers/nvidia"}, {"id": "s10", "title": "Greptile: careers (open roles)", "url": "https://www.greptile.com/careers"}, {"id": "s11", "title": "Greptile: $25M Series A and v3", "url": "https://www.greptile.com/blog/series-a"}, {"id": "s12", "title": "SiliconANGLE: Greptile raises $25M to take on CodeRabbit and Graphite (2025-09-23)", "url": "https://siliconangle.com/2025/09/23/greptile-bags-25m-funding-take-coderabbit-graphite-ai-code-validation/"}, {"id": "s13", "title": "Greptile vs CodeRabbit", "url": "https://www.greptile.com/greptile-vs-coderabbit"}, {"id": "s14", "title": "Fortune: Cursor acquires Graphite (2025-12-19)", "url": "https://fortune.com/2025/12/19/cursor-ai-coding-startup-graphite-competition-heats-up/"}, {"id": "s15", "title": "Graphite: home page (Ramp and Asana case studies)", "url": "https://graphite.com"}, {"id": "s16", "title": "Anthropic: Code Review for Claude Code", "url": "https://claude.com/blog/code-review"}, {"id": "s17", "title": "Sentry: Seer AI Code Review", "url": "https://sentry.io/cookbook/ai-code-review-seer/"}, {"id": "s18", "title": "IBM completes acquisition of Confluent (2026-03-17)", "url": "https://newsroom.ibm.com/2026-03-17-ibm-completes-acquisition-of-confluent,-making-real-time-data-the-engine-of-enterprise-ai-and-agents"}, {"id": "s19", "title": "Capital One completes acquisition of Brex (2026-04-07)", "url": "https://www.capitalone.com/about/newsroom/capital-one-completes-acquisition-of-brex/"}, {"id": "s20", "title": "Public PRs in the supabase GitHub org with CodeRabbit comments since 2026-08-01", "url": "https://github.com/search?q=commenter%3Acoderabbitai%5Bbot%5D+org%3Asupabase+created%3A%3E2026-08-01&type=pullrequests"}, {"id": "s21", "title": "Intercom: AI is approving our pull requests (2026-04-21)", "url": "https://www.intercom.com/blog/ai-is-approving-our-pull-requests-heres-how-we-made-it-safe/"}, {"id": "s22", "title": "Gusto job: Manager, Developer Productivity, AI Tools (posted 2026-08-24)", "url": "https://job-boards.greenhouse.io/gusto/jobs/8120017"}, {"id": "s23", "title": "Instacart job: Staff Software Engineer, Developer Experience (2026-09-14)", "url": "https://instacart.careers/job/?gh_jid=8202247"}, {"id": "s24", "title": "Samsara job: Staff Software Engineer, DevEx (2026-08-05)", "url": "https://www.samsara.com/company/careers/roles/8109358"}, {"id": "s25", "title": "Plaid job: Staff Software Engineer, AI & Intelligent Tooling (2026-08-12)", "url": "https://jobs.ashbyhq.com/plaid/41448609-24d6-44ea-a5ba-c87cf3dc3f0d"}, {"id": "s26", "title": "CNBC: Mercury raises $200M at $5.2B (2026-05-20)", "url": "https://www.cnbc.com/2026/05/20/fintech-mercury-valuation-fundraise-bank-charter.html"}, {"id": "s27", "title": "Chime job: Senior Software Engineer, AI Enablement (2026-09-15)", "url": "https://boards.greenhouse.io/chime/jobs/8788272002"}, {"id": "s28", "title": "Mercury job: Senior Software Engineer, Frontend Developer Experience (2026-07-15)", "url": "https://job-boards.greenhouse.io/mercury/jobs/6116808004"}, {"id": "s29", "title": "TechCrunch: Harvey hits $15.5B valuation (2026-09-09)", "url": "https://techcrunch.com/2026/09/09/harvey-hits-15-5b-valuation-months-after-reaching-11b/"}, {"id": "s30", "title": "ABA Journal: Harvey raises $550M; acquires Guardrails AI (2026-09-09)", "url": "https://www.abajournal.com/news/article/harvey-raises-550-million-in-latest-round-of-funding"}, {"id": "s31", "title": "The AI Insider: Temporal closes $550M Series E (2026-09-14)", "url": "https://theaiinsider.tech/2026/09/14/temporal-closes-550m-funding-round-at-a-12-55b-valuation-as-demand-surges-for-reliable-ai-infrastructure/"}, {"id": "s32", "title": "Benchling job: Software Engineer, Platform (Developer Experience) (2026-08-25)", "url": "https://jobs.ashbyhq.com/benchling/63d7d126-efaf-4a48-b328-f8d85b640ebf"}, {"id": "s33", "title": "Notion job: Software Engineer, Developer Experience (2026-06-24)", "url": "https://jobs.ashbyhq.com/notion/49bdf081-6e20-4323-8c73-6d6b19544ff5"}, {"id": "s34", "title": "Forbes: Checkr and AI fraud (2026-01-13)", "url": "https://www.forbes.com/sites/iainmartin/2026/01/13/ai-fraud-has-exploded-this-background-check-startup-is-cashing-in/"}, {"id": "s35", "title": "TechCrunch: Webflow buys Vidoso (2026-03-12)", "url": "https://techcrunch.com/2026/03/12/webflow-buys-ai-content-generation-platform-vidoso-to-bolster-its-marketing-suite/"}, {"id": "s36", "title": "Affirm: open roles (109 of 194 are engineering, checked 2026-09-24)", "url": "https://job-boards.greenhouse.io/affirm"}, {"id": "s37", "title": "Duolingo job: Senior Engineering Manager, AI Platform (2026-09-03)", "url": "https://careers.duolingo.com/jobs/8756745002"}, {"id": "s38", "title": "Zip job: Senior Software Engineer, Developer Platform (2026-09-01)", "url": "https://jobs.ashbyhq.com/zip/f003bb4d-8453-44bd-8ae0-2c1ad244a26e"}, {"id": "s39", "title": "Asana job: Senior Staff Software Engineer, Developer Productivity (2026-09-17)", "url": "https://www.asana.com/jobs/apply/8212172"}, {"id": "s40", "title": "Gusto public PR with Cursor's agent at work (2026-07-29)", "url": "https://github.com/Gusto/embedded-react-sdk/pull/2492"}, {"id": "s41", "title": "Claude pricing", "url": "https://claude.com/pricing"}, {"id": "s42", "title": "Zip Co (a different company, pay-later)", "url": "https://zip.co"}], "lessons": [{"id": "who", "nav": "Who buys", "kicker": "Lesson 1", "title": "Who buys this?", "idea": "The engineer who loves a code reviewer is rarely the one who pays for it. Your {{ICP}} names the company that buys; each {{persona}} names a person inside it.", "blocks": [{"type": "fields", "heading": "Greptile's ICP card", "items": [{"label": "Company", "value": "Software companies that write their own product code, on GitHub or GitLab [s1]"}, {"label": "Size", "value": "Roughly 150 to 2,000 engineers. The long case studies sit here: Coinbase ~150 engineers, Brex 400+, Scale ~650 [s6, s4, s7]"}, {"label": "Sharpest slice", "value": "Regulated or high-stakes code: fintech, infrastructure, big monorepos [s4, s5]"}, {"label": "Regions", "value": "US first (San Francisco, New York), then English-speaking markets (my judgement, from where the customers and open roles are) [s10]"}, {"label": "The pain, in their words", "value": "\"code review is going to be a bottleneck\" (Scale) [s7]. \"I was drowning in code reviews\" (NVIDIA) [s9]. Other tools' feedback \"was generic\" (Brex) [s4]."}, {"label": "Why now", "value": "Coding agents multiplied {{PR}}s: at Mixpanel, 95% of merged PRs have coding-agent attribution [s5]"}, {"label": "Not a fit", "value": "Existing customers, competitors, a competitor's named customer, companies bought by a bigger group, and teams that already auto-approve PRs with their own reviewer"}]}, {"type": "cards", "heading": "Four people inside the account", "items": [{"title": "VP Engineering or CTO", "body": "Owns headcount and velocity. The quoted buyer at Scale, Datadog and Brex [s7, s8, s4]. Cares because review is now the limit on what agents can ship.", "tag": "Signs", "tone": "accent"}, {"title": "Head of DevEx or AI Dev Tools", "body": "Your likely {{champion}}. Owns review tooling and often the vendor contract [s22]. At Mixpanel, the platform engineering manager ran the shootout [s5].", "tag": "Champion"}, {"title": "Staff and principal engineers", "body": "The humans doing the reviews. They feel the pain first and will kill a noisy bot fast: Scale's first feedback was \"this is annoying\" [s7].", "tag": "Uses"}, {"title": "Security or AppSec lead", "body": "Asks where the code goes. Self-hosting, SOC 2 and SSO answer them [s1, s2]. Coinbase runs Greptile next to its own security agents [s6].", "tag": "Can block", "tone": "amber"}]}, {"type": "callout", "tone": "tip", "title": "The decision, and why", "body": "I looked at three segments. Small startups get a free tier and 50% off, so self-serve covers them [s2]. Air-gapped defense and healthcare fit the self-host story but have no named case study yet [s1].\n\nI picked mid-market and enterprise software teams, because every long case study is one and Greptile is hiring Enterprise and Mid-market AEs right now [s3, s11, s10]."}], "quiz": [{"q": "Gusto's staff engineers love a Greptile trial. Who most likely signs a company-wide contract?", "options": ["A staff engineer on the trial", "The manager of AI Dev Tools", "The VP Engineering or CTO", "The AppSec lead"], "answer": 2, "why": "The DevEx or AI Dev Tools manager runs the evaluation and the paperwork, but the case studies quote VP Engineering and CTOs as the buyer. Win the champion, then get to the signer."}]}, {"id": "where", "nav": "Where", "kicker": "Lesson 2", "title": "Where are they?", "idea": "A target list is only useful if every row is the right company. For Greptile, 12 of the 26 companies I started with failed a check.", "blocks": [{"type": "table", "heading": "14 checked accounts", "columns": ["Company", "Segment", "Why it fits", "Why now", "Check"], "rows": [["[Gusto](https://gusto.com)", "Fintech / HR", "Hiring a manager who owns automated AI code review [s22]", "Posted 2026-08-24", "✓ hiring page, private, no competitor bot"], ["[Instacart](https://www.instacart.com)", "Marketplace", "1,000+ engineers, monorepo [s23]", "DevEx role 2026-09-14", "✓ domain, public co., clean PRs"], ["[Samsara](https://www.samsara.com)", "IoT infrastructure", "DevEx building AI agents for code review [s24]", "Posted 2026-08-05", "✓ domain, clean PRs"], ["[Plaid](https://plaid.com)", "Fintech infra", "Moving engineers onto AI agents [s25]", "Posted 2026-08-12", "✓ domain, private, clean PRs"], ["[Chime](https://www.chime.com)", "Consumer fintech", "Building an AI Enablement team [s27]", "Posted 2026-09-15", "✓ domain, clean PRs"], ["[Mercury](https://mercury.com)", "Fintech / banking", "Becoming a regulated bank; CEO says no sale [s26]", "DevEx role 2026-07-15 [s28]", "✓ mercury.com, not Mercury Insurance"], ["[Harvey](https://www.harvey.ai)", "Legal AI", "$550M and four acquisitions this year [s29, s30]", "2026-09-09", "✓ domain, the acquirer, clean PRs"], ["[Temporal](https://temporal.io)", "Dev infrastructure", "Team doubled to 570 [s31]", "$550M, 2026-09-14", "✓ domain, private, clean PRs"], ["[Benchling](https://www.benchling.com)", "Life-science R&D", "Regulated customers, DevEx hiring [s32]", "Posted 2026-08-25", "✓ domain, private, clean PRs"], ["[Notion](https://www.notion.com)", "Productivity SaaS", "Building AI-powered developer experience [s33]", "Posted 2026-06-24", "✓ domain, private"], ["[Checkr](https://checkr.com)", "Verification", "~800 staff, regulated data [s34]", "None found", "✓ domain, private, clean PRs"], ["[Webflow](https://webflow.com)", "Web platform", "Acquired an AI startup in March [s35]", "None fresh", "✓ domain, private, clean PRs"], ["[Affirm](https://www.affirm.com)", "Fintech lending", "109 open engineering roles [s36]", "None found", "✓ domain, public co., clean PRs"], ["[Zip](https://zip.com)", "Procurement SaaS", "Developer Platform using AI codemods [s38]", "Posted 2026-09-01", "✓ zip.com, not zip.co"]], "caption": "\"Clean PRs\" means no CodeRabbit, Graphite or Greptile bot commenting on the company's public pull requests in 2026. Checked 2026-09-24."}, {"type": "callout", "tone": "trap", "title": "Two companies called Zip", "body": "The procurement company Zip moved from ziphq.com to zip.com. zip.co is Zip Co, a pay-later company [s38, s42]. Both sound like fintech, so only the domain plus what they sell settles it."}, {"type": "callout", "tone": "trap", "title": "The competitor is already in their PRs", "body": "Supabase looked great until I searched its public pull requests: CodeRabbit commented on 2,067 of them since August 1 [s20]. That is a displacement sale, not a first sale, so it came off the list."}, {"type": "callout", "tone": "trap", "title": "The perfect signal on the wrong account", "body": "Asana posted two Developer Productivity roles on September 17 for its 500+ developers [s39]. But Graphite's homepage features an Asana case study, and Ramp's too [s15]. Great signal, competitor's customer."}, {"type": "callout", "tone": "trap", "title": "Bought by someone bigger", "body": "Confluent has been an IBM subsidiary since March 17, a {{roll-up}}: the decision now runs through IBM [s18]. Your own flagship customer can move too: Brex, the first case study on Greptile's homepage, now belongs to Capital One [s19, s4]."}, {"type": "callout", "tone": "trap", "title": "They sell it, or they built it", "body": "Sentry sells its own AI code review at $40 per contributor [s17]. Intercom built its own reviewer and auto-approves over 19% of PRs with it [s21]. Neither is a buyer this quarter."}, {"type": "steps", "heading": "Run these on your own list, in order", "items": ["Open the domain. Name, product and location match what you wrote.", "Generic name? Confirm with domain plus what they sell (Zip vs Zip Co).", "Search \"<company> acquired\" and read the newest news first.", "Compare against Greptile's customers page, including the logo strip.", "Compare against competitors and their customer pages: CodeRabbit [s12, s13], Graphite, now owned by Cursor [s14, s15], Sentry [s17], and Anthropic's own Code Review [s16].", "Search the company's public GitHub PRs for a competitor's review bot.", "Check fit on the facts: engineering size from their own jobs page or posts.", "Can't settle a check? Drop the row. Grafana Labs and Faire came off for this reason."]}], "quiz": [{"q": "Your list has \"Zip\" twice: ziphq.com and zip.co. Which check tells you which one to keep?", "options": ["Company size", "Domain plus what they sell", "Latest funding round", "Number of open jobs"], "answer": 1, "why": "ziphq.com redirects to zip.com, a procurement platform; zip.co is a pay-later company. Only the domain and the product tell them apart."}, {"q": "Asana is hiring Developer Productivity engineers this week. Why is it off the list?", "options": ["Too big", "Graphite publishes an Asana case study", "It was acquired", "It uses GitLab"], "answer": 1, "why": "A named customer of a direct competitor is a displacement sale. Keep it on a separate watch list, not in your first 14."}]}, {"id": "when", "nav": "When", "kicker": "Lesson 3", "title": "When are they ready?", "idea": "The same account is a bad target in March and a great one in September. A {{buying signal}} is something you can see from outside that makes review pain urgent now.", "blocks": [{"type": "signals", "items": [{"name": "Hiring for AI dev tooling", "watch": "Job posts for Developer Productivity, {{DevEx}}, AI Dev Tools or AI Enablement that mention code review, coding agents or vendor contracts", "why": "Someone is being hired to own the review problem, often with the contract in scope.", "example": {"company": "Gusto", "fact": "Hiring a Manager, Developer Productivity, AI Tools to own \"automated AI code review\" and \"vendor contracts\" [s22]", "date": "2026-08-24"}}, {"name": "Building review in-house", "watch": "Job posts or engineering blogs about building AI agents that review code", "why": "A {{build vs buy}} decision is open. Mixpanel's in-house reviewer was \"verbose and expensive\" before it bought [s5].", "example": {"company": "Samsara", "fact": "DevEx role to \"design and build AI agents\" for coding, code review and test generation [s24]", "date": "2026-08-05"}}, {"name": "Funding or acquisitions", "watch": "A new round, or the account buying other companies", "why": "More engineers and more codebases to merge; review load jumps.", "example": {"company": "Temporal", "fact": "$550M Series E; team doubled to 570 people in a year [s31]", "date": "2026-09-14"}}, {"name": "New engineering leader", "watch": "A new CTO, VP Engineering or Head of Platform announced", "why": "New leaders review their tools in the first 90 days.", "example": {"none": true, "note": "Checked all 14 accounts. The only hit, a new Instacart CTO, is from 2024."}}]}, {"type": "callout", "tone": "warning", "title": "Signals go stale", "body": "Mercury's $200M round was on May 20, which is 127 days ago and past a 90-day window [s26]. Its July DevEx role is the fresher reason to write [s28]. Job posts matter while they are live; funding for about 90 days."}, {"type": "text", "body": "You don't have to re-run this by hand. In Otto, each of these maps to a Signal Agent that watches the account list and tells you when one fires. Lesson 7 builds a version of the same watch with Claude."}], "quiz": [{"q": "Which of these is a buying signal for Greptile this week?", "options": ["Temporal raised $550M on September 14 and doubled its team", "Duolingo is hiring a Senior EM for its AI Platform team", "Mercury raised $200M in May"], "answer": 0, "why": "Duolingo's AI Platform team builds AI for the product, not tools for engineers [s37], so it is just news. Mercury's round is past 90 days. Temporal's is ten days old and comes with a team that doubled."}]}, {"id": "whoexactly", "nav": "Who exactly", "kicker": "Lesson 4", "title": "Who exactly?", "idea": "Reach the person who owns the review problem, then the person who signs. People change jobs all the time, so check they still work there before you write.", "blocks": [{"type": "table", "heading": "Roles to reach at each account", "columns": ["Role", "Where they sit", "What they care about", "How to find them"], "rows": [["Head of DevEx, Developer Productivity or AI Dev Tools", "Platform or infrastructure org", "Making agent-written code safe to merge; the vendor shortlist", "The hiring manager on the job post (Gusto, Samsara, Instacart [s22, s24, s23]); engineering blog authors"], ["VP Engineering or CTO", "Top of engineering", "Velocity, incidents, headcount", "Company leadership page, conference talks, funding press releases"], ["Staff or principal engineer on the platform team", "Reviews the most PRs", "Noise. Will the bot waste their time?", "Commit history and PR reviews in public repos; tech talks"], ["AppSec or security lead", "Security org", "Where code goes, SOC 2, self-hosting", "Security pages, trust centers, security job posts"]]}, {"type": "steps", "heading": "Check a person still works there", "items": ["Their own profile shows the account as current employer, and the company page it links to has the same domain (gusto.com, not a lookalike).", "They posted, spoke or committed code for that company in the last 90 days.", "The company's own site, blog or job post names them or their team.", "Two of three agree? Write. Only one? Keep looking."]}, {"type": "text", "body": "This course names roles, not people, because the file may be shared. When you want verified names at each account, Otto can find people by role inside a company and check their current employer against the domain."}, {"type": "exercise", "title": "Find Gusto's champion", "body": "Open the Gusto AI Tools job post [s22] and note which team it sits in. Find who leads that team and check they still work at gusto.com using the three steps above.\n\nThen find the engineering leader they report to. That is your signer."}]}, {"id": "say", "nav": "What to say", "kicker": "Lesson 5", "title": "What do you say?", "idea": "The first message is about them, not you. It proves you looked, makes one point, and asks one easy question.", "blocks": [{"type": "compare", "left": {"label": "The message everyone sends", "body": "Hi {first name}, hope you're well! I'm reaching out from Greptile, the AI code reviewer that helps teams merge 4X faster and catch 3X more bugs. We work with NVIDIA, Brex and Coinbase.\n\nWould you be open to a quick 15-minute call next week to see how we could supercharge your code review?"}, "right": {"label": "Yours, to Gusto", "body": "Hi {first name}, saw Gusto is hiring a manager for AI Dev Tools, and the post puts automated AI code review and the vendor contracts in the same job.\n\nThat usually means agent-written PRs are arriving faster than reviewers can read them, and someone has to decide build or buy.\n\nAre you leaning toward building the reviewer in-house, or running a bake-off first?\n\n(Mixpanel ran that bake-off, in-house build included, before picking Greptile.)", "notes": "Opens on their job post [s22], not on us. Names the pain as they would. One either/or question they can answer from memory. The last line is a fact from a case study [s5], not a claim about results. No meeting ask. 71 words."}}, {"type": "cards", "heading": "The rules I applied", "items": [{"title": "Open on them", "body": "Their signal, in their words: \"automated AI code review\" and \"vendor contracts\" are straight from the post."}, {"title": "One point", "body": "Build or buy is the decision this hire exists to make. Nothing about benchmarks."}, {"title": "One easy question", "body": "Either/or, answerable in five words. No calendar link."}, {"title": "Under 90 words", "body": "No em dashes, no exclamation marks, no \"hope you're well\"."}]}, {"type": "callout", "tone": "tip", "title": "Know who else is in the room", "body": "Cursor's agent already works on PRs in one of Gusto's public repos [s40], and Cursor also sells a reviewer. Don't mention it in message one. Do expect Bugbot in the bake-off."}], "quiz": [{"q": "Which opening line gets a reply?", "options": ["Hope you're well! Greptile helps teams merge 4X faster.", "I'm the founder of Greptile and we just raised from Benchmark.", "Saw your AI Dev Tools post puts AI code review and vendor contracts in one job."], "answer": 2, "why": "The first is about the product, the second is about you. The third proves you read their post and sets up one question."}]}, {"id": "lab", "nav": "Model lab", "kicker": "Lesson 6", "title": "Which model for which job?", "idea": "Bulk sorting doesn't need the biggest model; judgement calls do. So I ran one real task from this course on three Claude models and measured it.", "blocks": [{"type": "modellab", "task": "Sort 15 accounts into Fit / No fit for Greptile's ICP, with a one-line reason. 10 passed our checks, 5 failed (a roll-up, a competitor, an existing customer, a competitor's customer, an in-house build). Each line carries the fact the check found.", "measured": true, "runs": [{"model": "claude-haiku-4-5", "label": "Haiku 4.5", "latency_s": 4.63, "input_tokens": 1212, "output_tokens": 470, "cost_usd": 0.003562, "output": "| Company | Fit? | Reason |\n|---------|------|--------|\n| Chime | Fit | Fintech, San Francisco, hiring for AI platforms team with code review focus |\n| Confluent | No fit | Rule 4: acquired by IBM on 2026-03-17, now wholly owned subsidiary |\n| Gusto | Fit | Payroll software, hiring Manager for Developer Productivity with AI code review ownership |\n| Instacart | Fit | 1,000+ engineers, monorepo, hiring to build AI-powered code review |\n| Sentry | No fit | Rule 2: sells its own AI code review product (Seer AI Code Review) |\n| Samsara | Fit | IoT platform, Developer Experience team hiring for AI coding agents and code review |\n| Plaid | Fit | Financial data infrastructure, hiring for AI tooling to automate lower-leverage work |\n| Harvey | No fit | Rule 4: acquired Guardrails AI on 2026-09-09; buying decision complexity from acquisition spree |\n| Asana | No fit | Rule 3: named public customer of direct competitor Graphite (case study on homepage) |\n| Brex | No fit | Rule 4: acquired by Capital One on 2026-04-07; also Rule 1: existing Greptile customer |\n| Temporal | Fit | Open-source platform, 570-person team, large engineering org, raised $550M Series E |\n| Mercury | Fit | Business banking, 300+ engineers implied, fintech-adjacent with banking approval, hiring for DX |\n| Benchling | Fit | Biotech R&D software, high-stakes codebase, hiring for Platform/Developer Experience |\n| Intercom | No fit | Rule 5: built its own PR review agent and auto-approves 19%+ of PRs without human review |\n| Checkr | Fit | 800 employees, $800M+ revenue, verification platform with likely high-stakes code requirements |", "verdict": "Caught all 5 traps; misread one acquirer and invented two details", "score": "14/15"}, {"model": "claude-sonnet-5", "label": "Sonnet 5", "latency_s": 17.99, "input_tokens": 1633, "output_tokens": 1837, "cost_usd": 0.021636, "output": "# Sorted Accounts\n\n| Company | Fit? | Reason |\n|---|---|---|\n| Chime | Fit | Consumer fintech (regulated, high-stakes) building AI enablement/guardrails team, no disqualifiers. |\n| Confluent | No fit | Rule 4 — now a wholly owned subsidiary of IBM; buying decision moves to parent. |\n| Gusto | Fit | HR/payroll software actively building dev-productivity/AI code review function and owning vendor contracts, fits ICP. |\n| Instacart | Fit | 1,000+ engineers, monorepo, hiring for AI code review capability — no rule triggers (not yet built/live). |\n| Sentry | No fit | Rule 2 — sells its own AI code review product (Seer), a direct competitor. |\n| Samsara | Fit | IoT/connected-ops company building AI code review agents via Dev Experience team, fits ICP. |\n| Plaid | Fit | Financial data infra (regulated, high-stakes) hiring for AI tooling to offload review work. |\n| Harvey | Fit | Software company (legal AI) with no disqualifying rule; it is the acquirer, not the acquired. |\n| Asana | No fit | Rule 3 — named public customer of Graphite (competitor). |\n| Brex | No fit | Rule 1 (existing Greptile customer) and Rule 4 (acquired by Capital One). |\n| Temporal | Fit | Independent software company, no competitor ties or acquisition, fits general ICP. |\n| Mercury | Fit | Regulated fintech (national bank approval) hiring for frontend dev experience, fits ICP. |\n| Benchling | Fit | Biotech R&D software (high-stakes data) hiring for developer experience/platform, fits ICP. |\n| Intercom | No fit | Rule 5 — built own PR review agent, publicly auto-approves 19% of PRs with no human reviewer. |\n| Checkr | Fit | Background-check/verification platform (high-stakes data), ~800 employees, no disqualifiers. |", "verdict": "All 15 right, reasons close to the facts, slowest run", "score": "15/15"}, {"model": "claude-opus-5-5", "label": "Opus 5.5", "latency_s": 13.1, "input_tokens": 1635, "output_tokens": 1329, "cost_usd": 0.03312, "output": "| Company | Fit? | Reason |\n|---|---|---|\n| Chime | Fit | San Francisco consumer fintech (regulated) building an AI Enablement team for internal AI platforms and guardrails. |\n| Confluent | No fit | Rule 4: now a wholly owned IBM subsidiary (acquisition closed 2026-03-17), so the buying decision sits with IBM. |\n| Gusto | Fit | Payroll/HR (regulated data) hiring a Developer Productivity manager to own automated AI code review and its vendor contracts. |\n| Instacart | Fit | 1,000+ engineers on a monorepo, with a DevEx role hiring to build AI-powered code review; no auto-approval claim, so Rule 5 does not apply. |\n| Sentry | No fit | Rule 2: sells its own AI code review product (Seer AI Code Review, $40 per contributor per month). |\n| Samsara | Fit | IoT infrastructure platform whose Developer Experience team is designing AI agents for coding and code review. |\n| Plaid | Fit | Financial data infrastructure (high-stakes) hiring for AI tooling so engineers can delegate work to AI agents. |\n| Harvey | Fit | Legal AI company that is the acquirer, not the acquired, so Rule 4 does not apply; well-funded, but engineering size and review pain are not stated. |\n| Asana | No fit | Rule 3: named public Graphite customer (case study on Graphite's homepage). |\n| Brex | No fit | Rule 1: already a Greptile customer (Greptile reviews 100% of its code); Rule 4 also applies since Capital One acquired it. |\n| Temporal | Fit | Infrastructure platform with fast growth (570 people, new $550M Series E); engineer count may be near the low end of the range. |\n| Mercury | Fit | Business banking moving toward a national bank charter (regulated), hiring for Developer Experience. |\n| Benchling | Fit | Biotech R&D software (high-stakes data) hiring for Platform/Developer Experience. |\n| Intercom | No fit | Rule 5: built its own PR review agent and says over 19% of PRs are auto-approved with no human reviewer. |\n| Checkr | Fit | Regulated background-check platform with about 800 employees; no disqualifier, but no review or DevEx signal is given. |", "verdict": "All 15 right, and the only one to say what it didn't know", "score": "15/15"}], "takeaway": "On a sorting task with written rules, Haiku got 14 of 15 for about a ninth of Opus's cost and in a third of the time. Its miss was a careless read (acquirer vs acquired) and it padded two reasons with facts that were not on the page, so use it for volume and spot-check its reasons. Sonnet and Opus were both perfect; Opus was faster than Sonnet here and flagged its own gaps, which is what you want on the calls that matter."}, {"type": "table", "heading": "What I'd use in this course", "columns": ["Job", "Model", "Why (from the lab)"], "rows": [["Sorting hundreds of accounts, pulling fields from job posts", "Haiku 4.5", "14/15 for $0.0036 in 4.6 seconds. Spot-check its reasons: it invented two details"], ["Researching an account, drafting messages at volume", "Sonnet 5", "15/15 with reasons that stayed close to the facts"], ["The ICP decision, a message to a key account like Gusto, grading the scheduled agent", "Opus 5.5", "15/15 and the only one that said what it didn't know. $0.033 for this run"]], "caption": "Prices from the script's table: Haiku $1/$5, Sonnet $2/$10, Opus 5.5 $4/$20 per million tokens in/out. Prices change, so check [s41]. Whole lab: $0.058."}, {"type": "text", "body": "Every current model also takes an {{effort}} setting, from low to max. A bigger model on lower effort is sometimes a better trade than a smaller model."}], "quiz": [{"q": "Every Monday you need to sort 800 new accounts from job posts. Which setup?", "options": ["Opus on every row", "Haiku on every row, then spot-check a sample of its reasons against the source", "Sort them by hand"], "answer": 1, "why": "Haiku got 14 of 15 at about a ninth of Opus's cost. Its miss and its two invented details are exactly why you check a sample of reasons, not just labels."}]}, {"id": "agent", "nav": "Make it an agent", "kicker": "Lesson 7", "title": "Can this run without me?", "idea": "Everything in lessons 2 to 5 can run every week without you. A {{Managed Agent}} is a model with instructions, tools and a {{rubric}} it is graded against.", "blocks": [{"type": "pipeline", "steps": [{"icon": "🗓️", "label": "On your schedule", "detail": "Scheduled deployment"}, {"icon": "🤖", "label": "Agent", "detail": "Greptile's ICP, the four signals, the message rules, the 14 accounts"}, {"icon": "🔎", "label": "Tools", "detail": "Web search and fetch (plus Otto if connected)"}, {"icon": "🎯", "label": "Grader", "detail": "Checks sources, dates, right company and drafts against the rubric"}, {"icon": "📄", "label": "Report", "detail": "New signals, competitor-bot warnings, a draft message each"}]}, {"type": "code", "body": "cd agent\ncp .env.example .env     # paste your Anthropic API key\nbash launch.sh           # creates the agent on your schedule, runs once now\npython3 report.py        # when the run finishes: downloads the report", "caption": "The brief, accounts and rubric are already filled in from this course. Nothing has been launched."}, {"type": "callout", "tone": "tip", "title": "Cost and control", "body": "Each run's cost shows in the Claude Console, and `RUN_BUDGET_CENTS` in `.env` is a hard cap per run (500 means $5). I didn't run the agent, so there is no measured cost to quote. The lab suggests Sonnet is enough for weekly research: set `MODEL=claude-sonnet-5` before launching to spend less.\n\nThe agent only writes a report. It doesn't email, post or change anything."}], "quiz": [{"q": "The first run flags a company that was acquired last month. What do you change so it doesn't happen again?", "options": ["The instructions (the brief's not-a-fit rules)", "The rubric", "The schedule"], "answer": 0, "why": "Who to skip belongs in the brief the agent works from. Add a rubric line too if it keeps slipping through, so the grader sends the run back."}]}, {"id": "next", "nav": "What next", "kicker": "Lesson 8", "title": "What happens next?", "idea": "A plan isn't pipeline. This course decided and prepared; sending, following up, handling replies and tracking results happen somewhere else, over weeks.", "blocks": [{"type": "table", "heading": "Where the course stops", "columns": ["Step", "This course", "Otto"], "rows": [["Decide who buys", "✓ lesson 1", "Keeps the ICP and scores new accounts against it"], ["Build the account list", "✓ lesson 2, checked once", "Company search against the ICP, kept in a workbook"], ["Watch for buying signals", "✓ lesson 3, then on your schedule (lesson 7)", "Signal Agents watching the accounts continuously"], ["Find the right people", "Method only (lesson 4)", "Verified people and their current employer"], ["Write the first message", "✓ one example (lesson 5)", "A sequence per account: first message plus follow-ups"], ["**Send, follow up, stop when they reply**", "Next step →", "**Campaigns** on LinkedIn and email, within daily limits"], ["**Handle replies**", "Next step →", "Inbox triage and reply drafts for your approval"], ["**Track what works**", "Next step →", "Accepts, replies, reply rate"], ["**Keep the CRM up to date**", "Next step →", "Pushes companies and contacts to a connected CRM without duplicates"]]}, {"type": "steps", "heading": "Setting up a campaign in Otto from this course", "items": ["Import the lesson 2 table into a workbook named after the course, with each domain, so Otto matches existing companies (`import_leads`).", "Add the people you found for each persona as a dry run first (`import_people`). Every person should attach to an imported company, with no new companies created.", "Pick a template and create a draft campaign (`list_templates`, `campaign_from_template`). Nothing launches.", "Put the Gusto-style message in as step 1, plus one or two follow-ups that bring a different finding, not the same pitch (`edit_campaign_sequence`).", "Enrol the workbook and set send days, window, time zone and a daily cap (`add_to_campaign`, `update_campaign`).", "Run the pre-launch check (`campaign_setup_review`). It lists what's missing: leads, copy, a connected mailbox or LinkedIn account, a schedule.", "Launch it yourself when you've read the copy. Replies land in Otto's inbox."]}, {"type": "callout", "tone": "tip", "title": "Nothing sends until you launch it", "body": "Otto wasn't connected for this run, so no draft campaign exists. Start at [otto-pilot.io](https://otto-pilot.io) when you're ready."}], "quiz": [{"q": "The pre-launch check says \"no mailbox that can see replies\". What happens if you try to launch anyway?", "options": ["It sends and you miss the replies", "Otto refuses to launch until the blocker is fixed", "It sends from a default address"], "answer": 1, "why": "Blockers in the pre-launch check stop the launch. Connect the mailbox, re-run the check, then launch."}]}]}</script>
+<script>
+(function () {
+  "use strict";
+  var data;
+  try { data = JSON.parse(document.getElementById("course-data").textContent); }
+  catch (e) { document.getElementById("main").textContent = "course.json could not be read: " + e.message; return; }
+
+  var glossary = data.glossary || {};
+  var sources = {};
+  (data.sources || []).forEach(function (s, i) { sources[s.id] = { n: i + 1, url: s.url, title: s.title }; });
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function unesc(s) {
+    return String(s).replace(/&(amp|lt|gt|quot|#39);/g, function (_, e) { return { amp: "&", lt: "<", gt: ">", quot: '"', "#39": "'" }[e]; });
+  }
+  function safeUrl(u) { return /^https?:\/\//i.test(String(u || "")) ? esc(u) : "#"; }
+
+  // Inline markup on already-escaped text: **bold**, `code`, [text](https://…), {{Term}}, [s1]
+  function md(s) {
+    var t = esc(s);
+    t = t.replace(/`([^`]+)`/g, "<code>$1</code>");
+    t = t.replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+    t = t.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, function (_, a, u) { return '<a href="' + u + '" target="_blank" rel="noopener">' + a + "</a>"; });
+    t = t.replace(/\{\{([^}]+)\}\}/g, function (_, term) {
+      var def = glossary[unesc(term)];
+      return def ? '<span class="term" tabindex="0" data-def="' + esc(def) + '">' + term + "</span>" : term;
+    });
+    t = t.replace(/\[(s\d+(?:\s*,\s*s\d+)*)\]/g, function (_, ids) {
+      var links = ids.split(/\s*,\s*/).map(function (id) {
+        var s = sources[id];
+        return s ? '<a href="#src-' + id + '" title="' + esc(s.title) + '">' + s.n + "</a>" : "";
+      }).filter(Boolean);
+      return links.length ? '<sup class="src">' + links.join(", ") + "</sup>" : "";
+    });
+    return t;
+  }
+  function paras(s) { return String(s || "").split(/\n{2,}/).map(function (p) { return "<p>" + md(p) + "</p>"; }).join(""); }
+
+  var R = {
+    text: function (b) { return paras(b.body); },
+    cards: function (b) {
+      return '<div class="cards">' + (b.items || []).map(function (c) {
+        return '<div class="card">' + (c.tag ? '<span class="tag ' + (c.tone || "") + '">' + esc(c.tag) + "</span>" : "") +
+          "<h3>" + md(c.title) + "</h3><p>" + md(c.body) + "</p></div>";
+      }).join("") + "</div>";
+    },
+    fields: function (b) {
+      return '<div class="fields">' + (b.items || []).map(function (f) {
+        return '<div><div class="k">' + esc(f.label) + '</div><div class="v">' + md(f.value) + "</div></div>";
+      }).join("") + "</div>";
+    },
+    table: function (b) {
+      var cols = b.columns || [], num = b.numeric || [];
+      return '<div class="table-wrap"><table><thead><tr>' + cols.map(function (c) { return "<th>" + esc(c) + "</th>"; }).join("") +
+        "</tr></thead><tbody>" + (b.rows || []).map(function (r) {
+          return "<tr>" + r.map(function (c, i) { return "<td" + (num.indexOf(i) > -1 ? ' class="num"' : "") + ">" + md(c) + "</td>"; }).join("") + "</tr>";
+        }).join("") + "</tbody></table></div>" + (b.caption ? '<div class="caption">' + md(b.caption) + "</div>" : "");
+    },
+    callout: function (b) {
+      var icon = { trap: "⚠", tip: "✓", warning: "!" }[b.tone] || "•";
+      return '<div class="callout ' + esc(b.tone || "tip") + '"><div class="t"><span aria-hidden="true">' + icon + "</span>" + md(b.title) + "</div>" + paras(b.body) + "</div>";
+    },
+    signals: function (b) {
+      return '<div class="signals">' + (b.items || []).map(function (s) {
+        var ex = "";
+        if (s.example && s.example.none) ex = '<div class="ex">No live example this week. ' + md(s.example.note || "") + "</div>";
+        else if (s.example) ex = '<div class="ex"><b>' + md(s.example.company) + ":</b> " + md(s.example.fact) +
+          (s.example.date ? ' <span style="color:var(--ink-3)">(' + esc(s.example.date) + ")</span>" : "") + "</div>";
+        return '<div class="signal"><div><h3>' + md(s.name) + '</h3><p class="watch">' + md(s.watch) + "</p></div><div>" +
+          '<p class="why">' + md(s.why) + "</p>" + ex + "</div></div>";
+      }).join("") + "</div>";
+    },
+    compare: function (b) {
+      function side(x, cls) {
+        return '<div class="' + cls + '"><div class="lbl">' + esc(x.label) + '</div><div class="body">' + md(x.body) + "</div>" +
+          (x.notes ? '<div class="notes">' + md(x.notes) + "</div>" : "") + "</div>";
+      }
+      return '<div class="compare">' + side(b.left || {}, "bad") + side(b.right || {}, "good") + "</div>";
+    },
+    modellab: function (b) {
+      var runs = b.runs || [];
+      var maxC = Math.max.apply(null, runs.map(function (r) { return r.cost_usd || 0; }).concat([1e-9]));
+      var maxT = Math.max.apply(null, runs.map(function (r) { return r.latency_s || 0; }).concat([1e-9]));
+      var bars = runs.map(function (r) {
+        return '<div class="lab-row"><div class="name">' + esc(r.label || r.model) + (r.score != null ? ' <span class="score">' + esc(r.score) + "</span>" : "") +
+          '</div><div class="bars"><div class="bar" style="width:' + Math.max(1, 100 * (r.cost_usd || 0) / maxC).toFixed(1) + '%"></div>' +
+          '<div class="bar-l">$' + (r.cost_usd || 0).toFixed(4) + " · " + (r.input_tokens || 0) + " in / " + (r.output_tokens || 0) + ' out</div>' +
+          '<div class="bar t" style="width:' + Math.max(1, 100 * (r.latency_s || 0) / maxT).toFixed(1) + '%"></div>' +
+          '<div class="bar-l">' + (r.latency_s || 0).toFixed(1) + " s</div></div></div>";
+      }).join("");
+      var outs = runs.map(function (r) {
+        return '<div class="card"><span class="tag accent">' + esc(r.model) + "</span><h3>" + md(r.verdict || "") + "</h3><pre>" + esc(r.output || "") + "</pre></div>";
+      }).join("");
+      return (b.task ? "<p><b>The task:</b> " + md(b.task) + "</p>" : "") +
+        '<div class="legend"><span><i style="background:var(--accent)"></i>cost per run</span><span><i style="background:var(--blue)"></i>time</span>' +
+        (b.measured === false ? "<span>timing only: no API key, costs not measured</span>" : "") + "</div>" +
+        '<div class="lab-bars">' + bars + '</div><div class="outputs">' + outs + "</div>" +
+        (b.takeaway ? '<div class="callout tip" style="margin-top:14px"><div class="t"><span aria-hidden="true">✓</span>Takeaway</div>' + paras(b.takeaway) + "</div>" : "");
+    },
+    pipeline: function (b) {
+      return '<div class="pipeline">' + (b.steps || []).map(function (s, i) {
+        return (i ? '<div class="pipe-arrow" aria-hidden="true">→</div>' : "") + '<div class="pipe-step"><div class="ic" aria-hidden="true">' + esc(s.icon || "") +
+          '</div><div class="lb">' + md(s.label) + '</div><div class="dt">' + md(s.detail) + "</div></div>";
+      }).join("") + "</div>";
+    },
+    code: function (b) { return '<pre class="code"><code>' + esc(b.body) + "</code></pre>" + (b.caption ? '<div class="caption">' + md(b.caption) + "</div>" : ""); },
+    steps: function (b) { return '<ol class="steps">' + (b.items || []).map(function (s) { return "<li>" + md(s) + "</li>"; }).join("") + "</ol>"; },
+    exercise: function (b) { return '<div class="exercise"><div class="t">Try it: ' + md(b.title) + "</div>" + paras(b.body) + "</div>"; }
+  };
+
+  var store = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  var doneKey = "agentic-gtm:" + (data.company && data.company.name || "x") + ":done";
+  var done = {}; try { done = JSON.parse(store.get(doneKey) || "{}") || {}; } catch (e) {}
+
+  var c = data.company || {};
+  document.title = (data.title || ("How to sell " + (c.name || "your startup")));
+  var html = '<header class="hero"><div class="eyebrow">A go-to-market course · built from ' + esc(c.url || "your site") + "</div>" +
+    "<h1>" + md(data.title || ("How to sell " + (c.name || "your startup"))) + "</h1>" +
+    '<p class="lede">' + md(data.lede || c.one_liner || "") + "</p>" +
+    '<div class="meta">' + (data.meta || []).map(function (m) { return "<span><b>" + esc(m.label) + ":</b> " + md(m.value) + "</span>"; }).join("") + "</div></header>";
+
+  var toc = "";
+  (data.lessons || []).forEach(function (L, i) {
+    var id = "l-" + (L.id || i);
+    toc += '<li><a href="#' + id + '" data-id="' + esc(L.id || i) + '"><span class="n">' + (i + 1) + '</span><span class="t">' + esc(L.nav || L.title) +
+      '</span><span class="done" aria-label="done">' + (done[L.id] ? "✓" : "") + "</span></a></li>";
+    html += '<section class="lesson" id="' + id + '"><div class="kicker">' + esc(L.kicker || ("Lesson " + (i + 1))) + "</div><h2>" + md(L.title) + "</h2>";
+    if (L.idea) html += '<div class="idea"><span class="label">The idea</span>' + md(L.idea) + "</div>";
+    (L.blocks || []).forEach(function (b) {
+      var r = R[b.type]; if (!r) return;
+      html += '<div class="block">' + (b.heading ? '<div class="block-title">' + esc(b.heading) + "</div>" : "") + r(b) + "</div>";
+    });
+    (L.quiz || []).forEach(function (q, qi) {
+      html += '<div class="quiz" data-lesson="' + esc(L.id) + '" data-answer="' + (q.answer | 0) + '"><div class="q">' + md(q.q) + "</div>" +
+        (q.options || []).map(function (o, oi) { return '<button class="opt" type="button" data-i="' + oi + '">' + md(o) + "</button>"; }).join("") +
+        '<div class="why">' + md(q.why) + "</div></div>";
+    });
+    html += "</section>";
+  });
+
+  if ((data.sources || []).length) {
+    html += '<footer class="sources"><div class="block-title">Sources</div><ol>' + data.sources.map(function (s) {
+      return '<li id="src-' + esc(s.id) + '"><a href="' + safeUrl(s.url) + '" target="_blank" rel="noopener">' + esc(s.title || s.url) + "</a></li>";
+    }).join("") + "</ol>";
+  } else { html += '<footer class="sources">'; }
+  html += '<div class="credit">' + md(data.credit || "Made with [agentic-gtm](https://github.com/Amaan-creates/agentic-gtm), a Claude skill.") + "</div></footer>";
+
+  document.getElementById("main").innerHTML = html;
+  document.getElementById("toc").innerHTML = toc;
+
+  document.querySelectorAll(".quiz").forEach(function (qz) {
+    qz.addEventListener("click", function (e) {
+      var btn = e.target.closest("button.opt"); if (!btn || qz.classList.contains("answered")) return;
+      var ans = +qz.dataset.answer, pick = +btn.dataset.i;
+      qz.querySelectorAll("button.opt").forEach(function (b) {
+        b.disabled = true;
+        if (+b.dataset.i === ans) b.classList.add("right");
+        else if (b === btn) b.classList.add("wrong");
+      });
+      qz.classList.add("answered");
+      var lesson = qz.dataset.lesson, all = document.querySelectorAll('.quiz[data-lesson="' + lesson + '"]');
+      if (Array.prototype.every.call(all, function (q) { return q.classList.contains("answered"); })) {
+        done[lesson] = 1; store.set(doneKey, JSON.stringify(done));
+        var mark = document.querySelector('nav.toc a[data-id="' + lesson + '"] .done'); if (mark) mark.textContent = "✓";
+      }
+    });
+  });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll("nav.toc a"));
+  var secs = links.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
+  var bar = document.getElementById("progress");
+  function onScroll() {
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = "scaleX(" + (max > 0 ? h.scrollTop / max : 0).toFixed(4) + ")";
+    var cur = 0; secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < 140) cur = i; });
+    links.forEach(function (a, i) { a.classList.toggle("active", i === cur); });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  var saved = store.get("agentic-gtm:theme"); if (saved) document.documentElement.dataset.theme = saved;
+  document.getElementById("theme").addEventListener("click", function () {
+    var dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = dark ? "light" : "dark"; document.documentElement.dataset.theme = next; store.set("agentic-gtm:theme", next);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.target.closest("input,textarea,button")) return;
+    var cur = links.findIndex(function (a) { return a.classList.contains("active"); });
+    if (e.key === "j" || e.key === "ArrowRight") { var n = links[Math.min(links.length - 1, cur + 1)]; if (n) n.click(); }
+    if (e.key === "k" || e.key === "ArrowLeft") { var p = links[Math.max(0, cur - 1)]; if (p) p.click(); }
+  });
+})();
+</script>
+</body>
+</html>
