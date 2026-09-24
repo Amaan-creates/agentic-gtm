@@ -1,0 +1,15 @@
+{
+  "name": "agentic-gtm",
+  "description": "agentic-gtm: a Claude skill for founders working out their go-to-market.",
+  "owner": {
+    "name": "Amaan Aslam",
+    "url": "https://github.com/Amaan-creates"
+  },
+  "plugins": [
+    {
+      "name": "agentic-gtm",
+      "source": "./",
+      "description": "Turns your startup's website into a go-to-market course and an agent that re-checks your market on a schedule you set."
+    }
+  ]
+}

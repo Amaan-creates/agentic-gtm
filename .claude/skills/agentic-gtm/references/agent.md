@@ -31,7 +31,7 @@ Set `MODEL` in `agent/.env.example` from the model lab, with a one-line comment 
 
 - Each run reads every account's news, careers page and site, so cost grows with the account list. Don't quote a number you haven't measured: tell the founder that each run's cost shows in the Console, and that `launch.sh` sets a hard per-run cap (`RUN_BUDGET_CENTS` in `.env`).
 - The agent **only writes a report**. It doesn't email, post or change anything.
-- To go further: set `OTTO_MCP_URL` and `OTTO_API_KEY` in `.env` and `launch.sh` connects Otto through a vault, with only Otto's free tools on, so each signal comes with a verified person to contact; add a memory store so it never reports the same signal twice, or change `MODEL` in `.env` before launching.
+- To go further: set `OTTO_MCP_URL` and `OTTO_API_KEY` in `.env` and `launch.sh` connects Otto through a vault, with only Otto's free tools on, so each signal comes with a verified person to contact; or change `MODEL` in `.env` before launching (Sonnet 5 is the default). Memory is built in: each run only reports signals it hasn't reported before.
 
 ## The pipeline block
 

@@ -1,0 +1,34 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Scripts compile
+        run: |
+          python -m py_compile .claude/skills/agentic-gtm/scripts/*.py .claude/skills/agentic-gtm/graduate/report.py
+          bash -n .claude/skills/agentic-gtm/graduate/launch.sh
+
+      - name: Manifests are valid JSON
+        run: |
+          for f in .claude-plugin/*.json .claude/skills/agentic-gtm/graduate/agent.json examples/*/model-lab.json examples/*/agent/agent.json; do
+            python -m json.tool "$f" > /dev/null || { echo "invalid JSON: $f"; exit 1; }
+          done
+
+      - name: Example courses build and are up to date
+        run: |
+          for course in examples/*/course.json; do
+            python .claude/skills/agentic-gtm/scripts/build_course.py "$course"
+          done
+          git diff --exit-code -- examples/ || { echo "course.html is out of date: rebuild it with build_course.py and commit"; exit 1; }

@@ -19,6 +19,8 @@ BASE=https://api.anthropic.com/v1
 AUTH=(-H "x-api-key: $ANTHROPIC_API_KEY" -H "anthropic-version: 2023-06-01")
 [ -n "${ANTHROPIC_WORKSPACE_ID:-}" ] && AUTH+=(-H "anthropic-workspace-id: $ANTHROPIC_WORKSPACE_ID")
 H=("${AUTH[@]}" -H "anthropic-beta: managed-agents-2026-04-01" -H "content-type: application/json")
+# Memory store calls use their own beta header in place of the managed-agents one (never both).
+MH=("${AUTH[@]}" -H "anthropic-beta: agent-memory-2026-07-22" -H "content-type: application/json")
 TMP=$(mktemp -d); trap 'rm -rf "$TMP"' EXIT
 
 api() {  # METHOD PATH [curl args…] → $TMP/resp.json, exits on error
@@ -72,10 +74,18 @@ if [ -n "${OTTO_MCP_URL:-}" ] && [ -n "${OTTO_API_KEY:-}" ]; then
   echo "✅ Otto connected through vault $VAULT_ID"
 fi
 
+# 1c. Memory: what earlier runs already reported, so each report only has new signals.
+if [ -z "${MEMSTORE_ID:-}" ]; then
+  api POST /memory_stores "${MH[@]}" -d '{"name":"signal-watch-memory","description":"Signals this agent has already reported: one line per signal with company, signal, date and source URL."}'
+  save MEMSTORE_ID "$(id id)"
+  api POST "/memory_stores/$MEMSTORE_ID/memories" "${MH[@]}" -d '{"path":"/reported.md","content":"# Signals already reported\n\nOne line per signal: date reported | company | signal | date of the event | source URL\n"}'
+fi
+echo "✅ memory $MEMSTORE_ID"
+
 # 2. Agent: the model, instructions and tools. Versioned; edits create a new version.
 if [ -z "${AGENT_ID:-}" ]; then
   COMPANY=$(sed -n 's/^# Brief: *//p' brief.md | head -1)
-  python3 - "$COMPANY" "${MODEL:-claude-opus-5-5}" "$OTTO" > "$TMP/agent.json" <<'PY'
+  python3 - "$COMPANY" "${MODEL:-claude-sonnet-5}" "$OTTO" > "$TMP/agent.json" <<'PY'
 import json, os, sys
 a = json.load(open("agent.json"))
 company, model, otto = sys.argv[1] or "Your company", sys.argv[2], sys.argv[3]
@@ -120,6 +130,8 @@ print(json.dumps({
                "timezone": os.environ.get("TIMEZONE", "UTC")},
   "budget": {"type": "limit", "max_list_cost": {"amount": os.environ.get("RUN_BUDGET_CENTS", "500"), "currency": "USD"}},
   **({"vault_ids": [os.environ["VAULT_ID"]]} if os.environ.get("VAULT_ID") else {}),
+  "resources": [{"type": "memory_store", "memory_store_id": os.environ["MEMSTORE_ID"], "access": "read_write",
+                 "instructions": "reported.md lists every signal already sent to the founder. Read it first and never report a signal that is already there. After writing the report, append one line per new signal."}],
 }))
 PY
   api POST "/deployments?beta=true" "${H[@]}" -d @"$TMP/deployment.json"

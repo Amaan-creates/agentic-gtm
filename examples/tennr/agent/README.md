@@ -41,7 +41,7 @@ bash launch.sh --resume     # start it again
 ## Go further
 
 - **Otto** for verified people at each account with a signal: set `OTTO_MCP_URL` and `OTTO_API_KEY` in `.env` before `bash launch.sh`. It stores the key in a **vault** (the agent never sees it), adds Otto's MCP server to the agent with only Otto's free tools switched on, and attaches the vault to the deployment. Already launched? Delete `AGENT_ID` and `DEPLOYMENT_ID` from `IDS.env` and run `bash launch.sh` again.
-- **Memory**, so it never reports the same signal twice: create a memory store and attach it to the deployment's `resources`.
+- **Memory is built in:** each run reads what earlier runs reported (a memory store, `MEMSTORE_ID` in `IDS.env`) and only brings you new signals.
 - **Delivery:** have the report posted to Slack or email through a connector, behind an approval step.
 
 Docs: https://platform.claude.com/docs/en/managed-agents/overview

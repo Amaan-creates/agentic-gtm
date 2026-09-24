@@ -2,7 +2,7 @@
 
 **A Claude skill that turns your startup's website into a go-to-market plan, and an agent that keeps it up to date on a schedule you set.**
 
-Give it your URL. It researches your market and gives you a short interactive course built on *your own company*: who buys, around 20 real companies to go after, the buying signals that say "now", and a first message you could send tomorrow. Then it hands you an agent that re-checks your market on your schedule and brings you the accounts worth contacting, with a draft message for each.
+Give it your URL. It researches your market and gives you a short interactive course built on your own company: who buys, around 20 real companies to go after, the buying signals that say "now", and a first message you could send tomorrow. Then it hands you an agent that re-checks your market on your schedule and brings you the accounts worth contacting, with a draft message for each.
 
 ```
 /agentic-gtm https://yourstartup.com
@@ -13,23 +13,32 @@ Give it your URL. It researches your market and gives you a short interactive co
   <img src="docs/hero-light.png" alt="The start of a course built by agentic-gtm: How to sell Tennr, with 107 companies checked, 23 kept, 9 dated buying signals and 43 sources.">
 </picture>
 
+![Scrolling through a course: the funnel from 107 candidates to 23 kept accounts, why 84 were dropped, a timeline of dated buying signals, and the 0 to 1 GTM stack](docs/demo.gif)
+
 **Examples:** [How to sell Tennr](https://amaan-creates.github.io/agentic-gtm/examples/tennr/course.html) (YC W23) · [How to sell Greptile](https://amaan-creates.github.io/agentic-gtm/examples/greptile/course.html) (YC W24)
 
 ## Get started
 
-**1. Install the skill**
+**1. Install it** (in Claude Code)
+
+```
+/plugin marketplace add Amaan-creates/agentic-gtm
+/plugin install agentic-gtm@agentic-gtm
+```
+
+<details><summary>Or install by hand</summary>
 
 ```bash
 git clone https://github.com/Amaan-creates/agentic-gtm.git
 cp -r agentic-gtm/.claude/skills/agentic-gtm ~/.claude/skills/
 ```
+Then run it as `/agentic-gtm`.
+</details>
 
 **2. Run it on your startup**
 
-In Claude Code, type:
-
 ```
-/agentic-gtm https://yourstartup.com
+/agentic-gtm:agentic-gtm https://yourstartup.com
 ```
 
 It researches for a while, then opens your course in the browser. Everything lands in a folder called `agentic-gtm-yourstartup/`.
@@ -108,7 +117,7 @@ Every lesson is framed by a principle that works at the 0 → 1 stage, applied t
 
 ## Run it on a schedule
 
-Your market doesn't stand still. A new operations lead reviews every tool in their first 90 days. A hiring post for the job your product does is a buying moment for about a month. An acquisition changes who makes the decision. If you check once, you miss most of these. The agent checks for you.
+A new operations lead reviews every tool in their first 90 days. A hiring post for the job your product does is a buying moment for about a month. An acquisition changes who makes the decision. A one-off check misses most of these, so the agent re-checks your accounts on the schedule you set.
 
 **What each run does**
 
@@ -152,7 +161,7 @@ Lesson 6 runs the same job on three Claude models and scores each one against an
 | Sonnet 5 | 12.9 s | $0.0190 | 15/15 |
 | Opus 5.5 | 9.8 s | $0.0304 | 15/15 |
 
-Sonnet matched Opus for about 60% of the price, so you know which model to put in your agent. The script works for any prompt:
+Sonnet matched Opus for about 60% of the price, which is why the agent runs on Sonnet 5 by default (change `MODEL` in `agent/.env`). The script works for any prompt:
 
 ```bash
 python3 ~/.claude/skills/agentic-gtm/scripts/model_lab.py --prompt prompt.md --input accounts.md
@@ -160,7 +169,7 @@ python3 ~/.claude/skills/agentic-gtm/scripts/model_lab.py --prompt prompt.md --i
 
 ## Take it further with Otto
 
-The course gives you the plan. [Otto](https://otto-pilot.io) runs it every day. Connect Otto's MCP server and the same skill goes further:
+[Otto](https://otto-pilot.io) runs the plan day to day: people, outreach, replies and CRM. Connect Otto's MCP server and the same skill goes further:
 
 | agentic-gtm gives you | With Otto connected |
 |---|---|
@@ -189,16 +198,18 @@ See Otto's [benchmarks](https://otto-pilot.io/benchmarks/).
 ├── scripts/
 │   ├── build_course.py       # checks course.json and builds the page
 │   └── model_lab.py          # runs one prompt on several Claude models, with cost and time
-└── graduate/                 # the scheduled agent (Claude Managed Agents)
+└── graduate/                 # the scheduled agent (Claude Managed Agents), with memory
+.claude-plugin/                # plugin + marketplace manifests for /plugin install
+.github/workflows/check.yml    # rebuilds and checks the examples on every pull request
 ```
 
 The skill writes the course as data (`course.json`) and the template renders it, so every course looks the same and nothing scraped from the web can inject code into the page.
 
 ## Approach
 
-- **Your company, not a textbook.** Every lesson is built on your own market.
-- **Checked, not guessed.** Every company is verified and every fact is cited.
-- **Measured, not assumed.** Model choice comes from your own data.
+- **Built on your market.** Every lesson uses your own customers, accounts and signals.
+- **Every company verified.** Each account passes the checks, and every fact links to its source.
+- **Model choice from your data.** The lab measures cost and accuracy on your own accounts.
 - **You decide what goes out.** The skill and the agent draft; you send.
 
 ## License
