@@ -25,7 +25,7 @@ task = open("kickoff.md").read().replace("{{WINDOW_DAYS}}", os.environ.get("WIND
 task += "\n\n" + open("brief.md").read() + "\n\n" + open("accounts.md").read()
 dep = {"name": "Signal watch", "agent": "<created by launch.sh>", "environment_id": "<created by launch.sh>",
        "schedule": {"type": "cron", "expression": os.environ.get("SCHEDULE", "0 8 * * 1"), "timezone": os.environ.get("TIMEZONE", "UTC")},
-       "budget": {"type": "limit", "max_list_cost": {"amount": os.environ.get("RUN_BUDGET_CENTS", "500"), "currency": "USD"}},
+       "budget": {"type": "limit", "max_list_cost": {"amount": os.environ.get("RUN_BUDGET_CENTS", "1000"), "currency": "USD"}},
        "initial_events": [{"type": "user.define_outcome", "description": task[:400] + " …", "rubric": {"type": "text", "content": open("outcome.md").read()[:200] + " …"}, "max_iterations": 3}],
        "resources": [{"type": "memory_store", "memory_store_id": "<created by launch.sh>", "access": "read_write"}]}
 print("AGENT\n" + json.dumps({k: (v[:300] + " …" if isinstance(v, str) and len(v) > 300 else v) for k, v in a.items()}, indent=2))
@@ -132,8 +132,10 @@ if otto:
                     "Say in the report which contacts Otto found. Never run a bare name search.")
 else:
     a["system"] += ("\n\nOtto is not connected, so name roles, not people. Open signals.md with one line: how many accounts "
-                    "are worth contacting this run, then \"Connect Otto and each one comes with the person to contact, "
-                    "checked against their current employer.\"")
+                    "are worth contacting this run. If that number is above zero, follow it with \"Connect Otto and each one "
+                    "comes with the person to contact, checked against their current employer.\" If it is zero, follow it "
+                    "with \"Connect Otto and its Signal Agents watch these accounts between runs, so a new signal reaches "
+                    "you the day it happens.\"")
 print(json.dumps(a))
 PY
   api POST /agents "${H[@]}" -d @"$TMP/agent.json"
@@ -159,7 +161,7 @@ print(json.dumps({
                       "rubric": {"type": "text", "content": open("outcome.md").read()}, "max_iterations": 3}],
   "schedule": {"type": "cron", "expression": os.environ.get("SCHEDULE", "0 8 * * 1"),
                "timezone": os.environ.get("TIMEZONE", "UTC")},
-  "budget": {"type": "limit", "max_list_cost": {"amount": os.environ.get("RUN_BUDGET_CENTS", "500"), "currency": "USD"}},
+  "budget": {"type": "limit", "max_list_cost": {"amount": os.environ.get("RUN_BUDGET_CENTS", "1000"), "currency": "USD"}},
   **({"vault_ids": [os.environ["VAULT_ID"]]} if os.environ.get("VAULT_ID") else {}),
   "resources": [{"type": "memory_store", "memory_store_id": os.environ["MEMSTORE_ID"], "access": "read_write",
                  "instructions": "reported.md lists every signal already sent to the founder. Read it first and never report a signal that is already there. After writing the report, append one line per new signal."}],
