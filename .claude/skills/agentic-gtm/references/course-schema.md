@@ -18,7 +18,7 @@
 
 ```json
 {
-  "title": "How to sell Example Co",
+  "title": "Finding customers for Example Co",
   "lede": "One sentence on what the company does, and the one thing that makes selling it hard or interesting.",
   "company": { "name": "Example Co", "url": "https://example.com", "one_liner": "…" },
   "meta": [ { "label": "Built from", "value": "14 sources" }, { "label": "Reading time", "value": "20 min" } ],

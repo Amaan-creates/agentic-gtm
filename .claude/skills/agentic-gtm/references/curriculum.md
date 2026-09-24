@@ -117,6 +117,6 @@ See `model-lab.md` for the task and how to judge it. Principle: match the tool t
 
 ## Writing the hero
 
-- `title`: "How to sell <Company>"
+- `title`: "Finding customers for <Company>"
 - `lede`: one sentence on what the company does and the one thing that makes selling it hard or interesting.
 - `meta`: 3 or 4 headline numbers, rendered as a stats strip: `{"label": "accounts checked", "value": "107"}`, `{"label": "kept", "value": "23"}`, `{"label": "live signals", "value": "6"}`, `{"label": "sources", "value": "43"}`. Keep `value` short: a number or a short word.

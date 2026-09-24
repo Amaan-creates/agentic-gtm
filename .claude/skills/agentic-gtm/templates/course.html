@@ -426,9 +426,9 @@ footer.sources ol { padding-left: 22px; } footer.sources li { margin-bottom: 4px
   var done = {}; try { done = JSON.parse(store.get(doneKey) || "{}") || {}; } catch (e) {}
 
   var c = data.company || {};
-  document.title = data.title || ("How to sell " + (c.name || "your startup"));
+  document.title = data.title || ("Finding customers for " + (c.name || "your startup"));
   var html = '<header class="hero"><div class="eyebrow">Go-to-market course · built from ' + esc(c.url || "your site") + "</div>" +
-    "<h1>" + md(data.title || ("How to sell " + (c.name || "your startup"))) + "</h1>" +
+    "<h1>" + md(data.title || ("Finding customers for " + (c.name || "your startup"))) + "</h1>" +
     '<p class="lede">' + md(data.lede || c.one_liner || "") + "</p>" +
     ((data.meta || []).length ? R.stats({ items: data.meta.map(function (m) { return { value: m.value, label: m.label }; }) }) : "") + "</header>";
 

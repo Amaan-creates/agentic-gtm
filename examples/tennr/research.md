@@ -1,4 +1,4 @@
-# Research notes: How to sell Tennr
+# Research notes: finding customers for Tennr
 
 Built 23 Sep 2026 from public pages only (no Otto connector). Every fact in `course.json` cites a source below; this file keeps the longer trail, including every account we checked and dropped.
 

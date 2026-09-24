@@ -1,11 +1,11 @@
 {
   "name": "agentic-gtm",
-  "description": "Turns your startup's website into a go-to-market course and an agent that re-checks your market on a schedule you set.",
-  "version": "0.2.0",
+  "description": "Turns your startup's website into a course on finding customers, and an agent that keeps finding them on a schedule you set.",
+  "version": "0.2.1",
   "author": { "name": "Amaan Aslam", "url": "https://otto-pilot.io" },
   "homepage": "https://github.com/Amaan-creates/agentic-gtm",
   "repository": "https://github.com/Amaan-creates/agentic-gtm",
   "license": "MIT",
-  "keywords": ["go-to-market", "gtm", "sales", "icp", "managed-agents", "claude-skill"],
+  "keywords": ["find-customers", "go-to-market", "gtm", "sales", "icp", "managed-agents", "claude-skill"],
   "skills": ["./.claude/skills/"]
 }

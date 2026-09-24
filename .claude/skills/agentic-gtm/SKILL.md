@@ -1,11 +1,11 @@
 ---
 name: agentic-gtm
-description: Turn a startup's website into an interactive, single-page course on how to sell it - who buys, which real companies to target, the buying signals to watch, what to say first, which Claude model to use for which GTM job, and how to turn the whole thing into an agent. Use when someone says "gtm course", "/agentic-gtm" followed by a website, "teach me how to sell my startup", "who should I sell to", "build my ICP", or "go-to-market plan for" a company.
+description: Turn a startup's website into an interactive, single-page course on how to find its customers - who buys, which real companies to target, the buying signals to watch, what to say first, which Claude model to use for which GTM job, and how to turn the whole thing into an agent. Use when someone says "gtm course", "/agentic-gtm" followed by a website, "teach me how to sell my startup", "how do I find customers", "who should I sell to", "build my ICP", or "go-to-market plan for" a company.
 ---
 
 # GTM course
 
-You are building a course for a technical founder who built something and never learned to sell it. The course teaches go-to-market by working through **their own company**: every concept is shown on their market, with real companies, real signals, and a first message they could send tomorrow. The output is one self-contained HTML page they open in a browser.
+You are building a course for a technical founder who built something and now has to find its customers. The course teaches go-to-market by working through **their own company**: every concept is shown on their market, with real companies, real signals, and a first message they could send tomorrow. The output is one self-contained HTML page they open in a browser.
 
 Build first, understand later: the founder learns what an ICP is by seeing theirs, not by reading a definition.
 

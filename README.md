@@ -1,8 +1,8 @@
 # agentic-gtm
 
-**A Claude skill that turns your startup's website into a go-to-market plan, and an agent that keeps it up to date on a schedule you set.**
+**A Claude skill that teaches you how to find customers for your startup, and an agent that keeps finding them on a schedule you set.**
 
-Give it your URL. It researches your market and gives you a short interactive course built on your own company: who buys, around 20 real companies to go after, the buying signals that say "now", and a first message you could send tomorrow. Then it hands you an agent that re-checks your market on your schedule and brings you the accounts worth contacting, with a draft message for each.
+Give it your URL. It researches your market and gives you a short interactive course on finding customers, built on your own company: who buys, around 20 real companies to go after, the buying signals that say "now", and a first message you could send tomorrow. Then it hands you an agent that re-checks your market on your schedule and brings you the accounts worth contacting, with a draft message for each.
 
 ```
 /agentic-gtm https://yourstartup.com
@@ -10,12 +10,12 @@ Give it your URL. It researches your market and gives you a short interactive co
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/hero-dark.png">
-  <img src="docs/hero-light.png" alt="The start of a course built by agentic-gtm: How to sell Tennr, with 107 companies checked, 23 kept, 9 dated buying signals and 43 sources.">
+  <img src="docs/hero-light.png" alt="The start of a course built by agentic-gtm: Finding customers for Tennr, with 107 companies checked, 23 kept, 9 dated buying signals and 43 sources.">
 </picture>
 
 ![Scrolling through a course: the funnel from 107 candidates to 23 kept accounts, why 84 were dropped, a timeline of dated buying signals, and the 0 to 1 GTM stack](docs/demo.gif)
 
-**Examples:** [How to sell Tennr](https://amaan-creates.github.io/agentic-gtm/examples/tennr/course.html) (YC W23) · [How to sell Greptile](https://amaan-creates.github.io/agentic-gtm/examples/greptile/course.html) (YC W24) · [How to sell Lindus Health](https://amaan-creates.github.io/agentic-gtm/examples/lindus-health/course.html) (London, life sciences, mid-pivot)
+**Examples:** [Finding customers for Tennr](https://amaan-creates.github.io/agentic-gtm/examples/tennr/course.html) (YC W23) · [Finding customers for Greptile](https://amaan-creates.github.io/agentic-gtm/examples/greptile/course.html) (YC W24) · [Finding customers for Lindus Health](https://amaan-creates.github.io/agentic-gtm/examples/lindus-health/course.html) (London, life sciences, mid-pivot)
 
 ## Get started
 
